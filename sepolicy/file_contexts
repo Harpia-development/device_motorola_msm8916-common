@@ -23,6 +23,9 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.0-service\.widevine      u:object_r:hal_drm_widevine_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey      u:object_r:hal_drm_clearkey_exec:s0
 
+# shared mem log
+/dev/subsys_modem              u:object_r:subsys_modem_device:s0
+
 # Power
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.0-service\.8916                          u:object_r:hal_power_default_exec:s0
 
@@ -37,6 +40,10 @@
 # wlan
 /sys/devices/soc\.0/a000000\.qcom,wcnss-wlan/net(/.*)?          u:object_r:sysfs_wlan_nodes:s0
 /sys/devices/soc\.0/a000000\.qcom,wcnss-wlan/net(/.*)?(/.*)?    u:object_r:sysfs_wlan_nodes:s0
+
+# System files
+/system/vendor/bin/pm-service           u:object_r:per_mgr_exec:s0
+/system/vendor/bin/qseecomd             u:object_r:tee_exec:s0
 
 # Partitions
 /dev/block/bootdevice/by-name/metadata                      u:object_r:metadata_block_device:s0
