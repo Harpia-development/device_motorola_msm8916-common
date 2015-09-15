@@ -18,6 +18,8 @@ persist.audio.calfile6=/vendor/etc/acdbdata/Speaker_cal.acdb
 
 ro.vendor.audio.ssr=false
 
+af.fast_track_multiplier=1
+vendor.audio_hal.period_size=192
 vendor.voice.path.for.pcm.voip=true
 
 # Bluetooth
