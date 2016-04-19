@@ -553,6 +553,11 @@ service per_mgr /system/vendor/bin/pm-service
     user system
     group system
 
+service per_mgr /system/vendor/bin/pm-service
+    class core
+    user system
+    group system
+
 on moto-charger
     setprop ro.board.platform msm8916
 
