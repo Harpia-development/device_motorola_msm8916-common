@@ -652,6 +652,11 @@ on charger
     class_stop main
     class_stop late_start
 
+service per_mgr /system/vendor/bin/pm-service
+    class core
+    user system
+    group system
+
 on moto-charger
     setprop ro.board.platform msm8916
 
