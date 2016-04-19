@@ -179,6 +179,9 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libmdmcutback.so|libqsap_shim.so \
     /system/lib/libjustshoot.so|libjustshoot_shim.so
 
+# Peripheral manager
+TARGET_PER_MGR_ENABLED := true
+
 # Power
 TARGET_HAS_NO_WLAN_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
