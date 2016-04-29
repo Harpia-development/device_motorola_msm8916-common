@@ -264,7 +264,7 @@ on post-fs
     chmod 0600 /persist/whisper/whisper_only/vector0.bin
 
     write /proc/sys/vm/page-cluster 0
-    write /proc/sys/vm/swappiness 35
+    write /proc/sys/vm/swappiness 45
     write /proc/sys/vm/dirty_background_ratio 20
     write /proc/sys/vm/dirty_expire_centisecs 200
     write /proc/sys/vm/dirty_ratio 40
