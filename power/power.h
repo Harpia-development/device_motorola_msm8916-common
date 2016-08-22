@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-#include <hardware/power.h>
-
 enum {
-    PROFILE_BALANCED = 0,
+    PROFILE_POWER_SAVE = 0,
+    PROFILE_BALANCED,
+    PROFILE_HIGH_PERFORMANCE,
+    PROFILE_BIAS_POWER_SAVE,
     PROFILE_MAX
 };
 
@@ -30,24 +31,11 @@ typedef struct governor_settings {
     int hispeed_freq;
     int hispeed_freq_off;
     int min_sample_time;
-    int min_sample_time_off;
     int timer_rate;
-    int timer_rate_off;
     int above_hispeed_delay;
-    int above_hispeed_delay_off;
     int target_loads;
     int target_loads_off;
     int scaling_max_freq;
-    int scaling_max_freq_off;
     int scaling_min_freq;
     int scaling_min_freq_off;
-    int max_freq_hysteresis;
-    int timer_slack;
-    int io_is_busy;
-    int align_windows;
-    int use_migration_notif;
-    int use_sched_load;
 } power_profile;
-
-// Custom Lineage hints
-const static power_hint_t POWER_HINT_SET_PROFILE = (power_hint_t)0x00000111;
