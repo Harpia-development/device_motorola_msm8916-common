@@ -180,9 +180,10 @@ vendor/lib/libsubsystem_control.so
 vendor/lib/libSubSystemShutdown.so
 vendor/lib/libvoice-svc.so
 
-# Peripheral Manager
-vendor/bin/pm-service
-vendor/lib/libperipheral_client.so
+# Peripheral Manager - from athene
+vendor/bin/pm-service|0f2796b07c944e89dbc4196a39083bc25897b796
+vendor/lib/libperipheral_client.so|854fe5a441579c22e74070777d7391d1418f3bb7
+vendor/bin/pm-proxy|95c316bc1810cc7338d06ddd79e7e1ca702a00b8
 
 # Perf - from nowhere
 vendor/bin/hw/vendor.qti.hardware.perf@1.0-service|3a266ba24abf70b58ee8438b2f205ce283b9e95f
