@@ -100,6 +100,10 @@ on fs
     mkdir /persist/data 0700  system system
     restorecon_recursive /persist
 
+    # ZRAM
+    write /sys/block/zram0/comp_algorithm "lz4"
+    write /proc/sys/vm/swappiness 100
+
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
