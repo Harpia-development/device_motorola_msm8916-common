@@ -113,5 +113,8 @@ persist.service.adb.enable=1
 pm.sleep_mode=1
 ro.ril.disable.power.collapse=1
 
+# Timeout failed shutdowns
+ro.build.shutdown_timeout=5
+
 # WiFi
 wifi.interface=wlan0
