@@ -75,5 +75,8 @@ rild.libpath=/system/vendor/lib/libril-wrapper.so
 ro.telephony.call_ring.multiple=false
 ro.config.vc_call_vol_steps=7
 
+# Timeout failed shutdowns
+ro.build.shutdown_timeout=5
+
 # WiFi
 wifi.interface=wlan0
