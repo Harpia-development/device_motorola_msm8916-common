@@ -251,6 +251,10 @@ on post-fs-data
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
 
+    mkdir /data/vendor/ramdump 0771 root system
+    mkdir /data/vendor/bluetooth 0770 bluetooth bluetooth
+    mkdir /data/vendor/ramdump/bluetooth 0770 bluetooth bluetooth
+
     # Create directories for Location services
     mkdir /data/vendor/location 0770 gps gps
     mkdir /data/vendor/location/mq 0770 gps gps
