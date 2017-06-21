@@ -235,6 +235,10 @@ PRODUCT_PACKAGES += \
     libOmxVidcCommon \
     libstagefrighthw
 
+# Preopt SystemUI
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SystemUI
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
