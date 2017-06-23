@@ -23,6 +23,9 @@ ro.vendor.audio.ssr=false
 
 af.fast_track_multiplier=1
 vendor.audio_hal.period_size=192
+
+ro.config.media_vol_steps=25
+
 vendor.voice.path.for.pcm.voip=true
 ro.config.media_vol_steps=60
 
