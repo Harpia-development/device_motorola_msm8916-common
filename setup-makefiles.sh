@@ -18,7 +18,9 @@
 
 set -e
 
-export INITIAL_COPYRIGHT_YEAR=2016
+if [ -z $INITIAL_COPYRIGHT_YEAR ]; then
+    INITIAL_COPYRIGHT_YEAR=2016
+fi
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
