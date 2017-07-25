@@ -286,7 +286,8 @@ PRODUCT_PACKAGES += \
     messaging \
     SoundRecorder \
     SpeechRecorder \
-    Terminal
+    Terminal \
+    WallpaperPicker
 
 # AOSP properties
 PRODUCT_PROPERTY_OVERRIDES += \
