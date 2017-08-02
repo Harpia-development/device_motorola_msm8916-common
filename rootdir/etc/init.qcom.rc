@@ -426,6 +426,7 @@ service rmt_storage /vendor/bin/rmt_storage
     group system wakelock
     disabled
     writepid /dev/cpuset/system-background/tasks
+    shutdown critical
 
 on property:ro.boot.emmc=true
     start rmt_storage
