@@ -395,6 +395,7 @@ service rmt_storage /system/bin/rmt_storage
     group system wakelock
     disabled
     seclabel u:r:rmt_storage:s0
+    shutdown critical
 
 on property:ro.boot.emmc=true
     start rmt_storage
