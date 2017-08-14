@@ -87,3 +87,9 @@
 
 # Camera
 /sys/devices(/platform)?/soc\.0/qcom,msm-cam\.[0-9]+/video4linux/video[0-9]+/name(/.*)?  u:object_r:sysfs_graphics:s0
+
+# Shared memory drivers
+/dev/smd2                                   u:object_r:hci_attach_dev:s0
+/dev/smd3                                   u:object_r:hci_attach_dev:s0
+/dev/smd([0-9])+                            u:object_r:smd_device:s0
+/dev/smdcntl[0-7]                           u:object_r:radio_device:s0
