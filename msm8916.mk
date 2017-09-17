@@ -103,7 +103,8 @@ PRODUCT_PACKAGES += \
     gralloc.msm8916 \
     copybit.msm8916 \
     hwcomposer.msm8916 \
-    memtrack.msm8916
+    memtrack.msm8916 \
+    libboringssl-compat
 
 # DRM
 PRODUCT_PACKAGES += \
