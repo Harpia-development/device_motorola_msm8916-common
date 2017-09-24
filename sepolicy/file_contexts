@@ -55,3 +55,7 @@
 /system/bin/ims_rtp_daemon                                            u:object_r:hal_imsrtp_exec:s0
 /system/bin/imscmservice                                              u:object_r:ims_exec:s0
 /system/bin/netmgrd                                                   u:object_r:netmgrd_exec:s0
+
+# Light HAL
+/system/vendor/bin/hw/android\.hardware\.light@2\.0-service.harpia        u:object_r:hal_light_default_exec:s0
+/sys/class/leds(/.*)?   u:object_r:sysfs_leds:s0
