@@ -1,0 +1,2 @@
+# Add time service app
+user=system seinfo=platform name=com.qualcomm.timeservice domain=timeservice_app type=system_app_data_file

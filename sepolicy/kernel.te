@@ -6,3 +6,14 @@ allow kernel block_device:dir search;
 allow kernel untrusted_app_25:fd use;
 allow kernel init:process noatsecure;
 
+allow kernel block_device:blk_file rw_file_perms;
+
+userdebug_or_eng(`
+  allow kernel self:socket create_socket_perms_no_ioctl;
+  r_dir_file(kernel, qti_debugfs);
+')
+
+# Access firmware_file
+r_dir_file(kernel, firmware_file)
+
+allow kernel misc_block_device:blk_file rw_file_perms;

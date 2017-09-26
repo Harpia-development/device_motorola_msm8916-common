@@ -1,0 +1,23 @@
+set_prop(bluetooth, bluetooth_prop)
+allow bluetooth sysfs_bluetooth_writable:file w_file_perms;
+
+allow bluetooth {
+    serial_device
+    smd_device
+    bt_device
+}:chr_file rw_file_perms;
+
+# Access to persist_file
+allow bluetooth persist_bluetooth_file:dir rw_dir_perms;
+allow bluetooth persist_bluetooth_file:file create_file_perms;
+r_dir_file(bluetooth, persist_file)
+allow bluetooth persist_file:file w_file_perms;
+
+allow bluetooth self:socket { create write getopt read };
+
+# ioctlcmd=c302
+allow bluetooth self:socket ioctl;
+allowxperm bluetooth self:socket ioctl msm_sock_ipc_ioctls;
+
+binder_call(bluetooth, hal_audio);
+allow bluetooth hal_audio_hwservice:hwservice_manager find;

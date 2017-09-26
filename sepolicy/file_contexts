@@ -64,6 +64,10 @@
 # Vendor files
 /(vendor|system/vendor)/bin/awk                 u:object_r:vendor_shell_exec:s0
 
+###################################
+# Device specific policy
+#
+
 # Data
 /data/fpc(/.*)?                             u:object_r:tee_data_file:s0
 /data/time(/.*)?                            u:object_r:time_data_file:s0
@@ -77,5 +81,6 @@
 /vendor/bin/imscmservice                    u:object_r:imscm_exec:s0
 /system/bin/ipacm-diag                      u:object_r:ipacm-diag_exec:s0
 /system/bin/ipacm                           u:object_r:ipacm_exec:s0
+/system/vendor/bin/imscmservice             u:object_r:imscm_exec:s0
 /system/vendor/bin/init.qcom.bt.sh          u:object_r:bluetooth_loader_exec:s0
 /system/vendor/bin/perfd                    u:object_r:perfd_exec:s0

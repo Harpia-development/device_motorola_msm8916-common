@@ -1,3 +1,17 @@
 allow healthd device:dir r_dir_perms;
 allow healthd sysfs:file { getattr open read };
 allow healthd rtc_device:chr_file rw_file_perms;
+
+r_dir_file(healthd, sysfs_battery_supply)
+r_dir_file(healthd, sysfs_usb_supply)
+r_dir_file(healthd, sysfs_thermal);
+r_dir_file(healthd, persist_file);
+
+allow healthd rtc_device:chr_file r_file_perms;
+allow healthd persist_bms_file:dir rw_dir_perms;
+allow healthd persist_bms_file:file create_file_perms;
+
+allow healthd {
+    sysfs_battery_supply
+    sysfs_usb_supply
+}:file rw_file_perms;

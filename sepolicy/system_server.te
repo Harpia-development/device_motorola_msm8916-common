@@ -71,4 +71,67 @@ allow system_server exfat:dir { open read };
 allow system_server sdm_idle_time_prop:file read;
 allow system_server sensors_prop:file read;
 allow system_server spcomlib_prop:file read;
+allow system_server self:capability sys_module;
+
+allow system_server self:socket create_socket_perms;
+allowxperm system_server self:socket ioctl msm_sock_ipc_ioctls;
+
+# For ANT tty communication and to set wc_transport prop
+allow system_server {
+    bluetooth_prop
+    alarm_handled_prop
+    alarm_instance_prop
+}:property_service set;
+
+# required for ANT App to connectto wcnss_filter sockets
+allow system_server bluetooth:unix_stream_socket connectto;
+
+# For ssr
+allow system_server ssr_device:chr_file r_file_perms;
+
+allow system_server { fuse persist_file }:dir search;
+
+allow system_server {
+    serial_device
+    smd_device
+    # graphics_device, audio_device, tee_device is for WFD
+    graphics_device
+    audio_device
+    tee_device
+    # allow access to power control ANT chip
+    bt_device
+}:chr_file rw_file_perms;
+
+# For shutdown animation
+allow system_server ctl_bootanim_prop:property_service set;
+
+# allow tethering to access dhcp leases
+r_dir_file(system_server, dhcp_data_file)
+
+allow system_server persist_alarm_file:dir rw_dir_perms;
+allow system_server persist_alarm_file:file { rw_file_perms create };
+userdebug_or_eng(`
+  diag_use(system_server)
+')
+
+# allow access to low persistence mode sysfs node
+allow system_server sysfs_graphics:file rw_file_perms;
+
+get_prop(system_server, alarm_boot_prop)
+get_prop(system_server, hwui_prop)
+get_prop(system_server, opengles_prop)
+get_prop(system_server, qemu_hw_mainkeys_prop)
+
+allow system_server system_app:file write;
+allow system_server appdomain:file w_file_perms;
+
+# IPC call for sensor feed
+binder_call(system_server, mm-pp-daemon)
+binder_call(system_server, hal_camera)
+
+# Ant ipc
+hal_client_domain(system_server, hal_bluetooth);
+
+netmgr_socket(system_server)
 qmux_socket(system_server);
+use_per_mgr(system_server)

@@ -17,3 +17,6 @@ allow firmware_file rootfs:filesystem associate;
 
 # proc
 type proc_wcnss_service, fs_type;
+
+# Defines the files (configs, dumps, etc) used by display processes
+type display_misc_file, file_type, data_file_type;
