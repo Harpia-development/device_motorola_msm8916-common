@@ -104,37 +104,37 @@ vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
 
 # IMS
--framework/imscmlibrary.jar
+bin/ims_rtp_daemon|15972385d74b9fa7e0a157d76360b053e2225661
+bin/imscmservice|04dcb605334f35f7f0b5d7586e4099a03bd77d56
+bin/imsdatadaemon|4a636811f02e1d14d2910af4508af8d972ad9637
+bin/imsqmidaemon|44194b0eec2733d65f973de7a0857d068d633a68
+etc/permissions/ims.xml|b77963459ea6664a0eddcbc5ca7f4220e4895c26
+etc/permissions/imscm.xml|8b99ec26c783966bbea1fcb8e72c7c0206a4e802
+etc/permissions/qti_permissions.xml|fd8a1db3c18b6d58334d747e47f4b155bb612039
+-framework/imscmlibrary.jar|0c24d6540c06efede52169c1445272f43748180f
 -vendor/app/ims/ims.apk|66fa3ab695d7be55a334cbee6e9c94d60089ac2a
 -vendor/app/imssettings/imssettings.apk|63c44e1961546bd90f1675da696f194ae8f8506d
-bin/imscmservice
-bin/imsdatadaemon
-bin/imsqmidaemon
-bin/ims_rtp_daemon
-etc/permissions/imscm.xml
-etc/permissions/ims.xml
-etc/permissions/qti_permissions.xml
-vendor/lib/lib-imscamera.so
-vendor/lib/libimscamera_jni.so
-vendor/lib/lib-imsdpl.so
-vendor/lib/libimsmedia_jni.so
-vendor/lib/lib-imsqimf.so
-vendor/lib/lib-imsrcs.so
-vendor/lib/lib-imsrcscm.so
-vendor/lib/lib-imsrcscmclient.so
-vendor/lib/lib-ims-rcscmjni.so
-vendor/lib/lib-imsrcscmservice.so
-vendor/lib/lib-imss.so
-vendor/lib/lib-imsSDP.so
-vendor/lib/lib-imsvt.so
-vendor/lib/lib-imsxml.so
-vendor/lib/librcc.so
-vendor/lib/lib-rcsimssjni.so
-vendor/lib/lib-rcsjni.so
-vendor/lib/lib-rtpcommon.so
-vendor/lib/lib-rtpcore.so
-vendor/lib/lib-rtpdaemoninterface.so
-vendor/lib/lib-rtpsl.so
+vendor/lib/lib-ims-rcscmjni.so|3cafc82f22397aa0c6725cec8c73789b51a2e580
+vendor/lib/lib-imsSDP.so|628bb11168fd9bab8f4f0d294717ef6db9e8bcba
+vendor/lib/lib-imscamera.so|40e4e0f14c511daab69b4ecac7c17910e36a7c37
+vendor/lib/lib-imsqimf.so|438cb2166be22c90dd6e84c7bc8c482f0bb8af1c
+vendor/lib/lib-imsrcs.so|fddbba6a599290398d6690a40836524cb8a418ce
+vendor/lib/lib-imsrcscm.so|61127ce52736756251a5a9d5c5781101e4a7463b
+vendor/lib/lib-imsrcscmclient.so|ebb26bf404449251003f235e440b5b1a972b110e
+vendor/lib/lib-imsrcscmservice.so|5c898868810bc81368a68ab51a767dd0f834d547
+vendor/lib/lib-imss.so|f15d0e2fbd92355689cfef4235c922af3189a9d9
+vendor/lib/lib-imsvt.so|2ca313fa96e32523a40475ab2522f2742641daa8
+vendor/lib/lib-imsxml.so|f01cde2ffff5021b54d8e6c3eda1ad0a051d04df
+vendor/lib/lib-rcsimssjni.so|4b765e6d2debab5d318def290d55ebdae318c5e3
+vendor/lib/lib-rcsjni.so|93e0b798564334b80f03b4cc481d1757415518a7
+vendor/lib/lib-rtpcommon.so|bb3ba9e018e597a916638f574a50fe2b7500f750
+vendor/lib/lib-rtpcore.so|57ab632fe179b83ae1770899b80ef9505ddc7377
+vendor/lib/lib-rtpdaemoninterface.so|f2d266b72c7baee453b485d997cf03aeac1822a0
+vendor/lib/lib-rtpsl.so|c4b30df9ee7025b429aba53f263be108f2d5c507
+vendor/lib/libimscamera_jni.so|e19c10d9d8f388a045345b5f374c6712fd18c979
+vendor/lib/libimsmedia_jni.so|eda2facbd29dd37d213859bca07a5c2e09219aa4
+vendor/lib/librcc.so|a013aabffc8c561b2178df1a845d92910ff7cb3c
+vendor/lib/libvoice-svc.so|d298e863307664bd98e0290aedb196b67275bc60
 
 # Qualcomm framework
 bin/irsc_util
@@ -192,7 +192,6 @@ vendor/lib/libsystem_health_mon.so
 vendor/lib/libxml.so
 vendor/lib/libsubsystem_control.so
 vendor/lib/libSubSystemShutdown.so
-vendor/lib/libvoice-svc.so
 
 # Sensorhub Firmware
 etc/firmware/sensorhubfw.bin|90ec2a32050faf764529c22639e7a2a0196e28fc
