@@ -44,6 +44,7 @@ camera2.portability.force_api=1
 ro.opengles.version=196608
 persist.hwc.mdpcomp.enable=1
 ro.sf.lcd_density=360
+debug.sf.recomputecrop=0
 
 # Fling Velocities
 ro.min.fling_velocity=160
