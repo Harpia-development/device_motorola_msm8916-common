@@ -327,6 +327,7 @@ on post-fs
 
 # msm specific files that need to be created on /data
 on post-fs-data
+    mount none /system/vendor/lib/libfacenet-32.so /system/lib/libfacenet.so bind
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
 
