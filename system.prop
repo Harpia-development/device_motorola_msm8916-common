@@ -61,6 +61,7 @@ persist.data.iwlan.enable=true
 
 # Media
 vidc.enc.narrow.searchrange=1
+persist.media.treble_omx=false
 
 # NITZ
 persist.rild.nitz_plmn=
