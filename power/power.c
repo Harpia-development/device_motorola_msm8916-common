@@ -23,7 +23,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <utils/Log.h>
+#include <log/log.h>
 
 #include "power.h"
 #include "power_device.h"
@@ -31,11 +31,9 @@
 #define CPUFREQ_PATH "/sys/devices/system/cpu/cpu0/cpufreq/"
 #define INTERACTIVE_PATH "/sys/devices/system/cpu/cpufreq/interactive/"
 
-static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 static int boostpulse_fd = -1;
 
 static int current_power_profile = -1;
-static int requested_power_profile = -1;
 
 static int sysfs_write_str(char *path, char *s)
 {
@@ -75,23 +73,21 @@ static int is_profile_valid(int profile)
     return profile >= 0 && profile < PROFILE_MAX;
 }
 
-static void power_init(__attribute__((unused)) struct power_module *module)
+void power_init(void)
 {
     ALOGI("%s", __func__);
 }
 
 static int boostpulse_open()
 {
-    pthread_mutex_lock(&lock);
     if (boostpulse_fd < 0) {
         boostpulse_fd = open(INTERACTIVE_PATH "boostpulse", O_WRONLY);
     }
-    pthread_mutex_unlock(&lock);
 
     return boostpulse_fd;
 }
 
-static void power_set_interactive(__attribute__((unused)) struct power_module *module, int on)
+void power_set_interactive(int on) 
 {
     if (!is_profile_valid(current_power_profile)) {
         ALOGD("%s: no power profile selected yet", __func__);
@@ -155,9 +151,17 @@ static void set_power_profile(int profile)
     current_power_profile = profile;
 }
 
-static void power_hint(__attribute__((unused)) struct power_module *module,
-                       power_hint_t hint, void *data)
+void power_hint(power_hint_t hint, void* data)
 {
+    if (hint == POWER_HINT_SET_PROFILE) {
+        set_power_profile(*(int32_t *)data);
+        return;
+    }
+
+    // Skip other hints in powersave mode
+    if (current_power_profile == PROFILE_POWER_SAVE)
+        return;
+
     switch (hint) {
     case POWER_HINT_INTERACTION:
         if (!is_profile_valid(current_power_profile)) {
@@ -173,17 +177,10 @@ static void power_hint(__attribute__((unused)) struct power_module *module,
             if (len < 0) {
                 ALOGE("Error writing to boostpulse: %s\n", strerror(errno));
 
-                pthread_mutex_lock(&lock);
                 close(boostpulse_fd);
                 boostpulse_fd = -1;
-                pthread_mutex_unlock(&lock);
             }
         }
-        break;
-    case POWER_HINT_SET_PROFILE:
-        pthread_mutex_lock(&lock);
-        set_power_profile(*(int32_t *)data);
-        pthread_mutex_unlock(&lock);
         break;
     case POWER_HINT_LOW_POWER:
         /* This hint is handled by the framework */
@@ -192,61 +189,3 @@ static void power_hint(__attribute__((unused)) struct power_module *module,
         break;
     }
 }
-
-static int get_feature(__attribute__((unused)) struct power_module* module, feature_t feature) {
-    if (feature == POWER_FEATURE_SUPPORTED_PROFILES) {
-        return PROFILE_MAX;
-    }
-    return -1;
-}
-
-static int power_open(const hw_module_t* module __unused, const char* name,
-                    hw_device_t** device)
-{
-    ALOGD("%s: enter; name=%s", __FUNCTION__, name);
-    int retval = 0; /* 0 is ok; -1 is error */
-
-    if (strcmp(name, POWER_HARDWARE_MODULE_ID) == 0) {
-        power_module_t *dev = (power_module_t *)calloc(1,
-                sizeof(power_module_t));
-
-        if (dev) {
-            /* Common hw_device_t fields */
-            dev->common.tag = HARDWARE_MODULE_TAG;
-            dev->common.module_api_version = POWER_MODULE_API_VERSION_0_2;
-            dev->common.hal_api_version = HARDWARE_HAL_API_VERSION;
-
-            dev->init = power_init;
-            dev->powerHint = power_hint;
-            dev->getFeature = get_feature;
-
-            *device = (hw_device_t*)dev;
-        } else
-            retval = -ENOMEM;
-    } else {
-        retval = -EINVAL;
-    }
-
-    ALOGD("%s: exit %d", __FUNCTION__, retval);
-    return retval;
-}
-
-static struct hw_module_methods_t power_module_methods = {
-    .open = power_open,
-};
-
-struct power_module HAL_MODULE_INFO_SYM = {
-    .common = {
-        .tag = HARDWARE_MODULE_TAG,
-        .module_api_version = POWER_MODULE_API_VERSION_0_2,
-        .hal_api_version = HARDWARE_HAL_API_VERSION,
-        .id = POWER_HARDWARE_MODULE_ID,
-        .name = "msm8916 Power HAL",
-        .author = "The CyanogenMod Project",
-        .methods = &power_module_methods,
-    },
-
-    .init = power_init,
-    .powerHint = power_hint,
-    .getFeature = get_feature
-};
