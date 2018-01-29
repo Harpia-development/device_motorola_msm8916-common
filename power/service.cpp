@@ -19,9 +19,6 @@
 #include <android/log.h>
 #include <hidl/HidlTransportSupport.h>
 #include <hardware/power.h>
-#ifdef ARCH_ARM_32
-#include <hwbinder/ProcessState.h>
-#endif
 #include "Power.h"
 
 using android::sp;
@@ -37,9 +34,6 @@ using android::hardware::power::V1_0::IPower;
 using android::hardware::power::V1_0::implementation::Power;
 
 int main() {
-#ifdef ARCH_ARM_32
-    android::hardware::ProcessState::initWithMmapSize((size_t)16384);
-#endif
     status_t status;
     android::sp<IPower> service = nullptr;
 
@@ -60,7 +54,7 @@ int main() {
         goto shutdown;
     }
 
-    ALOGI("Power HAL Ready.");
+    ALOGI("Power Service is ready");
     joinRpcThreadpool();
     //Should not pass this line
 

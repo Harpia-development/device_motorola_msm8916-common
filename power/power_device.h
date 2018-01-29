@@ -65,7 +65,7 @@ static power_profile profiles[PROFILE_MAX] = {
         .scaling_min_freq = 800000,
         .scaling_min_freq_off = 200000,
     },
-    [PROFILE_BIAS_POWER_SAVE] = {
+    [PROFILE_BIAS_POWER] = {
         .boost = 0,
         .boostpulse_duration = 40000,
         .go_hispeed_load = 90,

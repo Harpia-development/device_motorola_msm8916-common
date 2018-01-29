@@ -1,7 +1,8 @@
 cc_binary {
-    name: "android.hardware.power@1.0-service.8916",
+    proprietary: true,
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
+    name: "android.hardware.power@1.0-service.8916",
     init_rc: ["android.hardware.power@1.0-service.8916.rc"],
     srcs: [
         "service.cpp",
@@ -15,18 +16,12 @@ cc_binary {
     ],
 
     shared_libs: [
-        "libhidlbase",
-        "libhidltransport",
         "liblog",
-        "libhwbinder",
+        "libdl",
         "libutils",
         "libhardware",
+        "libhidlbase",
+        "libhidltransport",
         "android.hardware.power@1.0",
     ],
-    arch: {
-        arm: {
-            cflags: ["-DARCH_ARM_32"],
-        },
-    },
-    vendor: true,
 }
