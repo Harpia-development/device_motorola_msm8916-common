@@ -185,6 +185,10 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service.harpia
 
+# Disable Vulkan
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.graphics.vulkan.disable=true
+
 # LineageActions
 PRODUCT_PACKAGES += \
     LineageActions
