@@ -245,6 +245,11 @@ PRODUCT_PACKAGES += \
     wifilogd \
     wcnss_service
 
+# RIL Shim
+PRODUCT_PACKAGES += \
+    libqsap_shim \
+    libqsap_sdk
+
 PRODUCT_COPY_FILES += \
     kernel/motorola/msm8916/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     kernel/motorola/msm8916/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
