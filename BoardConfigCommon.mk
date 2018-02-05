@@ -121,6 +121,7 @@ include device/qcom/sepolicy/sepolicy.mk
 # Shims
 TARGET_LD_SHIM_LIBS := \
     /system/lib/libandroid.so|libshim_ril.so \
+    /system/lib/libmdmcutback.so|libqsap_shim.so \
     /system/lib/libmot_sensorlistener.so|libsensor.so \
     /system/lib/libjustshoot.so|libshims_camera.so \
     /system/vendor/lib/libmmcamera_wavelet_lib.so|libc_util.so \
