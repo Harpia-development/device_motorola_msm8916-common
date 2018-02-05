@@ -5,12 +5,6 @@
 /system/bin/stml0xx_wrapper\.sh                             u:object_r:stml0xx_exec:s0
 /system/bin/thermal-engine                                  u:object_r:thermal-engine_exec:s0
 
-# Camera
-/data/cam_socket[12]                                        u:object_r:camera_socket:s0
-
-# CMHW
-/sys/devices/virtual/timed_output/vibrator/vtg_level        u:object_r:vibeamp_sysfs:s0
-
 # mmi_touch related /sys files
 /sys/devices/soc\.0/78b6000\.i2c/i2c-2/2-0020(/.*)?         u:object_r:sysfs_mmi_touch:s0
 
