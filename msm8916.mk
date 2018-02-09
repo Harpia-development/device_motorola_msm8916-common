@@ -89,7 +89,7 @@ PRODUCT_PACKAGES += \
     libc_util \
     libshims_camera \
     libshims_sensorlistener \
-    SnapdragonCamera
+    Snap
 
 # Camera properties
 PRODUCT_PROPERTY_OVERRIDES += \
