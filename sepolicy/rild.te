@@ -4,3 +4,5 @@ allow rild fsg_file:file r_file_perms;
 allow rild system_data_file:sock_file create_file_perms;
 allow rild radio_data_file:file { getattr lock };
 
+# rild needs to execute /system/bin/qmi_motext_hook
+allow rild rild_exec:file execute_no_trans;

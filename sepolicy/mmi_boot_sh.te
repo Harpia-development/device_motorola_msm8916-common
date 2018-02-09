@@ -1,18 +1,19 @@
 type mmi_boot_sh, domain;
-type mmi_boot_sh_exec, exec_type, file_type;
+type mmi_boot_sh_exec, exec_type, vendor_file_type, file_type;
 
 # Started by init
 init_daemon_domain(mmi_boot_sh)
 
-# shell scripts need to execute /system/bin/sh and toolbox
-allow mmi_boot_sh shell_exec:file rx_file_perms;
-allow mmi_boot_sh toolbox_exec:file rx_file_perms;
+allow mmi_boot_sh firmware_file:dir search;
+
+# Execute /system/bin/grep, /system/bin/sh and toolbox
+allow mmi_boot_sh { grep_exec shell_exec toolbox_exec }:file rx_file_perms;
 
 # Logs to /dev/kmsg
 allow mmi_boot_sh kmsg_device:chr_file w_file_perms;
 
-allow mmi_boot_sh proc:file write;
-allow mmi_boot_sh radio_data_file:dir rw_dir_perms;
+allow mmi_boot_sh proc:file rw_file_perms;
+allow mmi_boot_sh radio_data_file:dir create_dir_perms;
 allow mmi_boot_sh radio_data_file:file create_file_perms;
 allow mmi_boot_sh self:capability chown;
 allow mmi_boot_sh sysfs_socinfo:file write;
