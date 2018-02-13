@@ -2,3 +2,11 @@ allow init firmware_file:dir mounton;
 allow init fsg_file:dir mounton;
 allow init pstorefs:dir mounton;
 allow init system_file:file mounton;
+
+allow init cameraserver:fd use;
+allow init gpu_device:chr_file write;
+allow init ion_device:chr_file write;
+allow init self:socket { read write };
+allow init self:udp_socket ioctl;
+allow init video_device:chr_file { ioctl write };
+
