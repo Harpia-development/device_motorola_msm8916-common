@@ -1,0 +1,2 @@
+allow wcnss_service unlabeled:dir search;
+

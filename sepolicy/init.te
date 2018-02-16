@@ -10,3 +10,4 @@ allow init self:socket { read write };
 allow init self:udp_socket ioctl;
 allow init video_device:chr_file { ioctl write };
 
+
