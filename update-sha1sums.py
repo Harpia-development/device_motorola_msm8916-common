@@ -18,6 +18,9 @@
 from hashlib import sha1
 import sys
 
+device='msm8916-common'
+vendor='asus'
+
 lines = [ line for line in open('proprietary-files.txt', 'r') ]
 vendorPath = '../../../vendor/asus/msm8916-common/proprietary'
 needSHA1 = False
