@@ -1,3 +1,4 @@
+allow mm-qcamerad { untrusted_app_all priv_app }:fd use;
 allow mm-qcamerad persist_file:file r_file_perms;
 allow mm-qcamerad system_data_file:dir w_dir_perms;
 allow mm-qcamerad system_data_file:file open;
