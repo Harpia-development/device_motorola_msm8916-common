@@ -1,3 +1,4 @@
 allow init firmware_file:dir mounton;
 allow init fsg_file:dir mounton;
 allow init pstorefs:dir mounton;
+allow init system_file:file mounton;
