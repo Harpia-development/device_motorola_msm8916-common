@@ -45,6 +45,10 @@ ro.opengles.version=196608
 persist.hwc.mdpcomp.enable=1
 ro.sf.lcd_density=360
 
+# Fling Velocities
+ro.min.fling_velocity=160
+ro.max.fling_velocity=20000
+
 # FRP
 #ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
