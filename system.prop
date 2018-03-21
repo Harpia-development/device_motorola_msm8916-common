@@ -40,6 +40,7 @@ sys.vendor.shutdown.waittime=500
 
 # Camera
 camera2.portability.force_api=1
+debug.camcorder.disablemeta=true
 
 # Display
 debug.hwui.renderer=opengl
