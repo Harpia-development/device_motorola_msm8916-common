@@ -103,10 +103,6 @@ etc/firmware/a420_pfp.fw
 etc/firmware/a420_pm4.fw
 
 # Media - from aljeter
-lib/libOmxVdecHevc.so|643020fef6a2d2a92d8e7e762356bb3e8305c5ee
--vendor/lib/libHevcSwDecoder.so|56fc7d88803133f4e24c8e4be54d89c8d69f275f
-vendor/lib/libI420colorconvert.so|c3ba91ef914ee1100c6f8a64e043812c64020faa
-vendor/lib/libmmosal.so|51ab78f58dba5d0cd177a5b34cef068fa1725a42
 vendor/lib/libmm-color-convertor.so|a2f4491469425c3698e6a4a894ec46218a198f2b
 vendor/lib/libOmxAacDec.so|38ac9397aa75f598dd0ea48e56321837691ba0e3
 vendor/lib/libOmxEvrcDec.so|b003a2147230e3040a2b64ba9fa94367961fc7e2
