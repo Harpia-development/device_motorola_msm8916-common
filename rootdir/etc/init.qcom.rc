@@ -48,8 +48,6 @@ on early-init
 on init
     chmod 0444 /sys/module/msm_performance/parameters/cpu_min_freq
 
-    export LD_PRELOAD /system/lib/libboringssl-compat.so
-
     # Set permissions for persist partition
     mkdir /persist 0771 system system
 

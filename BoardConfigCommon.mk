@@ -178,6 +178,10 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libmdmcutback.so|libqsap_shim.so \
     /system/lib/libjustshoot.so|libjustshoot_shim.so
 
+# Sp-shim
+TARGET_LD_PRELOAD := \
+    /system/vendor/lib/libboringssl-compat.so
+
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
 
