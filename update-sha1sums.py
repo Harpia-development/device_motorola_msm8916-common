@@ -19,10 +19,10 @@ from hashlib import sha1
 import sys
 
 device='msm8916-common'
-vendor='asus'
+vendor='motorola'
 
 lines = [ line for line in open('proprietary-files.txt', 'r') ]
-vendorPath = '../../../vendor/asus/msm8916-common/proprietary'
+vendorPath = '../../../vendor/motorola/msm8916-common/proprietary'
 needSHA1 = False
 
 def cleanup():
@@ -51,6 +51,8 @@ def update():
     # Check if we need to set SHA1 hash for the next files
     if line[0] == '#':
       needSHA1 = (' - from' in line)
+      if needSHA1:
+	print line
       continue
 
     if needSHA1:
@@ -64,6 +66,7 @@ def update():
         file = open('%s/%s' % (vendorPath, filePath), 'rb').read()
 
       hash = sha1(file).hexdigest()
+      print hash
       lines[index] = '%s|%s\n' % (line, hash)
 
 if len(sys.argv) == 2 and sys.argv[1] == '-c':
