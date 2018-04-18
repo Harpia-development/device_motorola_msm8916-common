@@ -486,12 +486,14 @@ service wcnss-service /vendor/bin/wcnss_service
     class main
     user system
     group system wifi radio
+    seclabel u:r:wcnss_service:s0
 
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
+    seclabel u:r:mm-qcamerad:s0
 
 service charger /charger
     class charger
@@ -509,6 +511,7 @@ service qseecomd /system/bin/qseecomd
    class core
    user root
    group root
+   seclabel u:r:tee:s0
 
 service thermal-engine /system/vendor/bin/thermal-engine
    class main
@@ -517,6 +520,7 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
    group root
+   seclabel u:r:thermal-engine:s0
 
 service thermal-com /system/vendor/bin/thermal-engine --minimode
     class main
@@ -527,6 +531,7 @@ service time_daemon /system/bin/time_daemon
    class late_start
    user root
    group root
+   seclabel u:r:time_daemon:s0
 
 # corefile limit and ETB enabling
 on property:persist.debug.trace=1
@@ -559,12 +564,14 @@ service irsc_util /system/bin/irsc_util "/vendor/etc/sec_config"
     class main
     user root
     oneshot
+    seclabel u:r:irsc_util:s0
 
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
     group system wakelock
     disabled
+    seclabel u:r:rmt_storage:s0
 
 on property:ro.boot.emmc=true
     start rmt_storage
@@ -587,11 +594,13 @@ service qmuxd /system/bin/qmuxd
     class main
     user root
     group radio audio bluetooth gps nfc oem_2950
+    seclabel u:r:qmuxd:s0
 
 service netmgrd /system/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet
+    seclabel u:r:netmgrd:s0 
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -641,6 +650,7 @@ service ims_rtp_daemon /system/bin/ims_rtp_daemon
     socket ims_rtpd stream 0660 system radio
     group radio diag diag inet log
     disabled
+    seclabel u:r:hal_imsrtp:s0
 
 on property:sys.ims.DATA_DAEMON_STATUS=1
     start ims_rtp_daemon
@@ -650,6 +660,7 @@ service imscmservice /system/bin/imscmservice
     user system
     group radio diag diag log
     disabled
+    seclabel u:r:ims:s0
 
 on property:sys.ims.DATA_DAEMON_STATUS=1
     start imscmservice
@@ -669,6 +680,7 @@ service imsqmidaemon /system/bin/imsqmidaemon
     user system
     socket ims_qmid stream 0660 system radio
     group radio log diag
+    seclabel u:r:ims:s0
 
 on property:ro.hw.revision=*
     setprop ro.boot.hardware.revision ${ro.hw.revision}
