@@ -1,10 +1,7 @@
 # Cutback socket (RILD)
 type cutback_data_file, file_type, data_file_type;
 
-# Debug rules for rmt_storage
-type debugfs_rmt, debugfs_type, fs_type;
-
-# fsg
+#fsg
 type fsg_file, fs_type, contextmount_type;
 
 # grep
