@@ -121,6 +121,9 @@ TARGET_USERIMAGES_USE_F2FS := true
 # Release Tools
 TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
 
+# RIL
+BOARD_PROVIDES_LIBRIL := true
+
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 include device/qcom/sepolicy/legacy-sepolicy.mk
