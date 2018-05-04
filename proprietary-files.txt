@@ -239,3 +239,6 @@ etc/firmware/venus.b03
 etc/firmware/venus.b04
 etc/firmware/venus.mbn
 etc/firmware/venus.mdt
+
+# Haxx
+lib/libprotobuf-cpp-N.so|f8b1e1d088cd4707393a1fad233f8b06116bc666
