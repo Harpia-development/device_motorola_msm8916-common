@@ -1,4 +1,11 @@
 dontaudit untrusted_app_25 hal_memtrack_hwservice:hwservice_manager find;
 dontaudit untrusted_app_25 proc:file { read open getattr };
+dontaudit untrusted_app_25 apk_data_file:file { setattr };
+dontaudit untrusted_app_25 serialno_prop:file { read getattr open };
+dontaudit untrusted_app_25 kgsl_debugfs:file { read };
+dontaudit untrusted_app_25 anr_data_file:dir { read };
+dontaudit untrusted_app_25 shell_data_file:dir { setattr };
 
+allow untrusted_app_25 vold_exec:file { read open};
+allow untrusted_app_25 self:udp_socket { ioctl };
 allow untrusted_app_25 proc_zoneinfo:file { getattr open read };
