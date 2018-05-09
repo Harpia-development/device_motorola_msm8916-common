@@ -144,7 +144,7 @@ ifeq ($(HOST_OS),linux)
 endif
 
 # SHIMS
-TARGET_LD_SHIM_LIBS := \
+LD_SHIM_LIBS := \
     /system/lib/libandroid.so|libshim_ril.so \
     /system/lib/libjustshoot.so|libshims_camera.so \
     /system/lib/libmot_sensorlistener.so|libshims_sensorlistener.so \
