@@ -1,0 +1,2 @@
+dontaudit untrusted_app_25 hal_memtrack_hwservice:hwservice_manager find;
+
