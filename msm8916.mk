@@ -76,6 +76,10 @@ PRODUCT_COPY_FILES +=  \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     libbt-vendor
