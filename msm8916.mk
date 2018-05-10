@@ -150,6 +150,12 @@ PRODUCT_PACKAGES += \
     gps.msm8916 \
     libshims_get_process_name
 
+# IMS
+PRODUCT_PACKAGES += \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += telephony-ext
+
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
