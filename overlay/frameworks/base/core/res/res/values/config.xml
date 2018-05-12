@@ -170,9 +170,9 @@
 
     <!-- Values for GPS configuration -->
     <string-array name="config_gpsParameters">
-        <item>XTRA_SERVER_1=https://xtrapath1.izatcloud.net/xtra2.bin</item>
-        <item>XTRA_SERVER_2=https://xtrapath2.izatcloud.net/xtra2.bin</item>
-        <item>XTRA_SERVER_3=https://xtrapath3.izatcloud.net/xtra2.bin</item>
+        <item>XTRA_SERVER_1=https://xtrapath1.izatcloud.net/xtra3grc.bin</item>
+        <item>XTRA_SERVER_2=https://xtrapath2.izatcloud.net/xtra3grc.bin</item>
+        <item>XTRA_SERVER_3=https://xtrapath3.izatcloud.net/xtra3grc.bin</item>
         <item>NTP_SERVER=north-america.pool.ntp.org</item>
         <item>SUPL_MODE=0</item>
         <item>SUPL_HOST=NONE</item>
@@ -283,5 +283,4 @@
     <!-- Control whether Night display is available. This should only be enabled on devices
            with HWC 2.0 or higher. -->
     <bool name="config_nightDisplayAvailable">false</bool>
-
 </resources>
