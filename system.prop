@@ -89,3 +89,7 @@ ro.adb.secure=0
 ro.secure=0
 ro.debuggable=1
 persist.service.adb.enable=1 
+
+# Power Manager
+pm.sleep_mode=1
+ro.ril.disable.power.collapse=1
