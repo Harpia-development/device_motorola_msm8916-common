@@ -1,0 +1,5 @@
+# allow apps to read battery status
+r_dir_file(untrusted_app, sysfs_battery_supply)
+
+unix_socket_connect(untrusted_app, mpctl, mpdecision)
+unix_socket_send(untrusted_app, mpctl, mpdecision)

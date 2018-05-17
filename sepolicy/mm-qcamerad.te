@@ -2,3 +2,17 @@ allow mm-qcamerad persist_file:file r_file_perms;
 allow mm-qcamerad system_data_file:dir w_dir_perms;
 allow mm-qcamerad system_data_file:file open;
 set_prop(mm-qcamerad, debug_prop)
+
+binder_use(mm-qcamerad)
+
+type_transition mm-qcamerad system_data_file:sock_file camera_socket "cam_socket1";
+type_transition mm-qcamerad system_data_file:sock_file camera_socket "cam_socket2";
+allow mm-qcamerad camera_socket:sock_file { create unlink write };
+allow mm-qcamerad camera_data_file:sock_file { create unlink };
+
+allow mm-qcamerad system_server:unix_stream_socket rw_socket_perms;
+allow mm-qcamerad sensorservice_service:service_manager find;
+
+# /data/fdAlbum
+type_transition mm-qcamerad system_data_file:file camera_data_file "fdAlbum";
+allow mm-qcamerad camera_data_file:file create_file_perms;

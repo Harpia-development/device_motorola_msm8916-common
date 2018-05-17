@@ -1,3 +1,6 @@
 allow init firmware_file:dir mounton;
 allow init fsg_file:dir mounton;
 allow init pstorefs:dir mounton;
+
+# required for LD_SHIM_LIBS
+allow init { domain -lmkd -crash_dump }:process noatsecure;

@@ -1,0 +1,11 @@
+# For the camera app
+get_prop(appdomain, camera_prop)
+
+unix_socket_connect(appdomain, cnd, cnd)
+
+allow appdomain mpctl_socket:dir r_dir_perms;
+
+unix_socket_send(appdomain, mpctl, perfd)
+unix_socket_connect(appdomain, mpctl, perfd)
+unix_socket_send(appdomain, mpctl, mpdecision)
+unix_socket_connect(appdomain, mpctl, mpdecision)
