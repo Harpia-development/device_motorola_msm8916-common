@@ -2,3 +2,27 @@ dontaudit untrusted_app hal_memtrack_hwservice:hwservice_manager find;
 dontaudit untrusted_app proc:file { read open getattr };
 
 allow untrusted_app sysfs_zram:file { open read getattr };
+# allow apps to read battery status
+r_dir_file(untrusted_app, sysfs_battery_supply)
+
+unix_socket_connect(untrusted_app, mpctl, mpdecision)
+unix_socket_send(untrusted_app, mpctl, mpdecision)
+
+allow untrusted_app persist_file:file { getattr };
+allow untrusted_app adb_data_file:dir { getattr };
+allow untrusted_app rootfs:dir { read };
+allow untrusted_app rootfs:dir { open };
+allow untrusted_app device:dir { open };
+allow untrusted_app device:dir { read };
+allow untrusted_app block_device:dir { read };
+allow untrusted_app block_device:dir { open };
+allow untrusted_app bootchart_data_file:dir { open };
+allow untrusted_app bootchart_data_file:dir { read };
+allow untrusted_app user_profile_data_file:dir { read };
+allow untrusted_app user_profile_data_file:dir { open };
+allow untrusted_app radio_data_file:dir { getattr };
+allow untrusted_app system_app_data_file:dir { getattr };
+allow untrusted_app bluetooth_data_file:dir { getattr };
+allow untrusted_app system_ndebug_socket:sock_file { getattr };
+allow untrusted_app heapdump_data_file:dir { getattr };
+allow untrusted_app hal_memtrack_default:binder { call };

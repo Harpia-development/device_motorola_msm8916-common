@@ -11,3 +11,7 @@ allow init self:udp_socket ioctl;
 allow init video_device:chr_file { ioctl write };
 
 
+# required for LD_SHIM_LIBS
+allow init { domain -lmkd -crash_dump }:process noatsecure;
+
+dontaudit init system_file:file { execute_no_trans };

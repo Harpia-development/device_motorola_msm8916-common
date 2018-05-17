@@ -1,1 +1,5 @@
 allow qmuxd diag_device:chr_file rw_file_perms;
+
+userdebug_or_eng(`
+    diag_use(qmuxd)
+')

@@ -9,3 +9,6 @@ type grep_exec, exec_type, file_type;
 
 # Touch script
 type sysfs_mmi_touch, fs_type, sysfs_type;
+
+type debugfs_rmt, debugfs_type, fs_type;
+type sysfs_runtime_status, sysfs_type, fs_type;

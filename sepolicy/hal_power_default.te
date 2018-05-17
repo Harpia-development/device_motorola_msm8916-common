@@ -1,0 +1,7 @@
+allow hal_power_default hal_lineage_power_hwservice:hwservice_manager { add find };
+
+allow hal_power_default mpctl_socket:dir search;
+allow hal_power_default mpctl_socket:sock_file write;
+
+allow hal_power_default mpdecision:unix_stream_socket connectto;
+allow hal_power_default perfd:unix_stream_socket connectto;

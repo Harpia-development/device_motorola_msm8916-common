@@ -1,0 +1,2 @@
+vendor.qcom.PeripheralManager                  u:object_r:binder_per_mgr_service:s0
+media.camera_bgproc                            u:object_r:camera_bgproc_service:s0

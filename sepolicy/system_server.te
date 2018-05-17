@@ -2,3 +2,35 @@ allow system_server sensors_device:chr_file rw_file_perms;
 
 # Unlabeled
 allow system_server unlabeled:file unlink;
+
+allow system_server mpctl_socket:dir r_dir_perms;
+unix_socket_connect(system_server, gamed, gamed)
+unix_socket_connect(system_server, mpctl, mpdecision)
+unix_socket_connect(system_server, mpctl, perfd)
+unix_socket_send(system_server, mpctl, mpdecision)
+unix_socket_send(system_server, mpctl, perfd)
+
+netmgr_socket(system_server)
+qmux_socket(system_server)
+use_per_mgr(system_server)
+allow system_server binder_per_mgr_service:service_manager find;
+
+allow system_server sensors:unix_stream_socket sendto;
+allow system_server sensors_device:chr_file getattr;
+allow system_server sensors_socket:sock_file r_file_perms;
+unix_socket_connect(system_server, sensors, sensors)
+unix_socket_send(system_server, sensors, sensors)
+
+allow system_server location:unix_stream_socket connectto;
+allow system_server location_socket:sock_file create_file_perms;
+
+allow system_server usf:unix_stream_socket connectto;
+
+allow system_server wcnss_filter:unix_stream_socket connectto;
+
+unix_socket_connect(system_server, cnd, cnd)
+
+dontaudit system_server vfat:dir { read open };
+
+allow system_server crash_dump:process { getpgid };
+dontaudit system_server app_data_file:file { open setattr };

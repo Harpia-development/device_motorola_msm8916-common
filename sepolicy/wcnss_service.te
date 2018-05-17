@@ -1,2 +1,4 @@
 allow wcnss_service unlabeled:dir search;
 
+binder_use(wcnss_service)
+allow wcnss_service wifi_prop:property_service { set };
