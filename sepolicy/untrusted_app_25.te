@@ -9,3 +9,5 @@ dontaudit untrusted_app_25 shell_data_file:dir { setattr };
 allow untrusted_app_25 vold_exec:file { read open};
 allow untrusted_app_25 self:udp_socket { ioctl };
 allow untrusted_app_25 proc_zoneinfo:file { getattr open read };
+allow untrusted_app_25 rootfs:dir { read };
+allow untrusted_app_25 mnt_media_rw_file:dir { getattr };
