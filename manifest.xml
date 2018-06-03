@@ -30,6 +30,10 @@
         <name>android.hardware.bluetooth</name>
         <transport arch="32">passthrough</transport>
         <version>1.0</version>
+	<interface>
+            <name>IBluetoothHci</name>
+            <instance>default</instance>
+	</interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.camera.provider</name>
@@ -93,6 +97,10 @@
         <name>android.hardware.graphics.composer</name>
 	<transport arch="32">passthrough</transport>
         <version>2.1</version>
+        <interface>
+            <name>IComposer</name>
+            <instance>default</instance>
+	</interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.graphics.mapper</name>
