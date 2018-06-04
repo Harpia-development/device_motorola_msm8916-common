@@ -1,4 +1,4 @@
-dontaudit untrusted_app_25 hal_memtrack_hwservice:hwservice_manager find;
-dontaudit untrusted_app_25 proc:file { read open getattr };
+dontaudit untrusted_app hal_memtrack_hwservice:hwservice_manager find;
+dontaudit untrusted_app proc:file { read open getattr };
 
 allow untrusted_app sysfs_zram:file { open read getattr };
