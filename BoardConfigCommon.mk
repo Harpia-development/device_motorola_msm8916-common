@@ -115,6 +115,8 @@ TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
 
+MALLOC_SVELTE := true
+
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/etc/fstab.qcom
