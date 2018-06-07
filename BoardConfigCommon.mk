@@ -133,6 +133,9 @@ DEVICE_MANIFEST_FILE += $(VENDOR_PATH)/live_display_manifest.xml
 endif
 DEVICE_MATRIX_FILE := $(VENDOR_PATH)/compatibility_matrix.xml
 
+# HWUI
+HWUI_COMPILE_FOR_PERF := true
+
 # Partitions
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
