@@ -32,6 +32,9 @@ ro.qualcomm.bt.hci_transport=smd
 ro.bluetooth.dun=true
 ro.bluetooth.sap=true
 
+# Boot
+sys.vendor.shutdown.waittime=500
+
 # Camera
 camera2.portability.force_api=1
 
