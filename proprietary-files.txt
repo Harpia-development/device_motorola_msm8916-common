@@ -15,10 +15,10 @@ vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
 vendor/lib/libqct_resampler.so
 
-# Bluetooth
-vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
-vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so
-vendor/lib/libbtnv.so
+# Bluetooth - from aljeter
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|9a330c399b3b07040bb63fa62773b1f24e29fdd8
+vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so|24e30d803c9f312bc1813d89bd70cf2c64a0b9ae
+vendor/lib/libbtnv.so|88cd17744fb1a52536c1f2f77d5712f7847ca82e
 
 # Camera
 lib/libmot_sensorlistener.so
