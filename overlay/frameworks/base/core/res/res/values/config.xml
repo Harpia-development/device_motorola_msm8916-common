@@ -262,6 +262,9 @@
          provisioning, availability etc -->
     <bool name="config_carrier_volte_available">true</bool>
 
+    <!-- Disable Night display, which requires HWC 2.0. -->
+    <bool name="config_nightDisplayAvailable">false</bool>
+    
     <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
          in hardware. -->
     <bool name="config_setColorTransformAccelerated">false</bool>
