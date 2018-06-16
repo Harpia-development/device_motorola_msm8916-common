@@ -247,3 +247,7 @@ etc/firmware/venus.mdt
 
 # Haxx
 lib/libprotobuf-cpp-N.so|f8b1e1d088cd4707393a1fad233f8b06116bc666
+
+#AptX - from aljeter
+vendor/lib/libaptXHD_encoder.so|b65cd3b72ae3e6a57901fd5b5383bfa1a88c5737
+vendor/lib/libaptX_encoder.so|b03772672144d4b750a5672c2922aded93bb0512
