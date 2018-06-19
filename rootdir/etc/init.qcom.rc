@@ -105,6 +105,9 @@ on fs
     write /proc/sys/vm/page-cluster 0
     write /proc/sys/vm/swappiness 100
 
+    # Start HW service manager early
+    start hwservicemanager
+
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
@@ -209,6 +212,11 @@ on late-fs
     start servicemanager
     start surfaceflinger
     start bootanim
+
+    start hwcomposer-2-1
+    start configstore-hal
+    start gralloc-2-0
+
     # mount RW partitions which need run fsck
     mount_all /vendor/etc/fstab.qcom --late
 
