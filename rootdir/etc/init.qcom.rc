@@ -167,6 +167,7 @@ on boot
     # Create directory used by display clients
     mkdir /data/misc/display 0770 system graphics
     mkdir /persist/display 0770 system graphics
+    mount_all /vendor/etc/fstab.qcom --early
 
     # Change ownership and permission for backlight
     chown system system /sys/class/backlight/lcd-backlight:0/brightness
@@ -202,6 +203,14 @@ on boot
 
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
+
+on late-fs
+    # Start services for bootanim
+    start servicemanager
+    start surfaceflinger
+    start bootanim
+    # mount RW partitions which need run fsck
+    mount_all /vendor/etc/fstab.qcom --late
 
 on post-fs
     mkdir /persist/camera 0775 mot_tcmd mot_tcmd
