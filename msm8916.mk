@@ -238,6 +238,10 @@ PRODUCT_PACKAGES += \
     stml0xx_wrapper.sh \
     ueventd.rc
 
+# OEM Unlock
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.oem_unlock_supported=0
+
 # RIL
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
