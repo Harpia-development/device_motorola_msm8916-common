@@ -91,8 +91,8 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     camera.msm8916 \
-    camera.device@1.0-impl \
-    camera.device@1.0-service \
+    camera.device@3.2-impl \
+    camera.device@3.2-service \
     libbson \
     libshim_atomic \
     libc_util \
