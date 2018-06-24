@@ -6,8 +6,9 @@ init_daemon_domain(mmi_boot_sh)
 
 allow mmi_boot_sh firmware_file:dir search;
 
-# Execute /system/bin/grep, /system/bin/sh and toolbox
-allow mmi_boot_sh { grep_exec shell_exec toolbox_exec }:file rx_file_perms;
+# shell scripts need to execute /vendor/bin/sh and toolbox
+allow mmi_boot_sh vendor_shell_exec:file rx_file_perms;
+allow mmi_boot_sh vendor_toolbox_exec:file rx_file_perms;
 
 # Logs to /dev/kmsg
 allow mmi_boot_sh kmsg_device:chr_file w_file_perms;

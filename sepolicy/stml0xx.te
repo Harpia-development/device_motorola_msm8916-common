@@ -6,7 +6,10 @@ init_daemon_domain(stml0xx)
 
 r_dir_file(stml0xx, firmware_file)
 
-# Execute /system/bin/sh, /vendor/bin/stml0xx and toolbox
-allow stml0xx { shell_exec stml0xx_exec toolbox_exec }:file rx_file_perms;
+# shell scripts need to execute /vendor/bin/sh and toolbox
+allow stml0xx vendor_shell_exec:file rx_file_perms;
+allow stml0xx vendor_toolbox_exec:file rx_file_perms;
 
+allow stml0xx vendor_shell_exec:file read;
+allow stml0xx system_file:file execute_no_trans;
 allow stml0xx sensors_device:chr_file rw_file_perms;
