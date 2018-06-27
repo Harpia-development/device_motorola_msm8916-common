@@ -248,3 +248,6 @@ etc/firmware/venus.mdt
 #AptX - from aljeter
 vendor/lib/libaptXHD_encoder.so|b65cd3b72ae3e6a57901fd5b5383bfa1a88c5737
 vendor/lib/libaptX_encoder.so|b03772672144d4b750a5672c2922aded93bb0512
+
+# Crypto - from aljeter
+vendor/lib/liboemcrypto.so
