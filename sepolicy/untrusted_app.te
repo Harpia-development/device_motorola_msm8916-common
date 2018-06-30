@@ -26,3 +26,4 @@ allow untrusted_app bluetooth_data_file:dir { getattr };
 allow untrusted_app system_ndebug_socket:sock_file { getattr };
 allow untrusted_app heapdump_data_file:dir { getattr };
 allow untrusted_app hal_memtrack_default:binder { call };
+allow untrusted_app sysfs_zram:dir search;

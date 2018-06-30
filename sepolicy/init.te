@@ -6,8 +6,8 @@ allow init system_file:file mounton;
 allow init cameraserver:fd use;
 allow init gpu_device:chr_file write;
 allow init ion_device:chr_file write;
-allow init self:socket { read write };
-allow init self:udp_socket ioctl;
+allow init init:socket { read write };
+allow init init:udp_socket ioctl;
 allow init video_device:chr_file { ioctl write };
 
 
@@ -15,3 +15,6 @@ allow init video_device:chr_file { ioctl write };
 allow init { domain -lmkd -crash_dump }:process noatsecure;
 
 dontaudit init system_file:file { execute_no_trans };
+allow init smd_device:chr_file write;
+allow init rtc_device:chr_file { read write ioctl open };
+allow init init:netlink_route_socket { read create getattr write nlmsg_write };
