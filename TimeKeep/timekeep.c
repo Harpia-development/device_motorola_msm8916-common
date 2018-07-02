@@ -40,7 +40,7 @@
 #define LOG_TAG "TimeKeep"
 
 #include <cutils/properties.h>
-#include <cutils/log.h>
+#include <log/log.h>
 #include <errno.h>
 
 #define RTC_SYS_FILE "/sys/class/rtc/rtc0/since_epoch"
