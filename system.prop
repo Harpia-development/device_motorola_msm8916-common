@@ -4,8 +4,11 @@
 vendor.audio.offload.24bit.enable=false
 vendor.audio.offload.buffer.size.kb=64
 vendor.audio.offload.gapless.enabled=true
-
-av.offload.enable=true
+ro.vendor.audio.sdk.ssr=false
+af.fast_track_multiplier=1
+vendor.audio_hal.period_size=192
+vendor.voice.path.for.pcm.voip=true
+av.offload.enable=false
 vendor.audio.av.streaming.offload.enable=false
 
 persist.audio.calfile0=/etc/acdbdata/Bluetooth_cal.acdb
@@ -15,12 +18,6 @@ persist.audio.calfile3=/etc/acdbdata/Handset_cal.acdb
 persist.audio.calfile4=/etc/acdbdata/Hdmi_cal.acdb
 persist.audio.calfile5=/etc/acdbdata/Headset_cal.acdb
 persist.audio.calfile6=/etc/acdbdata/Speaker_cal.acdb
-
-ro.vendor.audio.ssr=false
-
-af.fast_track_multiplier=1
-vendor.audio_hal.period_size=192
-vendor.voice.path.for.pcm.voip=true
 
 # Bluetooth
 bluetooth.hfp.client=1
