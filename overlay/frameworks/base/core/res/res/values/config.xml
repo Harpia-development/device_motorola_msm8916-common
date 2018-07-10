@@ -344,6 +344,9 @@
          in hardware. -->
     <bool name="config_setColorTransformAccelerated">false</bool>
 
+    <!-- Should the pinner service pin the Home application? -->
+    <bool name="config_pinnerHomeApp">true</bool>
+
     <!-- Boolean indicating wheter smart battery is available or not. -->
     <bool name="config_smart_battery_available">true</bool>
 
