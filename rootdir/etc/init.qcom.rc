@@ -373,7 +373,7 @@ service wcnss-service /vendor/bin/wcnss_service
 service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class core
     user camera
-    group camera system inet input graphics
+    group camera system inet input graphics gps
     seclabel u:r:mm-qcamerad:s0
     writepid /dev/cpuset/camera-daemon/tasks
 
