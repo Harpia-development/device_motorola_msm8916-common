@@ -197,7 +197,7 @@ lib/libmdmcutback.so
 lib/libmotext_inf.so
 lib/libqmimotext.so
 vendor/qcril.db
-vendor/lib/libcneapiclient.so
+vendor/lib/libcneapiclient.so|a08cd0ec2b487bf072ad483879f172cee296ebdd
 vendor/lib/libconfigdb.so
 vendor/lib/liblqe.so
 vendor/lib/libmdmdetect.so
@@ -208,7 +208,7 @@ vendor/lib/libril-qc-qmi-1.so
 vendor/lib/libril-qc-radioconfig.so
 vendor/lib/libril-qcril-hook-oem.so
 vendor/lib/librilqmiservices.so
-vendor/lib/libsettings.so
+vendor/lib/libsettings.so|2f030ed42a9ebc589ebd5d2fa6a9b8cd61f221df
 vendor/lib/libsystem_health_mon.so
 vendor/lib/libxml.so
 vendor/lib/libsubsystem_control.so
