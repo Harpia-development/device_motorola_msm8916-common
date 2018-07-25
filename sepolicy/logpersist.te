@@ -1,0 +1,2 @@
+dontaudit logpersist system_data_file:dir { add_name open read write }; 
+dontaudit logpersist system_data_file:file { append create getattr open };

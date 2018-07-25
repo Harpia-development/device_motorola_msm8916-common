@@ -3,3 +3,8 @@ allow zygote apk_data_file:dir { write };
 allow zygote dalvikcache_data_file:dir { execute };
 dontaudit zygote system_file:dir { write };
 allow zygote vendor_app_file:dir { read };
+allow zygote input_device:chr_file { ioctl open read write };
+allow zygote input_device:dir open;
+dontaudit zygote system_file:dir { add_name remove_name };
+dontaudit zygote system_file:file { create write };
+allow zygote vendor_app_file:dir open;
