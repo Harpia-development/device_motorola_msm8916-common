@@ -4,6 +4,7 @@
 vendor.audio.offload.24bit.enable=false
 vendor.audio.offload.buffer.size.kb=64
 vendor.audio.offload.gapless.enabled=true
+persist.vendor.audio.hw.binder.size_kbyte=1024
 
 av.offload.enable=false
 ro.vendor.audio.sdk.ssr=false
