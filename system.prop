@@ -64,6 +64,7 @@ ro.pip.gated=0
 sys.usb.rps_mask=10
 
 # Media
+vendor.mediacodec.binder.size=6
 vidc.enc.narrow.searchrange=1
 
 # NITZ
