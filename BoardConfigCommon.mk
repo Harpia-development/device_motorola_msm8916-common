@@ -127,6 +127,9 @@ ifneq ($(wildcard $(BUILD_TOP)/hardware/ril-caf),)
 TARGET_RIL_VARIANT := caf
 endif
 
+# GPS
+USE_DEVICE_SPECIFIC_GPS := true
+
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/etc/fstab.qcom
