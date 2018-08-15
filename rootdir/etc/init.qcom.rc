@@ -281,6 +281,9 @@ on post-fs
     write /proc/sys/vm/page-cluster 0
     write /proc/sys/vm/vfs_cache_pressure 65
 
+    # Allow writing to the kernel trace log.
+    chmod 0222 /sys/kernel/debug/tracing/trace_marker
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/misc/camera 0770 camera camera
