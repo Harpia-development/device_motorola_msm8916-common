@@ -120,7 +120,12 @@ TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
 
+# Radio
 MALLOC_SVELTE := true
+
+ifneq ($(wildcard $(BUILD_TOP)/hardware/ril-caf),)
+TARGET_RIL_VARIANT := caf
+endif
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
