@@ -5,7 +5,8 @@ vendor.audio.offload.24bit.enable=false
 vendor.audio.offload.buffer.size.kb=64
 vendor.audio.offload.gapless.enabled=true
 
-av.offload.enable=true
+av.offload.enable=false
+ro.vendor.audio.sdk.ssr=false
 vendor.audio.av.streaming.offload.enable=false
 
 persist.audio.calfile0=/vendor/etc/acdbdata/Bluetooth_cal.acdb
