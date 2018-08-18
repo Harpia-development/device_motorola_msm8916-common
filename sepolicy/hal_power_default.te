@@ -5,3 +5,4 @@ allow hal_power_default mpctl_socket:sock_file write;
 
 allow hal_power_default mpdecision:unix_stream_socket connectto;
 allow hal_power_default perfd:unix_stream_socket connectto;
+r_dir_file(hal_power_default, debugfs_wlan) 

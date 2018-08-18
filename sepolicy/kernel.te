@@ -2,3 +2,4 @@ allow kernel unlabeled:file { getattr open };
 allow kernel untrusted_app:fd use;
 allow kernel untrusted_app_all:file { write };
 allow kernel block_device:dir { search };
+allow kernel debugfs_wlan:dir search; 

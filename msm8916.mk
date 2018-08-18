@@ -232,6 +232,10 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
     android.hardware.thermal@1.0-service
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-service-qti
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
