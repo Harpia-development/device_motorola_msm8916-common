@@ -16,14 +16,11 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-
 LOCAL_SRC_FILES := MediaCodec.cpp
-
 LOCAL_SHARED_LIBRARIES := libstagefright libmedia
-
 LOCAL_MODULE := libshims_camera
 LOCAL_MODULE_TAGS := optional
-
+LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 # RIL
@@ -32,6 +29,7 @@ LOCAL_SRC_FILES := sensor.cpp
 LOCAL_SHARED_LIBRARIES := libsensor
 LOCAL_MODULE := libshim_ril
 LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 # GPS
@@ -39,20 +37,20 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := get_process_name.c
 LOCAL_MODULE := libshims_get_process_name
 LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := atomic.cpp
 LOCAL_MODULE := libshim_atomic
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-
 LOCAL_SRC_FILES := \
     sensorlistener/ISensorServer.cpp \
     sensorlistener/SensorManager.cpp
-
 LOCAL_MODULE := libshims_sensorlistener
 LOCAL_MODULE_TAGS := optional
 LOCAL_SHARED_LIBRARIES := \
@@ -67,6 +65,7 @@ LOCAL_SHARED_LIBRARIES := \
     liblog \
     libbase \
     libsensor
+LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 
@@ -77,4 +76,5 @@ LOCAL_C_INCLUDES := $(TOP)/system/qcom/softap/sdk
 LOCAL_MODULE := libqsap_shim
 LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
+LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
