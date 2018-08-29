@@ -248,6 +248,15 @@
         </interface>
     </hal>
     <hal format="hidl">
+        <name>com.qualcomm.qti.bluetooth_audio</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IBluetoothAudio</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>vendor.lineage.livedisplay</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
