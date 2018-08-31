@@ -84,6 +84,8 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_USES_MEDIA_EXTENSIONS := true
 TARGET_PROVIDES_CAMERA_HAL := true
+TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
+	/system/vendor/bin/mm-qcamera-daemon=23
 
 # Charger
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
