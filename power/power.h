@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <hardware/power.h>
+
 enum {
     PROFILE_POWER_SAVE = 0,
     PROFILE_BALANCED,
@@ -39,3 +41,6 @@ typedef struct governor_settings {
     int scaling_min_freq;
     int scaling_min_freq_off;
 } power_profile;
+
+// Custom Lineage hints
+const static power_hint_t POWER_HINT_SET_PROFILE = (power_hint_t)0x00000111;
