@@ -148,9 +148,8 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
 
 # SELinux
-#nclude device/qcom/sepolicy/sepolicy.mk
-#include device/qcom/sepolicy/legacy-sepolicy.mk
-#BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+include device/qcom/sepolicy-legacy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)
