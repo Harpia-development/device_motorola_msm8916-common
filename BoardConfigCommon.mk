@@ -63,7 +63,7 @@ TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8916
 KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
-TARGET_EXFAT_DRIVER := exfat
+TARGET_EXFAT_DRIVER := sdfat
 BOARD_KERNEL_CMDLINE += pm.sleep_mode=1
 
 TARGET_USES_MKE2FS := true
@@ -87,11 +87,13 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_READ_ADDR_FROM_PROP := true
 
 # Camera
+TARGET_BOARD_CAMERA_HAL_VERSION := HAL1.0
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_PROVIDES_CAMERA_HAL := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_USES_NON_TREBLE_CAMERA := true
 TARGET_USES_MEDIA_EXTENSIONS := true
+TARGET_NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
 	/system/vendor/bin/mm-qcamera-daemon=23
 
@@ -177,6 +179,12 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libmmcamera_wavelet_lib.so|libc_util.so \
     /system/vendor/lib/libizat_core.so|libshims_get_process_name.so \
     /system/lib/libmdmcutback.so|libqsap_shim.so
+
+# Power
+TARGET_HAS_NO_WIFI_STATS := true
+TARGET_USES_INTERACTION_BOOST := true
+TARGET_HAS_LEGACY_POWER_STATS := true
+TARGET_HAS_NO_POWER_STATS := true
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
