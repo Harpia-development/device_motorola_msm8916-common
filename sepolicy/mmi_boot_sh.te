@@ -25,3 +25,7 @@ allow mmi_boot_sh unlabeled:dir search;
 
 set_prop(mmi_boot_sh, manufacturedate_prop)
 set_prop(mmi_boot_sh, hw_rev_prop)
+allow mmi_boot_sh proc_cmdline:file read;
+
+allow mmi_boot_sh proc_cmdline:file open;
+

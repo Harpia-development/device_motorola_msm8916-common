@@ -10,4 +10,10 @@ allow init self:socket { read write };
 allow init self:udp_socket ioctl;
 allow init video_device:chr_file { ioctl write };
 
+allow init proc:file { getattr open read setattr write };
+allow init sysfs:file { open setattr write };
+
+allow init sysfs_leds:lnk_file read;
+
+allow init sysfs_graphics:file setattr;
 

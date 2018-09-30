@@ -11,3 +11,5 @@ allow untrusted_app_25 self:udp_socket { ioctl };
 allow untrusted_app_25 proc_zoneinfo:file { getattr open read };
 allow untrusted_app_25 rootfs:dir { read };
 allow untrusted_app_25 mnt_media_rw_file:dir { getattr };
+allow untrusted_app_25 sysfs_net:dir search;
+

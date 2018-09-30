@@ -6,3 +6,5 @@ allow rild radio_data_file:file { getattr lock };
 
 # rild needs to execute /system/bin/qmi_motext_hook
 allow rild rild_exec:file execute_no_trans;
+allow rild proc:file { open read };
+

@@ -1,2 +1,4 @@
 allow surfaceflinger unlabeled:dir search;
 
+allow surfaceflinger default_android_service:service_manager { add find };
+

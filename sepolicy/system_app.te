@@ -1,1 +1,6 @@
 allow system_app wificond:binder call;
+allow system_app perfprofd:binder call;
+allow system_app proc_pagetypeinfo:file read;
+allow system_app storaged:binder call;
+allow system_app sysfs_zram:dir search;
+

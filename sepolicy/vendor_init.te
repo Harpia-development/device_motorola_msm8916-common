@@ -1,0 +1,20 @@
+type dpmd_data_file;
+# vendor init
+allow vendor_init audio_data_file:dir setattr;
+allow vendor_init bluetooth_data_file:dir setattr;
+allow vendor_init camera_data_file:dir setattr;
+allow vendor_init dpmd_data_file:dir setattr;
+allow vendor_init proc:file write;
+allow vendor_init radio_data_file:file { open write };
+allow vendor_init rootfs:dir { add_name create setattr write };
+allow vendor_init system_data_file:dir { setattr write };
+
+allow vendor_init dpmd_data_file:dir search;
+allow vendor_init radio_data_file:dir search;
+allow vendor_init system_data_file:dir add_name;
+allow vendor_init tombstone_data_file:dir search;
+allow vendor_init firmware_file:dir search;
+allow vendor_init radio_data_file:file setattr;
+allow vendor_init system_data_file:dir create;
+allow vendor_init tombstone_data_file:dir setattr;
+allow vendor_init proc_security:file write;
