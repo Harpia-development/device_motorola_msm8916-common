@@ -2,3 +2,9 @@ allow mediaserver default_android_service:service_manager add;
 allow mediaserver device:dir { open read };
 allow mediaserver firmware_file:dir search;
 
+allow mediaserver hal_camera_hwservice:hwservice_manager find;
+
+allow mediaserver cameraserver_service:service_manager add;
+
+allow mediaserver cameraproxy_service:service_manager find;
+

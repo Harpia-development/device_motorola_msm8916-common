@@ -17,3 +17,14 @@ allow init sysfs_leds:lnk_file read;
 
 allow init sysfs_graphics:file setattr;
 
+allow init system_file:file execute_no_trans;
+allow init vendor_file:file execute_no_trans;
+
+allow init hwservicemanager:binder call;
+
+allow init hwservicemanager:binder transfer;
+
+allow init hwservicemanager:binder transfer;
+
+allow init hal_power_hwservice:hwservice_manager add;
+allow init hidl_base_hwservice:hwservice_manager add;

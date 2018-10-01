@@ -2,3 +2,6 @@ allow system_server sensors_device:chr_file rw_file_perms;
 
 # Unlabeled
 allow system_server unlabeled:file unlink;
+allow system_server storage_stub_file:dir getattr;
+
+allow system_server init:binder call;
