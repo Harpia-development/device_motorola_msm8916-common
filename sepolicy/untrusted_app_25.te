@@ -13,3 +13,6 @@ allow untrusted_app_25 rootfs:dir { read };
 allow untrusted_app_25 mnt_media_rw_file:dir { getattr };
 allow untrusted_app_25 sysfs_net:dir search;
 
+allow untrusted_app_25 camera_prop:file read;
+allow untrusted_app_25 camera_prop:file open;
+allow untrusted_app_25 camera_prop:file getattr;
