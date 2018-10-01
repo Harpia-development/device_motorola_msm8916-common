@@ -16,3 +16,4 @@ allow untrusted_app_25 sysfs_net:dir search;
 allow untrusted_app_25 camera_prop:file read;
 allow untrusted_app_25 camera_prop:file open;
 allow untrusted_app_25 camera_prop:file getattr;
+allow untrusted_app_25 sysfs:file read;

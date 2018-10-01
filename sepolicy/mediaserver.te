@@ -11,3 +11,7 @@ allow mediaserver cameraproxy_service:service_manager find;
 allow mediaserver serialno_prop:file read;
 allow mediaserver sysfs:file read;
 
+allow mediaserver serialno_prop:file open;
+allow mediaserver sysfs:file open;
+allow mediaserver serialno_prop:file getattr;
+allow mediaserver sysfs:file getattr;
