@@ -6,3 +6,5 @@ allow system_app sysfs_zram:dir search;
 allow system_app proc_pagetypeinfo:file open;
 allow system_app sysfs_zram:file read;
 
+allow system_app proc_pagetypeinfo:file getattr;
+allow system_app sysfs_zram:file open;
