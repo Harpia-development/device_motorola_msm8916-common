@@ -4,4 +4,3 @@ allow kernel untrusted_app:fd use;
 allow kernel block_device:dir search;
 
 allow kernel untrusted_app_25:fd use;
-
