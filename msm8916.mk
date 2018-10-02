@@ -100,13 +100,13 @@ PRODUCT_PACKAGES += \
     Snap \
     libbson \
     GoogleCameraMod \
-    Camera2 \
     camera.device@1.0-impl \
     camera.device@3.2-impl \
     android.hardware.camera.provider@2.4-impl \
     vendor.qti.hardware.camera.device@1.0 \
     vendor.qti.hardware.camera.device@1.0_vendor \
-    libjustshoot_shim
+    libjustshoot_shim \
+    com.motorola.cameraone
 
 # Camera properties
 PRODUCT_PROPERTY_OVERRIDES += \
