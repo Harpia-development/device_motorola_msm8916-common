@@ -8,3 +8,5 @@ allow priv_app sysfs:file getattr;
 allow priv_app camera_prop:file read;
 allow priv_app camera_prop:file open;
 allow priv_app camera_prop:file getattr;
+allow priv_app camera_prop:file open;
+
