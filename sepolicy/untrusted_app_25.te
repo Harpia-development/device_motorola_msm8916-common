@@ -17,3 +17,8 @@ allow untrusted_app_25 camera_prop:file read;
 allow untrusted_app_25 camera_prop:file open;
 allow untrusted_app_25 camera_prop:file getattr;
 allow untrusted_app_25 sysfs:file read;
+allow untrusted_app_25 hal_memtrack_default:binder call;
+allow untrusted_app_25 mnt_vendor_file:dir getattr;
+allow untrusted_app_25 proc_vmstat:file { getattr open };
+allow untrusted_app_25 rootfs:dir open;
+
