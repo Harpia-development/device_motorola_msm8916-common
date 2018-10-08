@@ -247,6 +247,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-service-qti
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
