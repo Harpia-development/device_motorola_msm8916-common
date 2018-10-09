@@ -108,6 +108,13 @@ PRODUCT_PACKAGES += \
     libjustshoot_shim \
     GoogleCamera
 
+# Required by google cam
+PRODUCT_COPY_FILES +=  \
+    $(LOCAL_PATH)/app/GoogleCamera/camera_click.ogg:system/product/media/audio/ui \
+    $(LOCAL_PATH)/app/GoogleCamera/camera_focus.ogg:system/product/media/audio/ui \
+    $(LOCAL_PATH)/app/GoogleCamera/VideoStop.ogg:system/product/media/audio/ui \
+    $(LOCAL_PATH)/app/GoogleCamera/VideoRecord.ogg:system/product/media/audio/ui
+
 # Camera properties
 PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1 \
