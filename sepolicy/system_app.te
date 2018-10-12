@@ -9,3 +9,5 @@ allow system_app sysfs_zram:file read;
 allow system_app proc_pagetypeinfo:file getattr;
 allow system_app sysfs_zram:file open;
 allow system_app sysfs_zram:file getattr;
+allow system_app netd:binder call;
+allow system_app vold:binder call;
