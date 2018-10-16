@@ -139,6 +139,10 @@ PRODUCT_PACKAGES += \
     memtrack.msm8916 \
     libboringssl-compat
 
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwui.use_buffer_age=false
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
