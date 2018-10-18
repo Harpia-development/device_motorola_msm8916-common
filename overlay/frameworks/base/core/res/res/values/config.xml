@@ -338,10 +338,6 @@
         <item>"/system/framework/boot-core-libart.vdex"</item>
    </string-array>
 
-    <!-- Control whether Night display is available. This should only be enabled on devices
-           with HWC 2.0 or higher. -->
-    <bool name="config_nightDisplayAvailable">false</bool>
-    
     <!-- Whether or not swipe up gesture's opt-in setting is available on this device -->
     <bool name="config_swipe_up_gesture_setting_available">true</bool>
     
