@@ -219,7 +219,7 @@
         <name>android.hardware.renderscript</name>
         <transport arch="32">passthrough</transport>
         <version>1.0</version>
-	<interface>
+        <interface>
             <name>IDevice</name>
             <instance>default</instance>
         </interface>
