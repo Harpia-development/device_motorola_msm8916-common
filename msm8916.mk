@@ -141,6 +141,11 @@ PRODUCT_PACKAGES += \
     FMRadio \
     libfmjni
 
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service
+
 # GPS
 PRODUCT_PACKAGES += \
     libcurl \
