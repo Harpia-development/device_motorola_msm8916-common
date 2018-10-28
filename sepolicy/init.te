@@ -19,6 +19,7 @@ allow init sysfs_graphics:file setattr;
 
 allow init system_file:file execute_no_trans;
 allow init vendor_file:file execute_no_trans;
+allow init vendor_file:lnk_file { create };
 
 allow init hwservicemanager:binder call;
 
