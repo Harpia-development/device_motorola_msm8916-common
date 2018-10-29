@@ -32,3 +32,5 @@ allow init hidl_base_hwservice:hwservice_manager add;
 allow init default_android_hwservice:hwservice_manager add;
 allow init hal_usb_hwservice:hwservice_manager add;
 allow init system_server:binder call;
+allow init sysfs:file read;
+

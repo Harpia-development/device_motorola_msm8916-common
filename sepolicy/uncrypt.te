@@ -1,0 +1,1 @@
+allow uncrypt proc:file read;
