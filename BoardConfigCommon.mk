@@ -64,6 +64,7 @@ TARGET_KERNEL_SOURCE := kernel/motorola/msm8916
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 TARGET_EXFAT_DRIVER := sdfat
 BOARD_KERNEL_CMDLINE += pm.sleep_mode=1
+TARGET_CUSTOM_DTBTOOL := dtbToolLineage
 
 TARGET_USES_MKE2FS := true
 
@@ -124,6 +125,7 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
+DEVICE_MATRIX_FILE := $(VENDOR_PATH)/compatibility_matrix.xml
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -152,6 +154,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
 # SELinux
 include device/qcom/sepolicy-legacy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+PLAT_PRIVATE_POLICY += $(VENDOR_PATH)/sepolicy_private
 
 # Dexpreopt
 ifeq ($(HOST_OS),linux)

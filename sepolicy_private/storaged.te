@@ -1,0 +1,7 @@
+allow storaged sysfs:file read;
+allow storaged sysfs:file open;
+allow storaged sysfs:file getattr;
+allow storaged init:binder call;
+allow storaged sysfs_mmc_host:file open;
+allow storaged sysfs_mmc_host:file read;
+allow system_app storaged:binder call;
