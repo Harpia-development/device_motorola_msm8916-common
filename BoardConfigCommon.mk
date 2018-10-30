@@ -150,6 +150,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
 # SELinux
 include device/qcom/sepolicy-legacy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+PLAT_PRIVATE_POLICY += $(VENDOR_PATH)/sepolicy_private
 
 # Dexpreopt
 ifeq ($(HOST_OS),linux)
