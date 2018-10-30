@@ -105,15 +105,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     vendor.qti.hardware.camera.device@1.0 \
     vendor.qti.hardware.camera.device@1.0_vendor \
-    libjustshoot_shim \
-    GoogleCamera
-
-# Required by google cam
-PRODUCT_COPY_FILES +=  \
-    $(LOCAL_PATH)/app/GoogleCamera/camera_click.ogg:system/product/media/audio/ui \
-    $(LOCAL_PATH)/app/GoogleCamera/camera_focus.ogg:system/product/media/audio/ui \
-    $(LOCAL_PATH)/app/GoogleCamera/VideoStop.ogg:system/product/media/audio/ui \
-    $(LOCAL_PATH)/app/GoogleCamera/VideoRecord.ogg:system/product/media/audio/ui
+    libjustshoot_shim
 
 # Camera properties
 PRODUCT_PROPERTY_OVERRIDES += \
