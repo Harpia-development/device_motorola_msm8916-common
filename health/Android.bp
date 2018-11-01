@@ -31,6 +31,7 @@ cc_binary {
         "android.hardware.health@1.0-convert",
         "libhealthservice",
         "libbatterymonitor",
+        "libhealthstoragedefault",
     ],
 
     shared_libs: [
