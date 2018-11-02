@@ -85,6 +85,9 @@ sys.use_fifo_ui=1
 # Perf
 sys.use_fifo_ui=1
 
+# Perf
+sys.use_fifo_ui=1
+
 # USB debugging at boot
 persist.sys.usb.config=mtp,adb 
 ro.adb.secure=0 
