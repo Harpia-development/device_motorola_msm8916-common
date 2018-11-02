@@ -304,6 +304,9 @@
          in hardware. -->
     <bool name="config_setColorTransformAccelerated">false</bool>
 
+    <!-- Boolean indicating wheter smart battery is available or not. -->
+    <bool name="config_smart_battery_available">true</bool>
+
     <!-- Values for GPS configuration -->
     <string-array translatable="false" name="config_gpsParameters">
         <item>XTRA_SERVER_1=https://xtrapath1.izatcloud.net/xtra3grc.bin</item>
