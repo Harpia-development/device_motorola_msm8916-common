@@ -22,6 +22,7 @@ ro.vendor.audio.ssr=false
 af.fast_track_multiplier=1
 vendor.audio_hal.period_size=192
 vendor.voice.path.for.pcm.voip=true
+ro.config.media_vol_steps=60
 
 # Bluetooth
 bluetooth.hfp.client=1
@@ -75,6 +76,7 @@ persist.radio.relay_oprt_change=1
 rild.libargs=-d /dev/smd0
 rild.libpath=/system/vendor/lib/libril-wrapper.so
 
+ro.config.vc_call_vol_steps=7
 ro.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
 persist.vendor.radio.add_power_save=1
