@@ -44,6 +44,9 @@ on early-init
 
     symlink /data/tombstones /tombstones
 
+    # Set permissions so radio can read
+    chmod 0444 /proc/cmdline
+
 on init
     chmod 0444 /sys/module/msm_performance/parameters/cpu_min_freq
 
