@@ -151,6 +151,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
 include device/qcom/sepolicy-legacy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 PLAT_PRIVATE_POLICY += $(VENDOR_PATH)/sepolicy_private
+SELINUX_IGNORE_NEVERALLOWS := true
 
 # Dexpreopt
 ifeq ($(HOST_OS),linux)
