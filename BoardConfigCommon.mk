@@ -181,9 +181,6 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib/libjustshoot.so|libjustshoot_shim.so
 
 # Power
-ifeq ($(TARGET_BOARD_PLATFORM_VARIANT),msm8916)
-TARGET_HAS_NO_POWER_STATS := true
-endif
 TARGET_HAS_NO_WLAN_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
 TARGET_HAS_LEGACY_POWER_STATS := true
