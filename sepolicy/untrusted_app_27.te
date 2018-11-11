@@ -48,3 +48,6 @@ allow untrusted_app_27 smd_device:chr_file getattr;
 allow untrusted_app_27 system_data_file:dir read;
 allow untrusted_app_27 system_ndebug_socket:sock_file { getattr write };
 allow untrusted_app_27 vndservice_contexts_file:file getattr;
+allow untrusted_app_27 hal_memtrack_hwservice:hwservice_manager find;
+allow untrusted_app_27 kgsl_debugfs:file { open read };
+allow untrusted_app_27 proc:file { open read };
