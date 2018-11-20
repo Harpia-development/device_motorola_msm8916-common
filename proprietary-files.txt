@@ -102,6 +102,9 @@ etc/firmware/a300_pm4.fw
 etc/firmware/a420_pfp.fw
 etc/firmware/a420_pm4.fw
 
+# Copybit
+vendor/lib/hw/copybit.msm8916.so
+
 # Media - from aljeter
 vendor/lib/libmm-color-convertor.so|a2f4491469425c3698e6a4a894ec46218a198f2b
 vendor/lib/libOmxAacDec.so|38ac9397aa75f598dd0ea48e56321837691ba0e3
@@ -205,5 +208,5 @@ lib/libprotobuf-cpp-N.so|f8b1e1d088cd4707393a1fad233f8b06116bc666
 vendor/lib/libaptXHD_encoder.so|b65cd3b72ae3e6a57901fd5b5383bfa1a88c5737
 vendor/lib/libaptX_encoder.so|b03772672144d4b750a5672c2922aded93bb0512
 
-# DRM - from aljeter
-vendor/lib/liboemcrypto.so|b0914cef35338d973658aa54d487255a14f5ea4f
+# DRM
+vendor/lib/liboemcrypto.so
