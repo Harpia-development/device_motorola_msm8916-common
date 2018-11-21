@@ -98,7 +98,6 @@ PRODUCT_PACKAGES += \
     libshims_camera \
     libshims_sensorlistener \
     Snap \
-    SnapdragonCamera \
     libbson \
     GoogleCameraMod \
     camera.device@1.0-impl \
