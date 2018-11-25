@@ -266,10 +266,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl
 
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl \
-    android.hardware.thermal@1.0-service \
-
 # TextClassifier smart selection model
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
