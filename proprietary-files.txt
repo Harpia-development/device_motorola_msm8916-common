@@ -182,11 +182,6 @@ lib/hw/sensorhub.msm8916.so
 # STLport
 vendor/lib/libstlport.so
 
-# Thermal
-vendor/bin/thermal-engine
-vendor/lib/libthermalclient.so
-vendor/lib/libthermalioctl.so
-
 # Time services
 -app/TimeService/TimeService.apk
 bin/time_daemon
