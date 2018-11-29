@@ -59,6 +59,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
     android.hardware.audio.effect@2.0-service \
     android.hardware.soundtrigger@2.0-impl \
+    sound_trigger.primary \
     audio.a2dp.default \
     audio.r_submix.default \
     audio.usb.default \
@@ -286,6 +287,7 @@ PRODUCT_PACKAGES += \
 # Wifi
 PRODUCT_PACKAGES += \
     hostapd \
+    wifilogd \
     wpa_supplicant \
     wpa_supplicant.conf
 
