@@ -28,6 +28,7 @@ vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|b5465f0bc302b47a67b3475
 lib/libmot_sensorlistener.so
 vendor/lib/libbson.so
 vendor/lib/libfastcvopt.so
+vendor/lib/libmmcamera2_imglib_modules.so
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_1_1.fw
@@ -59,6 +60,7 @@ vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so|40aaac77ad5c297ce91e8ef7444c8a09
 etc/flp.conf
 etc/gps.conf
 etc/sap.conf
+etc/izat.conf
 lib/libloc_api_v02.so
 lib/libloc_ds_api.so
 vendor/lib/hw/flp.default.so
@@ -108,12 +110,13 @@ vendor/lib/hw/copybit.msm8916.so
 
 # Media - from aljeter
 vendor/lib/libmm-color-convertor.so|a2f4491469425c3698e6a4a894ec46218a198f2b
-vendor/lib/libOmxAacDec.so|38ac9397aa75f598dd0ea48e56321837691ba0e3
+vendor/lib/libOmxAacDec.so|d4d36b943fd18b565af4ed6d81e422b60ac6b5c2
 vendor/lib/libOmxEvrcDec.so|b003a2147230e3040a2b64ba9fa94367961fc7e2
 vendor/lib/libOmxQcelp13Dec.so|8e890cbe50cb2f404648c967d00d7d0d8770bd6d
 
 
 # Qualcomm framework
+etc/permissions/qti_permissions.xml
 bin/irsc_util
 vendor/lib/libdiag.so
 vendor/lib/libDiagService.so
@@ -153,7 +156,7 @@ lib/libmdmcutback.so
 lib/libmotext_inf.so
 lib/libqmimotext.so
 vendor/qcril.db
-vendor/lib/libcneapiclient.so|a08cd0ec2b487bf072ad483879f172cee296ebdd
+vendor/lib/libcneapiclient.so|4e1db44c810c73ef3b3fd1a3f5ab3d1112cc7fcc
 vendor/lib/libconfigdb.so
 vendor/lib/liblqe.so
 vendor/lib/libmdmdetect.so
@@ -163,7 +166,7 @@ vendor/lib/libril-qc-qmi-1.so
 vendor/lib/libril-qc-radioconfig.so
 vendor/lib/libril-qcril-hook-oem.so
 vendor/lib/librilqmiservices.so
-vendor/lib/libsettings.so|2f030ed42a9ebc589ebd5d2fa6a9b8cd61f221df
+vendor/lib/libsettings.so|50532a1a88bd3d785eb5ecc500788763c582e442
 vendor/lib/libsystem_health_mon.so
 vendor/lib/libxml.so
 vendor/lib/libsubsystem_control.so
@@ -200,12 +203,10 @@ etc/firmware/venus.b04
 etc/firmware/venus.mbn
 etc/firmware/venus.mdt
 
-# Haxx
-lib/libprotobuf-cpp-N.so|f8b1e1d088cd4707393a1fad233f8b06116bc666
-
 #AptX - from aljeter
 vendor/lib/libaptXHD_encoder.so|b65cd3b72ae3e6a57901fd5b5383bfa1a88c5737
 vendor/lib/libaptX_encoder.so|b03772672144d4b750a5672c2922aded93bb0512
+vendor/lib/libldacBT_enc.so|6b9ad026c3e4dcd5cba654bd7b3848a0446f4e8c
 
 # DRM
 vendor/lib/liboemcrypto.so
