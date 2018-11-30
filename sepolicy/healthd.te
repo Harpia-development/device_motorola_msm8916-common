@@ -1,3 +1,3 @@
 allow healthd device:dir r_dir_perms;
 allow healthd sysfs:file { getattr open read };
-
+allow healthd rtc_device:chr_file rw_file_perms;
