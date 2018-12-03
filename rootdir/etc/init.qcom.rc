@@ -183,7 +183,6 @@ on boot
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
-on late-fs
 on post-fs
     mkdir /persist/camera 0775 mot_tcmd mot_tcmd
     mkdir /persist/camera/ledcal 0755 camera mot_tcmd
@@ -242,6 +241,12 @@ on post-fs
 
 on late-fs
     start vendor.devstart_sh
+
+    # boot time fs tune
+    write /sys/block/mmcblk0/queue/iostats 0
+    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0/queue/nr_requests 256
+    write /sys/block/mmcblk1/queue/read_ahead_kb 1024
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -650,6 +655,9 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 533333
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 533333
 
+    # Use maple instead of noop or cfq
+    setprop sys.io.scheduler "maple"
+
     # Disable I/O stats on both the internal and external drives
 
     # Internal
@@ -688,6 +696,12 @@ on property:sys.boot_completed=1
     write /sys/module/adreno_idler/parameters/adreno_idler_active "Y"	
 
     start perfd
+
+    # end boot time fs tune
+    write /sys/block/mmcblk0/queue/read_ahead_kb 512
+    write /sys/block/mmcblk0/queue/nr_requests 256
+    write /sys/block/mmcblk0/queue/iostats 1 
+    write /sys/block/mmcblk1/queue/read_ahead_kb 512
 
 on property:apexd.status=ready
     mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
