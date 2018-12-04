@@ -14,6 +14,7 @@ vendor.audio.av.streaming.offload.enable=false
 vendor.audio.offload.buffer.size.kb=64
 vendor.audio.offload.gapless.enabled=true
 vendor.voice.path.for.pcm.voip=true
+ro.config.media_vol_steps=25
 
 # Bluetooth
 bluetooth.hfp.client=1
