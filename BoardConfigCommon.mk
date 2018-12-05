@@ -62,7 +62,6 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8916
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
-TARGET_EXFAT_DRIVER := sdfat
 BOARD_KERNEL_CMDLINE += pm.sleep_mode=1
 TARGET_CUSTOM_DTBTOOL := dtbToolLineage
 
