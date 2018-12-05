@@ -3,6 +3,7 @@
 
 # Init shell scripts
 /(vendor|system/vendor)/bin/init\.mmi\.boot\.sh             u:object_r:mmi_boot_sh_exec:s0
+/(vendor|system/vendor)/bin/init\.mmi\.bt\.sh               u:object_r:mmi_bt_sh_exec:s0
 /(vendor|system/vendor)/bin/init\.mmi\.touch\.sh            u:object_r:mmi_touch_sh_exec:s0
 
 # Lights
