@@ -279,14 +279,6 @@ on post-fs-data
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
 
-    # Create directory for audio delta files
-    mkdir /data/misc/audio/acdbdata 0770 media audio
-    mkdir /data/misc/audio/acdbdata/delta 0770 media audio
-
-    mkdir /data/vendor/ramdump 0771 root system
-    mkdir /data/vendor/bluetooth 0770 bluetooth bluetooth
-    mkdir /data/vendor/ramdump/bluetooth 0770 bluetooth bluetooth
-
     # Create directories for Location services
     mkdir /data/misc/location 0770 gps gps
     mkdir /data/misc/location/mq 0770 gps gps
@@ -307,10 +299,6 @@ on post-fs-data
 
     # Create directory for cutback
     mkdir /data/misc/cutback 0770 radio wifi
-
-    #create netmgr log dir
-    mkdir /data/misc/netmgr 0770 radio radio
-    chmod 0770 /data/misc/netmgr
 
     # Permissions for Factory Test of Charging Paths
     chown oem_5001 oem_5001 /sys/class/power_supply/battery/device/force_chg_auto_enable
@@ -392,8 +380,8 @@ service qseecomd /system/bin/qseecomd
 service timekeep /system/vendor/bin/timekeep restore
    class late_start
    user root
-   group root system
-   seclabel u:r:timekeep:s0
+   group root
+   seclabel u:r:time_daemon:s0
 
 service irsc_util /system/bin/irsc_util "/vendor/etc/sec_config"
     class main
