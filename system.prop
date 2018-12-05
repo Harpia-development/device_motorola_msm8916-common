@@ -76,6 +76,7 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 
 # Radio
+persist.data.netmgrd.qos.enable=true
 persist.data.qmi.adb_logmask=0
 persist.radio.apn_delay=5000
 persist.radio.apm_sim_not_pwdn=1
@@ -85,10 +86,9 @@ persist.radio.oem_ind_to_both=false
 persist.radio.relay_oprt_change=1
 rild.libargs=-d /dev/smd0
 rild.libpath=/system/vendor/lib/libril-wrapper.so
+ro.telephony.call_ring.multiple=false
 
 ro.config.vc_call_vol_steps=7
-ro.use_data_netmgrd=true
-persist.data.netmgrd.qos.enable=true
 persist.vendor.radio.add_power_save=1
 
 # Perf
@@ -105,3 +105,6 @@ persist.service.adb.enable=1
 # Power Manager
 pm.sleep_mode=1
 ro.ril.disable.power.collapse=1
+
+# WiFi
+wifi.interface=wlan0
