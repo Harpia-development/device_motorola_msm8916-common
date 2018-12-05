@@ -255,6 +255,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.mmi.boot.sh \
+    init.mmi.bt.sh \
     init.mmi.touch.sh \
     init.mmi.usb.rc \
     init.qcom.ril.sh \
