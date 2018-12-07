@@ -110,8 +110,11 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
+<<<<<<< HEAD
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_QCOM_DISPLAY_PP := true
+=======
+>>>>>>> origin/pie
 
 # Exclude serif fonts for saving system.img size.
 EXCLUDE_SERIF_FONTS := true
@@ -165,7 +168,7 @@ ifeq ($(HOST_OS),linux)
 		USE_DEX2OAT_DEBUG := false
 		DONT_DEXPREOPT_PREBUILTS := true
 		WITH_DEXPREOPT_PIC := true
-		WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
+		WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
 	endif
 endif
 

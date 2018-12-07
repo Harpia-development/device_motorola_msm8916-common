@@ -59,6 +59,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
     android.hardware.audio.effect@2.0-service \
     android.hardware.soundtrigger@2.0-impl \
+    sound_trigger.primary \
     audio.a2dp.default \
     audio.r_submix.default \
     audio.usb.default \
@@ -92,13 +93,11 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     camera.msm8916 \
-    libbson \
     libshim_atomic \
     libc_util \
     libshims_camera \
     libshims_sensorlistener \
     Snap \
-    libbson \
     GoogleCameraMod \
     camera.device@1.0-impl \
     camera.device@3.2-impl \
@@ -287,6 +286,7 @@ PRODUCT_PACKAGES += \
 # Wifi
 PRODUCT_PACKAGES += \
     hostapd \
+    wifilogd \
     wpa_supplicant \
     wpa_supplicant.conf
 
