@@ -82,7 +82,7 @@ PRODUCT_PACKAGES += \
     libboringssl-compat \
     libc_util \
     libshims_camera \
-    Snap
+    OpenCamera
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
