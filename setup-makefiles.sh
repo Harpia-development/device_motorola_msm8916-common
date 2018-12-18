@@ -17,7 +17,9 @@
 #
 
 set -e
-
+DEVICE=harpia
+DEVICE_COMMON=msm8916-common
+VENDOR=motorola
 export INITIAL_COPYRIGHT_YEAR=2016
 
 # Load extractutils and do some sanity checks
