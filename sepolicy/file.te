@@ -9,3 +9,11 @@ type grep_exec, exec_type, file_type;
 
 # Touch script
 type sysfs_mmi_touch, fs_type, sysfs_type;
+
+type proc_swappiness, fs_type, proc_type;
+type proc_kernel_sched, fs_type, proc_type;
+
+# RIL
+type netmgr_data_file, file_type, data_file_type;
+
+type sysfs_w1_bus, fs_type, sysfs_type;
