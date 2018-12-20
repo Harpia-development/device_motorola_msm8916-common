@@ -47,6 +47,8 @@ on early-init
     symlink /data/tombstones /tombstones
 
 on init
+    chmod 0444 /sys/module/msm_performance/parameters/cpu_min_freq
+
     export LD_PRELOAD /system/lib/libboringssl-compat.so
 
     # Set permissions for persist partition
@@ -468,6 +470,11 @@ on post-fs-data
     setprop ro.hw.hwrev ${ro.boot.hwrev}
     setprop ro.hw.radio ${ro.boot.radio}
 
+    #Create PERFD deamon related dirs
+    mkdir /data/vendor/perfd 0770 root system
+    chmod 2770 /data/vendor/perfd
+    rm /data/vendor/perfd/default_values
+
 # Start Sensor daemon
 service stml0xx /vendor/bin/stml0xx_wrapper.sh
     class late_start
@@ -648,6 +655,9 @@ on property:sys.wifi.tethering=true
 on property:ro.hw.revision=*
     setprop ro.boot.hardware.revision ${ro.hw.revision}
 
+on enable-low-power
+    setprop sys.post_boot.parsed 1
+
 on charger
     trigger early-fs
     trigger fs
@@ -686,6 +696,7 @@ on moto-charger
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.qcom
+    trigger enable-low-power
     # Improve performance and stability, fix freq sets
     
     # 533 MHz min freq for all cores
