@@ -65,35 +65,35 @@ vendor/lib/libgeofence.so|b91de149da071fddb42772bb10439077d7b0b39a
 vendor/lib/libizat_core.so|bf23714f97dbe611148c592c6677ee0171d36336
 vendor/lib/liblbs_core.so|3d8b57d39bf143cc5cce96cd11af34ec621044cb
 
-# Graphics
-vendor/lib/egl/eglsubAndroid.so
-vendor/lib/egl/eglSubDriverAndroid.so
-vendor/lib/egl/libEGL_adreno.so
-vendor/lib/egl/libESXEGL_adreno.so
-vendor/lib/egl/libESXGLESv1_CM_adreno.so
-vendor/lib/egl/libESXGLESv2_adreno.so
-vendor/lib/egl/libGLESv1_CM_adreno.so
-vendor/lib/egl/libGLESv2_adreno.so
-vendor/lib/egl/libq3dtools_adreno.so
-vendor/lib/egl/libQTapGLES.so
-vendor/lib/egl/libRBEGL_adreno.so
-vendor/lib/egl/libRBGLESv1_CM_adreno.so
-vendor/lib/egl/libRBGLESv2_adreno.so
-vendor/lib/libadreno_utils.so
-vendor/lib/libbccQTI.so
-vendor/lib/libc2d30-a3xx.so
-vendor/lib/libc2d30-a4xx.so
-vendor/lib/libC2D2.so
-vendor/lib/libCB.so
-vendor/lib/libgsl.so
-vendor/lib/libllvm-glnext.so
-vendor/lib/libllvm-qcom.so
-vendor/lib/libOpenCL.so
-vendor/lib/librs_adreno_sha1.so
-vendor/lib/librs_adreno.so
-vendor/lib/libRSDriver_adreno.so
-vendor/lib/libsc-a3xx.so
-vendor/lib/libscale.so
+# Graphics - from aosp & caf
+vendor/lib/egl/eglsubAndroid.so|a5defdbcb8c0728d28f46cf1cb7ce1f1db1b6c01
+vendor/lib/egl/eglSubDriverAndroid.so|1fd1f3d52fd8dc088cf203089dd941153346ce62
+vendor/lib/egl/libEGL_adreno.so|43edd22345700e4e02af140102a5b8aad372ba9b
+vendor/lib/egl/libESXEGL_adreno.so|d5074fd3ef035e5bcb5cd8473468eb5f83affbe5
+vendor/lib/egl/libESXGLESv1_CM_adreno.so|20475a289ad996ca31236bc8ddeac5433bdc269f
+vendor/lib/egl/libESXGLESv2_adreno.so|36bb5cf5767b92bc813961e8f891b93d74c2421e
+vendor/lib/egl/libGLESv1_CM_adreno.so|cd3c480a00336d8f2b9a71fb15983c78f10ce16b
+vendor/lib/egl/libGLESv2_adreno.so|70ecb1c6d04493760bb133b363679d7ba40817dd
+vendor/lib/egl/libq3dtools_adreno.so|eccdb64e9d75a5e516c02ba85f55e03d89da2813
+vendor/lib/egl/libQTapGLES.so|641e9dcb76d8339a162f7be548cd199685815583
+vendor/lib/egl/libRBEGL_adreno.so|63159a9743045a5fead3a9817430f724f83a0a1a
+vendor/lib/egl/libRBGLESv1_CM_adreno.so|579c1fddeadbbca4bd45bfa4d2d2d06ca1604818
+vendor/lib/egl/libRBGLESv2_adreno.so|5b8dee9657c8e6c5657b47569cf7735f31482c3d
+vendor/lib/libadreno_utils.so|f396fe3d1cf5d8981e248a0f13e555e0722e797f
+vendor/lib/libbccQTI.so|19ab8268addaa5b73631551dbc61154581636eca
+vendor/lib/libc2d30-a3xx.so|2ecb96f0d7f8eb2baf2e786a6a029b989763bf0f
+vendor/lib/libc2d30-a4xx.so|f9afec859c654cb646a27af8f9e16e8a8c412055
+vendor/lib/libC2D2.so|8d71be527eb6edfaed345de5d51551595db352f3
+vendor/lib/libCB.so|940c158f4284061680ae47c8bf5cf62151b83ffc
+vendor/lib/libgsl.so|eb6c8e27ca86e40d3339669655997d10dcd52d1c
+vendor/lib/libllvm-glnext.so|f89e2037b462c8af0f94cdbdeca075452bce0edd
+vendor/lib/libllvm-qcom.so|c8d224dc9b3d159f9d48a4880d84383335609bbb
+vendor/lib/libOpenCL.so|e1f8c3fdb58fa9fbb1465d909e9ab7ba31176bd6
+vendor/lib/librs_adreno_sha1.so|e797997d3ac69dfa87904863672c5b9769c796cc
+vendor/lib/librs_adreno.so|cceaf847d749ac2f1a3af3a1ae6ba653d93e0ed9
+vendor/lib/libRSDriver_adreno.so|2044baf0169177e52aba6d7138f80559ecf2b58d
+vendor/lib/libsc-a3xx.so|8c3ae2f1e0b553fcc2663845def885ed13c04bf1
+vendor/lib/libscale.so|4e7752b6c12e4ff3ab7ae89c53a0b3ad9809f5ec
 
 # Graphics firmware
 etc/firmware/a300_pfp.fw
