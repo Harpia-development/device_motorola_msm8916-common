@@ -177,6 +177,17 @@ vendor/lib/libvoice-svc.so
 vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 
+# Perf - from nowhere
+vendor/bin/hw/vendor.qti.hardware.perf@1.0-service|3a266ba24abf70b58ee8438b2f205ce283b9e95f
+vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc|b50182aadab2e31409df61c523d0fb914a394e43
+vendor/etc/perf/perfboostsconfig.xml|3d4aa8615d9b007727604c584a8ebe8812ae6c3e
+vendor/lib/libfeedbackhandler.so|370453e642770c038b69da6da92b3490fe7d2f93
+vendor/lib/libperfgluelayer.so|0e24b1e39dd3203514ab445530b6b29b0dd9b969
+vendor/lib/libqti-perfd.so|b806efa38c19680501ab329e3a3020999d5b1e8a
+vendor/lib/libqti-util.so|26c0e29785df406d2a4a1efbe6b1760e9d780b26
+vendor/lib/libqti-utils.so|099c8d4824e39c0985c45f0212849f679768cddb
+vendor/lib/vendor.qti.hardware.perf@1.0_vendor.so|7ab33bafde073de04365e0134736b80b0f19bf20
+vendor/lib/libqti-perfd-client.so|bd14a4befc446699bd02c93c7f7492d4c88938bc
 # Sensorhub Firmware
 etc/firmware/sensorhubfw.bin|90ec2a32050faf764529c22639e7a2a0196e28fc
 etc/firmware/sensorhubver.txt|7719a1c782a1ba91c031a682a0a2f8658209adbf
