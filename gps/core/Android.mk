@@ -26,6 +26,7 @@ LOCAL_SHARED_LIBRARIES := \
     libcutils \
     libgps.utils \
     libdl \
+    liblog \
     libprocessgroup
 
 LOCAL_SRC_FILES += \
