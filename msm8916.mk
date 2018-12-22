@@ -171,8 +171,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl \
     android.hardware.gnss@1.0-service \
-    gps.msm8916 \
-    libshims_get_process_name
+    gps.msm8916
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
+    $(LOCAL_PATH)/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
+    $(LOCAL_PATH)/gps/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
+    $(LOCAL_PATH)/gps/quipc.conf:$(TARGET_COPY_OUT_VENDOR)/etc/quipc.conf
 
 # IRSC
 PRODUCT_COPY_FILES += \
