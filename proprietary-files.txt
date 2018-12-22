@@ -56,18 +56,14 @@ vendor/lib/libssd.so
 vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so|12dc40b9341f014ec834bda40cb13ebc736c21a0
 vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so|40aaac77ad5c297ce91e8ef7444c8a09e0a16621
 
-# GPS
-etc/flp.conf
-etc/gps.conf
-etc/sap.conf
-etc/izat.conf
-lib/libloc_api_v02.so
-lib/libloc_ds_api.so
-vendor/lib/hw/flp.default.so
-vendor/lib/libflp.so
-vendor/lib/libgeofence.so
-vendor/lib/libizat_core.so
-vendor/lib/liblbs_core.so
+# GPS - from A6020
+vendor/lib/libloc_api_v02.so|b948d5ec82280f111d728a61a1308a0754b93814
+vendor/lib/libloc_ds_api.so|bb7debdbe94af80cc692cb72eca17655103c5f14
+vendor/lib/hw/flp.default.so|6d0fbc257f55373274a970f7081c3504a0a5178f
+vendor/lib/libflp.so|927b1caf06f19271e26f450e730bb21cb90b1a2f
+vendor/lib/libgeofence.so|b91de149da071fddb42772bb10439077d7b0b39a
+vendor/lib/libizat_core.so|bf23714f97dbe611148c592c6677ee0171d36336
+vendor/lib/liblbs_core.so|3d8b57d39bf143cc5cce96cd11af34ec621044cb
 
 # Graphics
 vendor/lib/egl/eglsubAndroid.so
