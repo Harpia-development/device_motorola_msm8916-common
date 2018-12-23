@@ -187,8 +187,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl \
-    android.hardware.light@2.0-service.harpia
+    android.hardware.light@2.0-service.msm8916
 
 # Disable Vulkan
 PRODUCT_PROPERTY_OVERRIDES += \
