@@ -68,6 +68,13 @@ on init
     write /sys/kernel/msm_thermal/sampling_ms 1000
     write /sys/kernel/msm_thermal/enabled 1
 
+    # Configure Zram and Zswap
+    write /sys/block/zram0/comp_algorithm lz4
+    write /sys/module/zswap/parameters/compressor lz4
+    write /sys/module/zswap/parameters/zpool zsmalloc
+    write /sys/module/zswap/parameters/max_pool_percent 35
+    write /sys/module/zswap/parameters/enabled 1
+
     # Full speed for bootup
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
@@ -251,7 +258,7 @@ on post-fs
     chmod 0600 /persist/whisper/whisper_only/vector0.bin
 
     write /proc/sys/vm/page-cluster 0
-    write /proc/sys/vm/swappiness 45
+    write /proc/sys/vm/swappiness 35
     write /proc/sys/vm/dirty_background_ratio 20
     write /proc/sys/vm/dirty_expire_centisecs 200
     write /proc/sys/vm/dirty_ratio 40
