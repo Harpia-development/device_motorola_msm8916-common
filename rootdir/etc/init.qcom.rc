@@ -177,10 +177,6 @@ on boot
     # Quiet binder logs
     write /sys/module/binder/parameters/debug_mask 0x5
 
-    # STML0XX driver parameter permissions
-    chown root oem_5004 /sys/module/stml0xx/parameters/irq_disable
-    chmod 0660 /sys/module/stml0xx/parameters/irq_disable
-
     # charging driver parameter permissions
     chown root oem_5004 /sys/module/fan5404x_charger/parameters/factory_kill_disable
     chmod 0660 /sys/module/fan5404x_charger/parameters/factory_kill_disable
@@ -334,13 +330,6 @@ on post-fs-data
     mkdir /data/vendor/perfd 0770 root system
     chmod 2770 /data/vendor/perfd
     rm /data/vendor/perfd/default_values
-
-# Start Sensor daemon
-service stml0xx /vendor/bin/stml0xx_wrapper.sh
-    class late_start
-    user compass
-    group compass misc input
-    oneshot
 
 service mmi-boot-sh /vendor/bin/init.mmi.boot.sh
     class core

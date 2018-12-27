@@ -255,9 +255,6 @@
 /dev/ramdump*             0640   system     system
 
 # Moto Sensors
-/dev/stml0xx               0660  system     compass
-/dev/stml0xx_as            0660  compass    compass
-/dev/stml0xx_ms            0660  compass    compass
 /dev/akm09912              0660  compass    compass
 /dev/akm09912_dev          0660  compass    compass
 
