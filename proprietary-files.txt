@@ -190,7 +190,6 @@ etc/firmware/sensorhubfw.bin|90ec2a32050faf764529c22639e7a2a0196e28fc
 etc/firmware/sensorhubver.txt|7719a1c782a1ba91c031a682a0a2f8658209adbf
 
 # Sensors
-bin/stml0xx
 lib/hw/sensorhub.msm8916.so
 
 # STLport
