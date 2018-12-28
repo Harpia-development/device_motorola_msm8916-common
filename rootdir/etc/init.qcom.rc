@@ -390,6 +390,7 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     user camera
     group camera system inet input graphics
     seclabel u:r:mm-qcamerad:s0
+    writepid /dev/cpuset/camera-daemon/tasks
 
 service charger /charger
     class charger

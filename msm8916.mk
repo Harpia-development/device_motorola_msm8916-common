@@ -206,8 +206,11 @@ PRODUCT_COPY_FILES += \
 
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
+    vidc.enc.narrow.searchrange=1 \
+    mm.enable.smoothstreaming=true \
+    mmp.enable.3g2=true \
     media.aac_51_output_enabled=true \
-    persist.media.treble_omx=false
+    audio.offload.video=true
 
 # WiFi Display
 PRODUCT_PROPERTY_OVERRIDES += \
