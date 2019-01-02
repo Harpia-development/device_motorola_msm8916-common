@@ -126,6 +126,9 @@ on boot
 
     # Prevents permission denied error for telephony
     chmod 0644 /proc/cmdline
+    
+    mkdir /data/time/ 0770 system system
+    chmod 0770 /data/time/ats_2
 
     mkdir /persist/bluetooth 0770 bluetooth bluetooth
 
@@ -386,11 +389,11 @@ service qseecomd /system/bin/qseecomd
    group root
    seclabel u:r:tee:s0
 
-service time_daemon /system/bin/time_daemon
+service timekeep /system/vendor/bin/timekeep restore
    class late_start
    user root
-   group root
-   seclabel u:r:time_daemon:s0
+   group root system
+   seclabel u:r:timekeep:s0
 
 service irsc_util /system/bin/irsc_util "/vendor/etc/sec_config"
     class main

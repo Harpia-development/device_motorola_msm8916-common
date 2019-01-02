@@ -195,11 +195,8 @@ lib/hw/sensorhub.msm8916.so
 # STLport
 vendor/lib/libstlport.so
 
-# Time services
--app/TimeService/TimeService.apk
-bin/time_daemon
-vendor/lib/libtime_genoff.so
-vendor/lib/libTimeService.so
+# Time services - from Nowhere
+vendor/lib/libtime_genoff.so|fe3a618a03940fcc62cfc27b202809110340904e
 
 # Venus (media) firmware
 etc/firmware/venus.b00
