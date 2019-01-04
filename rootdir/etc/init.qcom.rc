@@ -512,3 +512,40 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 533333
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 533333
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 533333
+
+    # Disable I/O stats on both the internal and external drives
+
+    # Internal
+    write /sys/block/mmcblk0/queue/iostats 0
+    # External
+    write /sys/block/mmcblk1/queue/iostats 0
+
+    # Disable random generator on both internal and external drives
+
+    # Internal
+    write /sys/block/mmcblk0/queue/add_random 0
+    # External
+    write /sys/block/mmcblk1/queue/add_random 0
+
+    # Increase the default readahead value for both the internal and external drives
+
+    # Internal
+    write /sys/block/mmcblk0/queue/read_ahead_kb 512
+    # External
+    write /sys/block/mmcblk1/queue/read_ahead_kb 512
+
+    # Enable fast charging by default
+    write /sys/kernel/fast_charge/force_fast_charge 1
+
+    # Decrease the entropy pool to 64 KB r/w
+
+    # Read
+    write /proc/sys/kernel/random/read_wakeup_threshold 64
+    # Write
+    write /proc/sys/kernel/random/write_wakeup_threshold 64
+
+    # Increase the sleep time for UKSM to prevent performance issues
+    write /sys/kernel/mm/uksm/sleep_millisecs
+
+    # Enable Adreno Idler by default
+    write /sys/module/adreno_idler/parameters/adreno_idler_active "Y"
