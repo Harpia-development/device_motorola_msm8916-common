@@ -1,15 +1,12 @@
 allow untrusted_app_27 proc_tty_drivers:file read;
-allow untrusted_app_27 qemu_hw_mainkeys_prop:file read;
 allow untrusted_app_27 serialno_prop:file read;
 
 allow untrusted_app_27 proc_tty_drivers:file open;
-allow untrusted_app_27 qemu_hw_mainkeys_prop:file open;
 
 allow untrusted_app_27 camera_prop:file read;
 allow untrusted_app_27 camera_prop:file open;
 allow untrusted_app_27 camera_prop:file getattr;
 allow untrusted_app_27 proc_tty_drivers:file getattr;
-allow untrusted_app_27 qemu_hw_mainkeys_prop:file getattr;
 allow untrusted_app_27 serialno_prop:file open;
 allow untrusted_app_27 block_device:blk_file getattr;
 allow untrusted_app_27 block_device:dir { getattr open read };
