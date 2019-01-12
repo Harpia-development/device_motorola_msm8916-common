@@ -47,3 +47,4 @@ allow init self:netlink_kobject_uevent_socket bind;
 
 allow init self:netlink_kobject_uevent_socket read;
 allow init hal_lineage_power_hwservice:hwservice_manager add;
+allow init hal_perf_hwservice:hwservice_manager find;
