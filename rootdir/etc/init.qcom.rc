@@ -383,6 +383,7 @@ service wcnss-service /vendor/bin/wcnss_service
     user system
     group system wifi radio
     seclabel u:r:wcnss_service:s0
+    writepid /dev/cpuset/system-background/tasks
 
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
@@ -396,6 +397,7 @@ service charger /charger
     class charger
     group log
     seclabel u:r:healthd:s0
+    writepid /dev/cpuset/system-background/tasks
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
@@ -409,12 +411,28 @@ service qseecomd /system/bin/qseecomd
    user root
    group root
    seclabel u:r:tee:s0
+   writepid /dev/cpuset/system-background/tasks
 
-service timekeep /system/vendor/bin/timekeep restore
+service thermal-engine /vendor/bin/thermal-engine
+   class main
+   user root
+   socket thermal-send-client stream 0666 system system
+   socket thermal-recv-client stream 0660 system system
+   socket thermal-recv-passive-client stream 0666 system system
+   group root
+   writepid /dev/cpuset/system-background/tasks
+
+service thermal-com /vendor/bin/thermal-engine --minimode
+    class main
+    user root
+    disabled
+    writepid /dev/cpuset/system-background/tasks
+
+service time_daemon /vendor/bin/time_daemon
    class late_start
    user root
    group root
-   seclabel u:r:time_daemon:s0
+   writepid /dev/cpuset/system-background/tasks
 
 service irsc_util /system/bin/irsc_util "/vendor/etc/sec_config"
     class main
@@ -428,6 +446,7 @@ service rmt_storage /system/bin/rmt_storage
     group system wakelock
     disabled
     seclabel u:r:rmt_storage:s0
+    writepid /dev/cpuset/system-background/tasks
 
 on property:ro.boot.emmc=true
     start rmt_storage
@@ -445,12 +464,23 @@ service qmuxd /system/bin/qmuxd
     user root
     group radio audio bluetooth gps nfc oem_2950
     seclabel u:r:qmuxd:s0
+    writepid /dev/cpuset/system-background/tasks
 
 service netmgrd /system/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet
     seclabel u:r:netmgrd:s0 
+    writepid /dev/cpuset/system-background/tasks
+
+on property:ro.use_data_netmgrd=false
+    # netmgr not supported on specific target
+    stop netmgrd
+
+# Adjust socket buffer to enlarge TCP receive window for high bandwidth
+# but only if ro.data.large_tcp_window_size property is set.
+on property:ro.data.large_tcp_window_size=true
+    write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     -g@android:wpa_wlan0 -puse_p2p_group_interface=1
@@ -471,6 +501,7 @@ service ril-daemon2 /vendor/bin/hw/rild -c 2
     disabled
     group radio cache inet misc audio log readproc wakelock
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
+    writepid /dev/cpuset/system-background/tasks
 
 service rild2-wrapper /vendor/bin/sh /vendor/etc/init.qcom.ril.sh
     class late_start
