@@ -38,8 +38,12 @@ etc/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/cpp_firmware_v1_4_0.fw
 
 # Display Color Calibration
+vendor/bin/mm-pp-daemon
 vendor/lib/libmm-disp-apis.so
 vendor/lib/libmm-qdcm.so
+vendor/lib/libdisp-aba.so
+vendor/lib/libmm-abl-oem.so
+vendor/lib/libmm-abl.so
 
 # DRM
 bin/qseecomd
