@@ -46,10 +46,8 @@ TARGET_CPU_VARIANT := cortex-a53
 TARGET_USES_64_BIT_BINDER := true
 
 # Kernel Toolchain
-ifneq ($(wildcard $(shell pwd)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-7.3),)
-  KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-7.3/bin
-  KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
-endif
+KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-linux-gnueabi-9.0/bin
+KERNEL_TOOLCHAIN_PREFIX := arm-linux-gnueabi-
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x3F ehci-hcd.park=3 vmalloc=400M androidboot.bootdevice=7824900.sdhci utags.blkdev=/dev/block/bootdevice/by-name/utags utags.backup=/dev/block/bootdevice/by-name/utagsBackup movablecore=160M
