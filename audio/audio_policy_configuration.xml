@@ -62,7 +62,7 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
-                <mixPort name="deep_buffer" role="source" flags="AUDIO_OUTPUT_FLAG_DEEP_BUFFER">
+                <mixPort name="low_latency" role="source" flags="AUDIO_OUTPUT_FLAG_FAST">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="44100,48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
@@ -100,7 +100,7 @@
                     <profile name="" format="AUDIO_FORMAT_EVRCNW"
                              samplingRates="8000,16000" channelMasks="AUDIO_CHANNEL_OUT_MONO"/>
                 </mixPort>
-                <mixPort name="primary input" role="sink" maxOpenCount="2" maxActiveCount="2">
+                <mixPort name="primary input" role="sink">
                      <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="8000,11025,12000,16000,22050,24000,32000,44100,48000"
                              channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_FRONT_BACK"/>
@@ -212,23 +212,23 @@
             <!-- route declaration, i.e. list all available sources for a given sink -->
             <routes>
                 <route type="mix" sink="Earpiece"
-                       sources="primary output,deep_buffer,compressed_offload,voip_rx,BT SCO Headset Mic"/>
+                       sources="primary output,low_latency,compressed_offload,voip_rx,BT SCO Headset Mic"/>
                 <route type="mix" sink="Speaker"
-                       sources="primary output,deep_buffer,compressed_offload,voip_rx,BT SCO Headset Mic"/>
+                       sources="primary output,low_latency,compressed_offload,voip_rx,BT SCO Headset Mic"/>
                 <route type="mix" sink="Wired Headset"
-                       sources="primary output,deep_buffer,compressed_offload,voip_rx,BT SCO Headset Mic"/>
+                       sources="primary output,low_latency,compressed_offload,voip_rx,BT SCO Headset Mic"/>
                 <route type="mix" sink="Wired Headphones"
-                       sources="primary output,deep_buffer,compressed_offload,voip_rx,BT SCO Headset Mic"/>
+                       sources="primary output,low_latency,compressed_offload,voip_rx,BT SCO Headset Mic"/>
                 <route type="mix" sink="Line"
-                       sources="primary output,deep_buffer,compressed_offload,voip_rx"/>
+                       sources="primary output,low_latency,compressed_offload,voip_rx"/>
                 <route type="mix" sink="HDMI"
-                       sources="primary output,deep_buffer,compressed_offload"/>
+                       sources="primary output,low_latency,compressed_offload"/>
                 <route type="mix" sink="Proxy"
-                       sources="primary output,deep_buffer,compressed_offload"/>
+                       sources="primary output,low_latency,compressed_offload"/>
                 <route type="mix" sink="FM"
                        sources="primary output"/>
                 <route type="mix" sink="BT SCO All"
-                       sources="primary output,deep_buffer,compressed_offload,voip_rx"/>
+                       sources="primary output,low_latency,compressed_offload,voip_rx"/>
                 <route type="mix" sink="primary input"
                        sources="Built-In Mic,Wired Headset Mic,BT SCO Headset Mic,Built-In Back Mic,FM Tuner,In Call-Voice"/>
             </routes>
@@ -236,21 +236,21 @@
         </module>
 
         <!-- A2dp Audio HAL -->
-        <xi:include href="/vendor/etc/a2dp_audio_policy_configuration.xml"/>
+        <xi:include href="a2dp_audio_policy_configuration.xml"/>
 
         <!-- Usb Audio HAL -->
-        <xi:include href="/vendor/etc/usb_audio_policy_configuration.xml"/>
+        <xi:include href="usb_audio_policy_configuration.xml"/>
 
         <!-- Remote Submix Audio HAL -->
-        <xi:include href="/vendor/etc/r_submix_audio_policy_configuration.xml"/>
+        <xi:include href="r_submix_audio_policy_configuration.xml"/>
 
     </modules>
     <!-- End of Modules section -->
 
     <!-- Volume section -->
 
-    <xi:include href="/vendor/etc/audio_policy_volumes.xml"/>
-    <xi:include href="/vendor/etc/default_volume_tables.xml"/>
+    <xi:include href="audio_policy_volumes.xml"/>
+    <xi:include href="default_volume_tables.xml"/>
 
     <!-- End of Volume section -->
 
