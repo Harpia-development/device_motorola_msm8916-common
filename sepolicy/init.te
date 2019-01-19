@@ -32,17 +32,3 @@ allow init hidl_base_hwservice:hwservice_manager add;
 allow init default_android_hwservice:hwservice_manager add;
 allow init hal_usb_hwservice:hwservice_manager add;
 allow init system_server:binder call;
-allow init sysfs:file read;
-
-allow init hal_health_hwservice:hwservice_manager add;
-
-allow init sysfs_mmc_host:file read;
-dontaudit init sysfs_mmc_host:file open;
-
-allow init self:netlink_kobject_uevent_socket create;
-
-allow init self:netlink_kobject_uevent_socket setopt;
-
-allow init self:netlink_kobject_uevent_socket bind;
-
-allow init self:netlink_kobject_uevent_socket read;

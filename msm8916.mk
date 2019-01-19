@@ -308,13 +308,6 @@ PRODUCT_PACKAGES += \
     libqsap_shim \
     libqsap_sdk
 
-# Healthd
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service.msm8916
-
-DEVICE_FRAMEWORK_MANIFEST_FILE += \
-    system/libhidl/vintfdata/manifest_healthd_exclude.xml
-
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
