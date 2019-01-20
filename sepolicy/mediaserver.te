@@ -30,3 +30,5 @@ allow mediaserver mpctl_socket:dir search;
 unix_socket_connect(mediaserver, mpctl, perfd)
 unix_socket_connect(mediaserver, thermal, thermal-engine)
 unix_socket_connect(mediaserver, sensors, sensors)
+allow mediaserver default_android_service:service_manager add;
+
