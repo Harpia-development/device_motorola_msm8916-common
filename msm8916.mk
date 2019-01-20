@@ -240,7 +240,6 @@ PRODUCT_PACKAGES += \
     libqsap_shim \
     libril-wrapper \
     librmnetctl \
-    libshim_ril \
     libxml2
 
 # Seccomp
