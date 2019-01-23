@@ -91,7 +91,7 @@ rild.libargs=-d /dev/smd0
 rild.libpath=/system/vendor/lib/libril-wrapper.so
 ro.telephony.call_ring.multiple=false
 
-persist.vendor.radio.add_power_save=1
+persist.radio.add_power_save=1
 
 # Perf
 sys.use_fifo_ui=1
