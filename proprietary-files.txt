@@ -55,6 +55,7 @@ vendor/lib/libssd.so
 # FM Radio - from addision
 lib/vendor.qti.hardware.fm@1.0.so|f2f8c0a7e34ce6a57212607eda7193cfc1e84db6
 vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so|d0793240a61058da5d871e94f11f0f4afd6a4614
+vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so|12dc40b9341f014ec834bda40cb13ebc736c21a0
 
 # GPS - from A6020
 vendor/lib/libloc_api_v02.so|b948d5ec82280f111d728a61a1308a0754b93814
