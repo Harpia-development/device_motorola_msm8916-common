@@ -97,6 +97,7 @@ ro.telephony.call_ring.multiple=false
 ro.config.vc_call_vol_steps=7
 ro.use_data_netmgrd=true
 persist.vendor.radio.add_power_save=1
+persist.radio.add_power_save=1
 
 # Perf
 sys.use_fifo_ui=1
