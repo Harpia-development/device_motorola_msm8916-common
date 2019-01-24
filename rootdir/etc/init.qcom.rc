@@ -29,8 +29,6 @@ import /vendor/etc/init/hw/init.mmi.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 
 on early-init
-    mkdir /system 0777 root root
-
     # Create firmware mount point
     mkdir /firmware 0771 system system
 
@@ -55,7 +53,6 @@ on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
 
-    mount pstore pstore /sys/fs/pstore
     chown system log /sys/fs/pstore/console-ramoops
     chmod 0440 /sys/fs/pstore/console-ramoops
     chown system log /sys/fs/pstore/annotate-ramoops
@@ -79,9 +76,6 @@ on init
     write /sys/module/zswap/parameters/enabled 1
 
     # Full speed for bootup
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
     write /sys/module/msm_thermal/core_control/enabled 0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
     write /sys/module/msm_thermal/core_control/enabled 1
@@ -350,9 +344,7 @@ on post-fs-data
     write /sys/bus/msm_subsys/devices/subsys1/restart_level related
     write /sys/bus/msm_subsys/devices/subsys2/restart_level related
 
-    setprop ro.hw.device ${ro.boot.device}
     setprop ro.hw.hwrev ${ro.boot.hwrev}
-    setprop ro.hw.radio ${ro.boot.radio}
 
     #Create PERFD deamon related dirs
     mkdir /data/vendor/perfd 0770 root system
