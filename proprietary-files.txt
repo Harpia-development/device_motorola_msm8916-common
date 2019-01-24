@@ -185,6 +185,14 @@ vendor/lib/libqti-util.so|26c0e29785df406d2a4a1efbe6b1760e9d780b26
 vendor/lib/libqti-utils.so|099c8d4824e39c0985c45f0212849f679768cddb
 vendor/lib/vendor.qti.hardware.perf@1.0_vendor.so|7ab33bafde073de04365e0134736b80b0f19bf20
 vendor/lib/libqti-perfd-client.so|bd14a4befc446699bd02c93c7f7492d4c88938bc
+lib/vendor.qti.hardware.iop@1.0.so|47ece3c3d705a25688d9272646c891498034f227
+lib/vendor.qti.hardware.iop@2.0.so|0c8cb96a4e825942ea394cf6e8378005e1e56dfc
+vendor/lib/hw/vendor.qti.hardware.iop@1.0-impl.so|c3d9bacc8b23e7869c8fab095e929fb279c9b399
+vendor/lib/libqti-iopd-client.so|fa5e4a2f32ed0f2067512984c6770563ed3e264e
+vendor/lib/libqti-iopd.so|fbfb334ca824b190e9f82197ea5f107716cbc286
+vendor/lib/vendor.qti.hardware.iop@1.0_vendor.so|22d584e6103a2849657ae1a14604bcb7b42c3ad5
+vendor/lib/vendor.qti.hardware.iop@2.0_vendor.so|970b024630c425de6a574b4652552b2bfb1d886f
+
 # Sensorhub Firmware
 etc/firmware/sensorhubfw.bin|90ec2a32050faf764529c22639e7a2a0196e28fc
 etc/firmware/sensorhubver.txt|7719a1c782a1ba91c031a682a0a2f8658209adbf
