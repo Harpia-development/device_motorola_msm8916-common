@@ -102,6 +102,8 @@ persist.radio.add_power_save=1
 # Perf
 sys.use_fifo_ui=1
 ro.vendor.extension_library=libqti-perfd-client.so 
+vendor.iop.enable_uxe=0
+vendor.iop.enable_prefetch_ofr=0
 
 # USB debugging at boot
 persist.sys.usb.config=mtp,adb 
