@@ -121,3 +121,6 @@ ro.build.shutdown_timeout=5
 
 # WiFi
 wifi.interface=wlan0
+
+# Disable oem unlock
+ro.oem_unlock_supported=false
