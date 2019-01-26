@@ -165,6 +165,9 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so \
     /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so
 
+# Telephony
+TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
+
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
 
