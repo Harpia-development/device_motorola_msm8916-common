@@ -32,10 +32,10 @@ vendor/lib/libfastcvopt.so
 vendor/lib/libmmcamera2_imglib_modules.so
 
 # Camera firmware
-etc/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_2_0.fw
-etc/firmware/cpp_firmware_v1_4_0.fw
+vendor/firmware/cpp_firmware_v1_1_1.fw
+vendor/firmware/cpp_firmware_v1_1_6.fw
+vendor/firmware/cpp_firmware_v1_2_0.fw
+vendor/firmware/cpp_firmware_v1_4_0.fw
 
 # Display Color Calibration
 vendor/bin/mm-pp-daemon
@@ -101,10 +101,10 @@ vendor/lib/libsc-a3xx.so|8c3ae2f1e0b553fcc2663845def885ed13c04bf1
 vendor/lib/libscale.so|4e7752b6c12e4ff3ab7ae89c53a0b3ad9809f5ec
 
 # Graphics firmware
-etc/firmware/a300_pfp.fw
-etc/firmware/a300_pm4.fw
-etc/firmware/a420_pfp.fw
-etc/firmware/a420_pm4.fw
+vendor/firmware/a300_pfp.fw
+vendor/firmware/a300_pm4.fw
+vendor/firmware/a420_pfp.fw
+vendor/firmware/a420_pm4.fw
 
 # Copybit
 vendor/lib/hw/copybit.msm8916.so
@@ -199,10 +199,6 @@ vendor/lib/libqti-iopd.so|fbfb334ca824b190e9f82197ea5f107716cbc286
 vendor/lib/vendor.qti.hardware.iop@1.0_vendor.so|22d584e6103a2849657ae1a14604bcb7b42c3ad5
 vendor/lib/vendor.qti.hardware.iop@2.0_vendor.so|970b024630c425de6a574b4652552b2bfb1d886f
 
-# Sensorhub Firmware
-etc/firmware/sensorhubfw.bin|90ec2a32050faf764529c22639e7a2a0196e28fc
-etc/firmware/sensorhubver.txt|7719a1c782a1ba91c031a682a0a2f8658209adbf
-
 # Sensors
 lib/hw/sensorhub.msm8916.so
 
@@ -216,13 +212,13 @@ vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
 
 # Venus (media) firmware
-etc/firmware/venus.b00
-etc/firmware/venus.b01
-etc/firmware/venus.b02
-etc/firmware/venus.b03
-etc/firmware/venus.b04
-etc/firmware/venus.mbn
-etc/firmware/venus.mdt
+vendor/firmware/venus.b00
+vendor/firmware/venus.b01
+vendor/firmware/venus.b02
+vendor/firmware/venus.b03
+vendor/firmware/venus.b04
+vendor/firmware/venus.mbn
+vendor/firmware/venus.mdt
 
 #AptX - from aljeter
 vendor/lib/libaptXHD_encoder.so|b65cd3b72ae3e6a57901fd5b5383bfa1a88c5737
