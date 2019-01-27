@@ -9,6 +9,10 @@
 /(vendor|system/vendor)/bin/init\.mmi\.boot\.sh             u:object_r:mmi_boot_sh_exec:s0
 /(vendor|system/vendor)/bin/init\.mmi\.touch\.sh            u:object_r:mmi_touch_sh_exec:s0
 
+# HAL exec
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.0-service\.widevine      u:object_r:hal_drm_widevine_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey      u:object_r:hal_drm_clearkey_exec:s0
+
 # mmi_touch related /sys files
 /sys/bus/i2c/drivers(/.*)?                                  u:object_r:sysfs_mmi_touch:s0
 /sys/devices/soc\.0/78b6000\.i2c/i2c-2/2-0020(/.*)?         u:object_r:sysfs_mmi_touch:s0
