@@ -67,7 +67,6 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libqcompostprocbundle \
     tinymix
 
 # Only build audio HAL on non-lux devices
