@@ -246,7 +246,6 @@ PRODUCT_PACKAGES += \
     init.mmi.bt.sh \
     init.mmi.touch.sh \
     init.mmi.usb.rc \
-    init.qcom.ril.sh \
     init.qcom.rc \
     ueventd.rc
 
