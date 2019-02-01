@@ -46,7 +46,6 @@ on early-init
     chmod 0444 /proc/cmdline
 
 on init
-    chmod 0444 /sys/module/msm_performance/parameters/cpu_min_freq
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -312,14 +311,6 @@ on post-fs-data
 
     setprop ro.hw.hwrev ${ro.boot.hwrev}
 
-    #Create PERFD deamon related dirs
-    mkdir /data/vendor/perfd 0770 root system
-    chmod 2770 /data/vendor/perfd
-    rm /data/vendor/perfd/default_values
-    
-    #Create IOP  deamon related dirs
-    mkdir /data/vendor/iop 0700 root system
-
 service mmi-boot-sh /vendor/bin/init.mmi.boot.sh
     class core
     user root
@@ -461,9 +452,6 @@ on property:sys.wifi.tethering=true
 on property:ro.hw.revision=*
     setprop ro.boot.hardware.revision ${ro.hw.revision}
 
-on enable-low-power
-    setprop sys.post_boot.parsed 1
-
 on charger
     trigger early-fs
     trigger fs
@@ -503,4 +491,3 @@ on moto-charger
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.qcom
-    trigger enable-low-power
