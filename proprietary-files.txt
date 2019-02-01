@@ -111,6 +111,9 @@ vendor/lib/libOmxAacDec.so|d4d36b943fd18b565af4ed6d81e422b60ac6b5c2
 vendor/lib/libOmxEvrcDec.so|b003a2147230e3040a2b64ba9fa94367961fc7e2
 vendor/lib/libOmxQcelp13Dec.so|8e890cbe50cb2f404648c967d00d7d0d8770bd6d
 
+# Perf
+vendor/bin/perfd
+vendor/lib/libqti-perfd-client.so
 
 # Qualcomm framework
 etc/permissions/qti_permissions.xml
