@@ -311,6 +311,12 @@ on post-fs-data
 
     setprop ro.hw.hwrev ${ro.boot.hwrev}
 
+    #Create PERFD deamon related dirs
+    mkdir /data/system/perfd 0770 root system
+    chmod 2770 /data/system/perfd
+    mkdir /persist/drm 0770 system system
+    rm /data/system/perfd/default_values
+
 service mmi-boot-sh /vendor/bin/init.mmi.boot.sh
     class core
     user root
@@ -466,6 +472,12 @@ service per_mgr /system/vendor/bin/pm-service
     user system
     group system
 
+service perfd /system/vendor/bin/perfd
+    class main
+    user root
+    socket perfd seqpacket 0666 root system
+    disabled
+
 on moto-charger
     setprop ro.board.platform msm8916
 
@@ -491,3 +503,4 @@ on moto-charger
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.qcom
+    start perfd
