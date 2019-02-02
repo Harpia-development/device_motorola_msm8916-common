@@ -1,0 +1,2 @@
+allow hal_perf_default kernel:system module_request;
+

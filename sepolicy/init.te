@@ -39,12 +39,51 @@ allow init hal_health_hwservice:hwservice_manager add;
 allow init sysfs_mmc_host:file read;
 dontaudit init sysfs_mmc_host:file open;
 
-allow init self:netlink_kobject_uevent_socket create;
-
-allow init self:netlink_kobject_uevent_socket setopt;
-
-allow init self:netlink_kobject_uevent_socket bind;
+allow init self:netlink_kobject_uevent_socket { create setopt bind };
 
 allow init self:netlink_kobject_uevent_socket read;
 allow init hal_lineage_power_hwservice:hwservice_manager add;
 allow init hal_perf_hwservice:hwservice_manager find;
+allow init hal_light_hwservice:hwservice_manager add;
+allow init kernel:system module_request;
+
+allow init sysfs_graphics:file { write open };
+
+allow init vendor_init:process noatsecure;
+
+allow init bootanim:process noatsecure;
+allow init bootstat:process noatsecure;
+allow init fsck:process noatsecure;
+allow init hal_keymaster_default:process noatsecure;
+allow init hal_perf_default:process noatsecure;
+allow init hal_power_default:process noatsecure;
+allow init hal_wifi_default:process noatsecure;
+allow init hal_wifi_supplicant_default:process noatsecure;
+allow init hwservicemanager:process noatsecure;
+allow init logd:process noatsecure;
+allow init netd:process noatsecure;
+allow init perfprofd:process noatsecure;
+allow init qti_init_shell:process noatsecure;
+allow init servicemanager:process noatsecure;
+allow init surfaceflinger:process noatsecure;
+allow init toolbox:process noatsecure;
+allow init ueventd:process noatsecure;
+allow init zygote:process noatsecure;
+
+allow init adbd:process noatsecure;
+allow init drmserver:process noatsecure;
+allow init hal_audio_default:process noatsecure;
+allow init healthd:process noatsecure;
+allow init irsc_util:process noatsecure;
+allow init tzdatacheck:process noatsecure;
+allow init vdc:process noatsecure;
+allow init vndservicemanager:process noatsecure;
+allow init vold:process noatsecure;
+allow init wcnss_service:process noatsecure;
+
+allow init audioserver:process noatsecure;
+allow init gatekeeperd:process noatsecure;
+allow init mmi_touch_sh:process noatsecure;
+allow init rild:process noatsecure;
+allow init tee:process noatsecure;
+

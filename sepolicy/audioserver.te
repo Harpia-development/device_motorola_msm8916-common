@@ -1,0 +1,4 @@
+allow audioserver crash_dump:process noatsecure;
+
+allow audioserver kernel:system module_request;
+

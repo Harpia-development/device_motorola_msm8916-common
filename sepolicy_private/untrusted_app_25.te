@@ -1,0 +1,1 @@
+allow untrusted_app_25 adbtcp_prop:file read;

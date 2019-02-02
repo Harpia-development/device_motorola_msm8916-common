@@ -1,1 +1,2 @@
 allow zygote proc_cmdline:file { getattr open read };
+allow zygote kernel:system module_request;

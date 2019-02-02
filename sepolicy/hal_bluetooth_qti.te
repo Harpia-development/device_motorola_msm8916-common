@@ -1,0 +1,2 @@
+allow hal_bluetooth_qti crash_dump:process noatsecure;
+

@@ -1,0 +1,4 @@
+allow vndservicemanager kernel:system module_request;
+allow vndservicemanager runtime_event_log_tags_file:file read;
+
+allow vndservicemanager runtime_event_log_tags_file:file open;

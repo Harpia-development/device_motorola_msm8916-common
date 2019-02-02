@@ -4,3 +4,5 @@ allow hwservicemanager init:dir search;
 allow hwservicemanager init:file read;
 allow hwservicemanager init:file open;
 allow hwservicemanager init:process getattr;
+allow hwservicemanager kernel:system module_request;
+

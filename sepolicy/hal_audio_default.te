@@ -1,0 +1,2 @@
+allow hal_audio_default crash_dump:process noatsecure;
+

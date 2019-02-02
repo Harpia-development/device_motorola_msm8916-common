@@ -1,0 +1,2 @@
+allow init sysinit:process noatsecure;
+allow init hal_allocator_default:process noatsecure;

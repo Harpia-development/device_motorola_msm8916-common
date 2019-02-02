@@ -1,0 +1,2 @@
+allow bootstat kernel:system module_request;
+

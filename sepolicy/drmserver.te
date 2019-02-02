@@ -1,0 +1,2 @@
+allow drmserver crash_dump:process noatsecure;
+

@@ -1,0 +1,2 @@
+allow tee kernel:system module_request;
+

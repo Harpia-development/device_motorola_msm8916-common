@@ -29,3 +29,5 @@ allow mmi_boot_sh proc_cmdline:file read;
 
 allow mmi_boot_sh proc_cmdline:file open;
 
+allow mmi_boot_sh kernel:system module_request;
+

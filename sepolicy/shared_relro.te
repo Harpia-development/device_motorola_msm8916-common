@@ -1,0 +1,14 @@
+allow shared_relro alarm_handled_prop:file read;
+allow shared_relro alarm_instance_prop:file read;
+allow shared_relro bg_boot_complete_prop:file read;
+
+allow shared_relro alarm_boot_prop:file read;
+allow shared_relro bg_daemon_prop:file read;
+allow shared_relro bluetooth_prop:file read;
+allow shared_relro boot_animation_prop:file read;
+
+allow shared_relro boot_mode_prop:file read;
+allow shared_relro bootloader_boot_reason_prop:file read;
+allow shared_relro boottime_prop:file read;
+allow shared_relro coresight_prop:file read;
+

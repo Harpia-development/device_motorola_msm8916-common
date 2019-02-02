@@ -1,2 +1,4 @@
 allow mediacodec unlabeled:dir search;
 
+allow mediacodec kernel:system module_request;
+

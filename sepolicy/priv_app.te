@@ -9,3 +9,28 @@ allow priv_app camera_prop:file read;
 allow priv_app camera_prop:file open;
 allow priv_app camera_prop:file getattr;
 
+allow priv_app alarm_boot_prop:file read;
+allow priv_app alarm_handled_prop:file read;
+allow priv_app alarm_instance_prop:file read;
+allow priv_app bg_boot_complete_prop:file read;
+
+allow priv_app bg_daemon_prop:file read;
+allow priv_app bluetooth_prop:file read;
+allow priv_app boot_animation_prop:file read;
+allow priv_app boot_mode_prop:file read;
+
+allow priv_app bootloader_boot_reason_prop:file read;
+allow priv_app boottime_prop:file read;
+allow priv_app coresight_prop:file read;
+allow priv_app crash_prop:file read;
+
+allow priv_app ctl_LKCore_prop:file read;
+allow priv_app ctl_bootanim_prop:file read;
+allow priv_app ctl_bugreport_prop:file read;
+allow priv_app ctl_console_prop:file read;
+
+allow priv_app ctl_default_prop:file read;
+allow priv_app ctl_dumpstate_prop:file read;
+allow priv_app ctl_fuse_prop:file read;
+allow priv_app ctl_hbtp_prop:file read;
+

@@ -21,3 +21,5 @@ allow mmi_touch_sh sysfs:dir read;
 
 
 get_prop(mmi_touch_sh, hw_rev_prop);
+allow mmi_touch_sh kernel:system module_request;
+

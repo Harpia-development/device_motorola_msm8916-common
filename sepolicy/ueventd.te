@@ -6,3 +6,5 @@ allow ueventd unlabeled:dir search;
 allow ueventd proc:file read;
 allow ueventd proc:file open;
 allow ueventd proc:file getattr;
+allow ueventd kernel:system module_request;
+

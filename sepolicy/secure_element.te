@@ -1,0 +1,5 @@
+allow secure_element alarm_boot_prop:file read;
+allow secure_element alarm_handled_prop:file read;
+allow secure_element alarm_instance_prop:file read;
+allow secure_element bg_boot_complete_prop:file read;
+

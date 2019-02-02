@@ -1,0 +1,8 @@
+allow mediaprovider alarm_boot_prop:file read;
+allow mediaprovider alarm_handled_prop:file read;
+allow mediaprovider alarm_instance_prop:file read;
+allow mediaprovider bg_boot_complete_prop:file read;
+
+allow mediaprovider bg_daemon_prop:file read;
+allow mediaprovider bluetooth_prop:file read;
+

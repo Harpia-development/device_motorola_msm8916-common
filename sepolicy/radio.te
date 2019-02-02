@@ -4,3 +4,13 @@ qmux_socket(radio)
 allow radio system_app_data_file:dir getattr;
 allow radio persist_file:dir rw_dir_perms;
 allow radio persist_file:file { getattr open };
+allow radio alarm_boot_prop:file read;
+allow radio alarm_handled_prop:file read;
+allow radio alarm_instance_prop:file read;
+allow radio bg_boot_complete_prop:file read;
+
+allow radio bg_daemon_prop:file read;
+allow radio bluetooth_prop:file read;
+allow radio boot_animation_prop:file read;
+allow radio boot_mode_prop:file read;
+

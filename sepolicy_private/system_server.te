@@ -1,0 +1,1 @@
+allow system_server adbtcp_prop:file read;

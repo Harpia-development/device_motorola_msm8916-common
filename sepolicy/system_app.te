@@ -13,3 +13,22 @@ allow system_app netd:binder call;
 allow system_app vold:binder call;
 allow system_app default_android_hwservice:hwservice_manager find;
 
+allow system_app alarm_boot_prop:file read;
+allow system_app alarm_handled_prop:file read;
+allow system_app alarm_instance_prop:file read;
+allow system_app bg_boot_complete_prop:file read;
+
+allow system_app bg_daemon_prop:file read;
+allow system_app boot_animation_prop:file read;
+allow system_app bootloader_boot_reason_prop:file read;
+allow system_app boottime_prop:file read;
+
+allow system_app ctl_bootanim_prop:file read;
+allow system_app ctl_console_prop:file read;
+
+allow system_app dumpstate_options_prop:file read;
+allow system_app firstboot_prop:file read;
+allow system_app freq_prop:file read;
+allow system_app fst_prop:file read;
+allow system_app gamed_prop:file read;
+

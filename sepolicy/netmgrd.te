@@ -1,1 +1,3 @@
 allow netmgrd sysfs_net:dir search;
+allow netmgrd kernel:system module_request;
+

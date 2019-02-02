@@ -4,3 +4,5 @@ allow hal_wifi_default vendor_tombstone_data_file:dir search;
 
 allow hal_wifi_default vendor_tombstone_data_file:dir open;
 
+allow hal_wifi_default kernel:system module_request;
+
