@@ -43,10 +43,11 @@ namespace V2_0 {
 namespace implementation {
 
 Light::Light(std::pair<std::ofstream, uint32_t>&& lcd_backlight,
-             std::ofstream&& charging_led, std::ofstream&& blinking_led)
+             std::ofstream&& blinking_led, std::ofstream&& blinking_led_on_ms, std::ofstream&& blinking_led_off_ms)
     : mLcdBacklight(std::move(lcd_backlight)),
-      mChargingLed(std::move(charging_led)),
-      mBlinkingLed(std::move(blinking_led)) {
+      mBlinkingLed(std::move(blinking_led)),
+      mBlinkingLedOnMs(std::move(blinking_led_on_ms)),
+      mBlinkingLedOffMs(std::move(blinking_led_off_ms)) {
     auto backlightFn(std::bind(&Light::setLcdBacklight, this, std::placeholders::_1));
     auto batteryFn(std::bind(&Light::setBatteryLight, this, std::placeholders::_1));
     mLights.emplace(std::make_pair(Type::BACKLIGHT, backlightFn));
@@ -131,23 +132,18 @@ void Light::setSpeakerLightLocked() {
                 offMs = mNotificationState.flashOffMs;
                 break;
             default:
-                onMs = 1;
-                offMs = 0;
+                onMs = 500;
+                offMs = 750;
                 break;
             }
 
-            mBlinkingLed << "FFFFFF " << onMs << " " << offMs << " 0 0" << std::endl;
+            mBlinkingLed      << "timer" << std::endl;
+            mBlinkingLedOnMs  << onMs    << std::endl;
+            mBlinkingLedOffMs << offMs   << std::endl;
         } else if (isLit(mBatteryState) || isLit(mAttentionState)) {
-            mBlinkingLed << "FFFFFF 1 0 0 0" << std::endl;
+            mBlinkingLed      << "timer" << std::endl;
         } else {
-            mBlinkingLed << "000000 0 0 0 0" << std::endl;
-        }
-    } else {
-        if (isLit(mBatteryState)) {
-            mChargingLed << DEFAULT_MAX_BRIGHTNESS << std::endl;
-        } else {
-            // Lights off
-            mChargingLed << 0 << std::endl;
+            mBlinkingLed      << "none"  << std::endl;
         }
     }
 }

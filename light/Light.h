@@ -31,8 +31,7 @@ namespace V2_0 {
 namespace implementation {
 
 struct Light : public ILight {
-    Light(std::pair<std::ofstream, uint32_t>&& lcd_backlight,
-          std::ofstream&& charging_led, std::ofstream&& blinking_led);
+    Light(std::pair<std::ofstream, uint32_t>&& lcd_backlight, std::ofstream&& blinking_led, std::ofstream&& blinking_led_on_ms, std::ofstream&& blinking_led_off_ms);
 
     // Methods from ::android::hardware::light::V2_0::ILight follow.
     Return<Status> setLight(Type type, const LightState& state) override;
@@ -46,8 +45,9 @@ struct Light : public ILight {
     void setSpeakerLightLocked();
 
     std::pair<std::ofstream, uint32_t> mLcdBacklight;
-    std::ofstream mChargingLed;
     std::ofstream mBlinkingLed;
+    std::ofstream mBlinkingLedOnMs;
+    std::ofstream mBlinkingLedOffMs;
 
     LightState mAttentionState;
     LightState mBatteryState;
