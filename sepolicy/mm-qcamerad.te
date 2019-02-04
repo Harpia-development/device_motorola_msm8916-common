@@ -4,3 +4,6 @@ allow mm-qcamerad system_data_file:dir w_dir_perms;
 allow mm-qcamerad system_data_file:file open;
 set_prop(mm-qcamerad, debug_prop)
 allow mm-qcamerad kernel:system module_request;
+type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket1";
+type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket2";
+allow mm-qcamerad camera_socket:sock_file { create unlink write };

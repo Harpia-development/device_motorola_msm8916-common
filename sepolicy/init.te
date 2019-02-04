@@ -109,3 +109,5 @@ allow init installd:process noatsecure;
 allow init keystore:process noatsecure;
 allow init mediaextractor:process noatsecure;
 allow init mediadrmserver:process noatsecure;
+allow init carrier_file:dir mounton;
+allow init carrier_file:file rw_file_perms;

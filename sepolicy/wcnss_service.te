@@ -2,3 +2,4 @@ allow wcnss_service unlabeled:dir search;
 
 allow wcnss_service serialno_prop:file { getattr open read };
 allow wcnss_service kernel:system module_request;
+allow wcnss_service proc_wcnss_service:file r_file_perms;

@@ -9,3 +9,11 @@ type grep_exec, exec_type, file_type;
 
 # Touch script
 type sysfs_mmi_touch, fs_type, sysfs_type;
+
+# files
+type carrier_file, fs_type;
+allow carrier_file rootfs:filesystem associate;
+allow firmware_file rootfs:filesystem associate;
+
+# proc
+type proc_wcnss_service, fs_type;

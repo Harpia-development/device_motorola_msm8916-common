@@ -4,3 +4,8 @@ allow netmgrd kernel:system module_request;
 allow netmgrd system_data_file:file { read write };
 allow netmgrd system_data_file:file open;
 allow netmgrd system_data_file:file getattr;
+allow netmgrd carrier_file:dir search;
+allow netmgrd carrier_file:file rw_file_perms;
+allow netmgrd netd_socket:sock_file w_file_perms;
+r_dir_file(netmgrd, net_data_file)
+allow netmgrd toolbox_exec:file rx_file_perms;

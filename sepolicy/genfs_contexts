@@ -1,0 +1,1 @@
+genfscon proc /calibration u:object_r:proc_wcnss_service:s0

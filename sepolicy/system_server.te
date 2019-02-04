@@ -71,3 +71,4 @@ allow system_server exfat:dir { open read };
 allow system_server sdm_idle_time_prop:file read;
 allow system_server sensors_prop:file read;
 allow system_server spcomlib_prop:file read;
+qmux_socket(system_server);
