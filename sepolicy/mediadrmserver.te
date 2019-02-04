@@ -1,3 +1,4 @@
 r_dir_file(mediadrmserver, firmware_file)
 allow mediadrmserver crash_dump:process noatsecure;
 
+allow mediadrmserver kernel:system module_request;

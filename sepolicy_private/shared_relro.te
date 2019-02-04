@@ -1,0 +1,2 @@
+allow shared_relro adbtcp_prop:file read;
+allow shared_relro lineage_recovery_prop:file read;

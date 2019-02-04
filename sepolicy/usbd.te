@@ -1,0 +1,1 @@
+allow usbd kernel:system module_request;

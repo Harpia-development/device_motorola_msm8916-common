@@ -1,0 +1,1 @@
+allow thermalserviced kernel:system module_request;

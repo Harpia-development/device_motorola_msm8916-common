@@ -1,0 +1,1 @@
+allow traceur_app adbtcp_prop:file read;

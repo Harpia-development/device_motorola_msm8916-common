@@ -7,3 +7,16 @@ allow mediaprovider bg_daemon_prop:file read;
 allow mediaprovider bluetooth_prop:file read;
 
 allow mediaprovider runtime_event_log_tags_file:file read;
+allow mediaprovider boot_animation_prop:file read;
+allow mediaprovider boot_mode_prop:file read;
+allow mediaprovider bootloader_boot_reason_prop:file read;
+allow mediaprovider boottime_prop:file read;
+allow mediaprovider coresight_prop:file read;
+allow mediaprovider crash_prop:file read;
+allow mediaprovider ctl_LKCore_prop:file read;
+allow mediaprovider ctl_bootanim_prop:file read;
+allow mediaprovider ctl_bugreport_prop:file read;
+allow mediaprovider ctl_console_prop:file read;
+allow mediaprovider ctl_default_prop:file read;
+allow mediaprovider ctl_dumpstate_prop:file read;
+allow mediaprovider ctl_fuse_prop:file read;

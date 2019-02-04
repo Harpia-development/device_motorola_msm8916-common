@@ -1,0 +1,1 @@
+allow secure_element adbtcp_prop:file read;
