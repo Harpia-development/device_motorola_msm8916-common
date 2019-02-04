@@ -2,3 +2,4 @@ allow installd firmware_file:filesystem quotaget;
 allow installd fsg_file:filesystem quotaget;
 allow installd idmap:process noatsecure;
 
+allow installd kernel:system module_request;

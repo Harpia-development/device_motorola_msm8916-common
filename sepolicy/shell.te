@@ -1,3 +1,2 @@
 allow shell kernel:system syslog_read;
 allow shell kernel:system module_request;
-

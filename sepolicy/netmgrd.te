@@ -1,3 +1,6 @@
 allow netmgrd sysfs_net:dir search;
 allow netmgrd kernel:system module_request;
 
+allow netmgrd system_data_file:file { read write };
+allow netmgrd system_data_file:file open;
+allow netmgrd system_data_file:file getattr;

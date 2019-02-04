@@ -3,3 +3,15 @@ allow secure_element alarm_handled_prop:file read;
 allow secure_element alarm_instance_prop:file read;
 allow secure_element bg_boot_complete_prop:file read;
 
+allow secure_element bg_daemon_prop:file read;
+allow secure_element bluetooth_prop:file read;
+allow secure_element boot_animation_prop:file read;
+allow secure_element boot_mode_prop:file read;
+allow secure_element bootloader_boot_reason_prop:file read;
+allow secure_element boottime_prop:file read;
+allow secure_element coresight_prop:file read;
+allow secure_element crash_prop:file read;
+allow secure_element ctl_LKCore_prop:file read;
+allow secure_element ctl_bootanim_prop:file read;
+allow secure_element ctl_bugreport_prop:file read;
+allow secure_element ctl_console_prop:file read;

@@ -34,3 +34,4 @@ allow mediaserver default_android_service:service_manager add;
 
 allow mediaserver crash_dump:process noatsecure;
 
+allow mediaserver kernel:system module_request;

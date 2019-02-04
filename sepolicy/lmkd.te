@@ -1,2 +1,3 @@
 allow lmkd self:capability2 block_suspend;
 
+allow lmkd kernel:system module_request;

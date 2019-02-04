@@ -1,1 +1,2 @@
 allow priv_app adbtcp_prop:file read;
+allow priv_app lineage_recovery_prop:file read;

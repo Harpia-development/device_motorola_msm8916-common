@@ -3,3 +3,4 @@ allow mm-qcamerad persist_file:file r_file_perms;
 allow mm-qcamerad system_data_file:dir w_dir_perms;
 allow mm-qcamerad system_data_file:file open;
 set_prop(mm-qcamerad, debug_prop)
+allow mm-qcamerad kernel:system module_request;

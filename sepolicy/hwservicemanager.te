@@ -6,3 +6,4 @@ allow hwservicemanager init:file open;
 allow hwservicemanager init:process getattr;
 allow hwservicemanager kernel:system module_request;
 
+allow hwservicemanager runtime_event_log_tags_file:file { open read };

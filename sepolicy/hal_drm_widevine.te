@@ -8,3 +8,8 @@ allow hal_drm_widevine media_data_file:dir create;
 allow hal_drm_widevine media_data_file:dir getattr;
 allow hal_drm_widevine media_data_file:file create;
 
+allow hal_drm_widevine media_data_file:dir read;
+allow hal_drm_widevine media_data_file:file { read write };
+allow hal_drm_widevine media_data_file:dir open;
+allow hal_drm_widevine media_data_file:file open;
+allow hal_drm_widevine media_data_file:file getattr;
