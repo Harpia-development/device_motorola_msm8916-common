@@ -77,3 +77,6 @@ allow shared_relro qti_prop:file read;
 allow shared_relro rmnet_mux_prop:file read;
 allow shared_relro rmtfs_prop:file read;
 allow shared_relro safemode_prop:file read;
+allow shared_relro scr_enabled_prop:file read;
+allow shared_relro sdm_idle_time_prop:file read;
+allow shared_relro sensors_prop:file read;

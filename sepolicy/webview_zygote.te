@@ -8,3 +8,5 @@ allow webview_zygote alarm_instance_prop:file read;
 allow webview_zygote bg_boot_complete_prop:file read;
 allow webview_zygote boot_animation_prop:file read;
 allow webview_zygote bg_daemon_prop:file read;
+allow webview_zygote bluetooth_prop:file read;
+allow webview_zygote boot_mode_prop:file read;
