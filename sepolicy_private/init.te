@@ -2,3 +2,4 @@ allow init sysinit:process noatsecure;
 allow init hal_allocator_default:process noatsecure;
 allow init statsd:process noatsecure;
 allow init storaged:process noatsecure;
+allow init hal_lineage_power_hwservice:hwservice_manager add;

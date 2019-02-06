@@ -42,7 +42,6 @@ dontaudit init sysfs_mmc_host:file open;
 allow init self:netlink_kobject_uevent_socket { create setopt bind };
 
 allow init self:netlink_kobject_uevent_socket read;
-allow init hal_lineage_power_hwservice:hwservice_manager add;
 allow init hal_perf_hwservice:hwservice_manager find;
 allow init hal_light_hwservice:hwservice_manager add;
 allow init kernel:system module_request;
