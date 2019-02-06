@@ -502,10 +502,24 @@ on property:ro.hw.revision=*
 on charger
     trigger moto-charger
 
-service per_mgr /system/vendor/bin/pm-service
+service vendor.per_mgr /system/vendor/bin/pm-service
     class core
     user system
     group system
+    writepid /dev/cpuset/system-background/tasks
+
+service vendor.per_proxy /system/vendor/bin/pm-proxy
+    class core
+    user system
+    group system
+    disabled
+    writepid /dev/cpuset/system-background/tasks
+
+on property:init.svc.per_mgr=running
+    start per_proxy
+
+on property:sys.shutdown.requested=*
+    stop per_proxy
 
 service ppd /vendor/bin/mm-pp-daemon
     class hal
