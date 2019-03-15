@@ -119,6 +119,31 @@ vendor/lib/libOmxQcelp13Dec.so|8e890cbe50cb2f404648c967d00d7d0d8770bd6d
 vendor/bin/perfd
 vendor/lib/libqti-perfd-client.so
 
+# IMS - from athene & ims.apk from daisy
+-priv-app/ims/ims.apk|6787b80f2cc9a67bed474a229b547c21c1ccaf92
+-vendor/app/imssettings/imssettings.apk|d34ce39b079627024af4b3af5d9854aec5d2295e
+-vendor/framework/qti-vzw-ims-internal.jar|974e25bac72817ae3be5f1bfe3ddfb3822248a8c
+vendor/etc/permissions/qti-vzw-ims-internal.xml|3e41b645dd4ad8bad6775c103a34bfd7a507a4f7
+vendor/bin/imsdatadaemon|182768a5c51af164caec3964af12fd3639c08128
+vendor/bin/imsqmidaemon|04be996ca97e8d0ceba605b027deb2c95ef40e9a
+vendor/lib/libimscamera_jni.so|c2736a02ac1ee6ab6c4ecd62cf04e22d196b33eb
+vendor/lib/lib-imsdpl.so|7e86719548ba07b20a07e5424e5ea8dbfdb1d3c9
+vendor/lib/libimsmedia_jni.so|241ace463d74b30cd7c3456b385cabf64c97d211
+vendor/lib/lib-imsqimf.so|72f3d3435504a5b1f284bb1867982821b77e811c
+vendor/lib/lib-imsSDP.so|6d55faa14b2cd049907ec1d0a060efe685ba7e96
+vendor/lib/lib-imsxml.so|3f3165879af535a6fb83710847ace065fd514133
+vendor/lib/lib-rcsjni.so|83114cff47f155e20f7ee942294bac946f713e41
+vendor/lib/lib-rtpcommon.so|afccef8edcb66fe5ab563967e3152f09b0e86f4a
+vendor/lib/lib-rtpcore.so|600ee02d2e827c8b22a63816a2f80204fa9e2c58
+vendor/lib/lib-rtpdaemoninterface.so|3bf68abd65bd66fce8a5163f472b71aabbcae63b
+vendor/lib/lib-rtpsl.so|c9bc38cb3061829f7776569c5835a1ac02c6cd98
+lib/librtp_jni.so|a2684255744d3dbf6868433e656065297fce9ac5
+vendor/lib/vendor.qti.imsrtpservice@1.0-service-Impl.so|e0be432b9f3bf90661e815e04d26cd05849d2769
+lib/vendor.qti.imsrtpservice@1.0.so|eeaabadfe12f7fed50a30481f8f78d7226b8a4cd
+vendor/lib/vendor.qti.imsrtpservice@1.0_vendor.so|09b95885ae003997130d68dc3960cea5cff6376a
+vendor/lib/vendor.qti.hardware.radio.ims@1.0_vendor.so|2b0bc7a4d5b2d01eeb8f277e0be3ca05236ae383
+vendor/lib/lib-dplmedia.so|51adb0185654ef45cf0e435f7f3ceb3afba6866f
+
 # Qualcomm framework - from athene
 vendor/bin/irsc_util|38ab70f2974a4970f0cd15e5c860e071d54b3ca2
 vendor/lib/libdiag.so|4d20084371352188624a54b4907899c5a68fd611
