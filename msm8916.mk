@@ -276,7 +276,6 @@ PRODUCT_COPY_FILES += \
 
 # Fake QTI jar
 PRODUCT_PACKAGES += \
-    qti-telephony-common \
     telephony-ext
 
 PRODUCT_BOOT_JARS += \
