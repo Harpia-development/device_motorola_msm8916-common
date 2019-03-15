@@ -267,7 +267,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     libqsap_shim \
-    libril-wrapper \
     librmnetctl \
     libshim_ril \
     libxml2
