@@ -1,5 +1,0 @@
-allow bootanim system_data_file:dir read;
-
-allow bootanim kernel:system module_request;
-
-get_prop(bootanim, boot_animation_prop)

@@ -63,3 +63,6 @@ allow thermal-engine sysfs_graphics:file rw_file_perms;
 allow thermal-engine sysfs_graphics:lnk_file r_file_perms;
 
 type_transition thermal-engine socket_device:sock_file thermal_socket;
+allow thermal-engine self:capability sys_nice;
+
+r_dir_file(thermal-engine, sysfs_batteryinfo)

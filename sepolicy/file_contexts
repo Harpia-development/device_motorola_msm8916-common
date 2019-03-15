@@ -1,12 +1,9 @@
 # Binaries
-/system/bin/grep                                            u:object_r:grep_exec:s0
-/system/bin/qmi_motext_hook                                 u:object_r:rild_exec:s0
-/(vendor|system/vendor)/bin/akmd09912                       u:object_r:akmd09912_exec:s0
-
 /dev/block/mmcblk0p26                                       u:object_r:persist_block_device:s0
 /sys/devices/soc.0/7824900.sdhci/mmc_host/mmc[0-9]/mmc0:[0-9]+/block/mmcblk[0-9]/stat			u:object_r:sysfs_mmc_host:s0
 /sys/devices/soc/7824900.sdhci/mmc_host/mmc[0-9]/mmc0:[0-9]+/block/mmcblk[0-9]/stat			u:object_r:sysfs_mmc_host:s0
 /sys/devices/soc.0/7824900.sdhci/mmc_host/mmc0/mmc0:0001/block/mmcblk0/stat				u:object_r:sysfs_mmc_host:s0
+/(vendor|system/vendor)/bin/qmi_motext_hook                 u:object_r:rild_exec:s0
 
 # Init shell scripts
 /(vendor|system/vendor)/bin/init\.mmi\.boot\.sh             u:object_r:mmi_boot_sh_exec:s0
@@ -31,39 +28,19 @@
 # Partitions
 /dev/block/bootdevice/by-name/metadata                      u:object_r:metadata_block_device:s0
 /dev/block/bootdevice/by-name/persist                       u:object_r:persist_block_device:s0
+/dev/block/platform/soc\.0/7824900\.sdhci/by-name/persist   u:object_r:persist_block_device:s0
+/dev/block/platform/soc\.0/7824900\.sdhci/by-name/modem     u:object_r:modem_efs_partition_device:s0
+
 
 # RIL
 /data/misc/cutback(/.*)?                                    u:object_r:cutback_data_file:s0
+/data/misc/netmgr(/.*)?                                     u:object_r:netmgr_data_file:s0
 /dev/socket/cutback                                         u:object_r:rild_socket:s0
 
-# Sensors
-/dev/akm09912                                               u:object_r:sensors_device:s0
-/dev/akm09912_dev                                           u:object_r:sensors_device:s0
-/data/misc/akmd(/.*)?                                       u:object_r:sensors_data_file:s0
+# Sysfs files
+/sys/devices/w1_bus_master1(/.*)?                           u:object_r:sysfs_w1_bus:s0
 
-# Legacy
-/system/bin/cnd                                                       u:object_r:cnd_exec:s0
-/system/bin/irsc_util                                                 u:object_r:irsc_util_exec:s0
-/system/bin/rmt_storage                                               u:object_r:rmt_storage_exec:s0
-/system/bin/tftp_server                                               u:object_r:rfs_access_exec:s0
-/system/bin/wcnss_filter                                              u:object_r:wcnss_filter_exec:s0
-/system/bin/btnvtool                                                  u:object_r:btnvtool_exec:s0
-/system/bin/qmuxd                                                     u:object_r:qmuxd_exec:s0
-/system/bin/sensors.qcom                                              u:object_r:sensors_exec:s0
-/system/bin/loc_launcher                                              u:object_r:location_exec:s0
-/system/bin/msm_irqbalance                                            u:object_r:msm_irqbalanced_exec:s0
-/system/bin/mm-qcamera-daemon                                         u:object_r:mm-qcamerad_exec:s0
-/system/bin/qseecomd                                                  u:object_r:tee_exec:s0
-/system/bin/time_daemon                                               u:object_r:time_daemon_exec:s0
-/system/bin/wcnss_service                                             u:object_r:wcnss_service_exec:s0
-/system/bin/mm-pp-daemon                                              u:object_r:mm-pp-daemon_exec:s0
-/system/bin/adsprpcd                                                  u:object_r:adsprpcd_exec:s0
-/system/bin/hvdcp_opti                                                u:object_r:hvdcp_exec:s0
-/system/bin/pm-service                                                u:object_r:per_mgr_exec:s0
-/system/bin/pm-proxy                                                  u:object_r:per_mgr_exec:s0
-/system/bin/netmgrd                                                   u:object_r:netmgrd_exec:s0
-
-# USB HAL
+# Usb
 /(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.0-service\.harpia       u:object_r:hal_usb_default_exec:s0
 
 # Vendor files

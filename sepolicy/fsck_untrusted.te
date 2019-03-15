@@ -1,3 +1,0 @@
-allow fsck_untrusted system_file:file entrypoint;
-
-allow fsck_untrusted kernel:system module_request;

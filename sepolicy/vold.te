@@ -1,6 +1,4 @@
 allow vold persist_file:dir r_file_perms;
-allow vold persist_block_device:blk_file rw_file_perms;
-allow vold storage_stub_file:dir read;
 allow vold sdcardd:process noatsecure;
 allow vold kernel:system module_request;
 allow vold vold_prepare_subdirs:process noatsecure;

@@ -2,3 +2,4 @@ allow hal_light_default sysfs:file rw_file_perms;
 allow hal_light_default sysfs_graphics:file rw_file_perms;
 allow hal_light_default sysfs_leds:file rw_file_perms;
 allow hal_light_default kernel:system module_request;
+allow hal_light_default sysfs_leds:file { rw_file_perms };

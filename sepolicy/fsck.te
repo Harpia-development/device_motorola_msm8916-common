@@ -1,12 +1,8 @@
 allow fsck block_device:blk_file { read write };
 
-allow fsck cache_file:dir getattr;
-allow fsck modem_efs_partition_device:blk_file { read write };
 allow fsck kernel:system module_request;
 
-allow fsck block_device:blk_file open;
-allow fsck modem_efs_partition_device:blk_file open;
-allow fsck persist_file:dir getattr;
-allow fsck block_device:blk_file ioctl;
-allow fsck modem_efs_partition_device:blk_file ioctl;
-
+allow fsck persist_block_device:blk_file rw_file_perms;
+allow fsck modem_efs_partition_device:blk_file rw_file_perms;
+allow fsck cache_file:dir r_dir_perms;
+allow fsck persist_file:dir r_dir_perms;

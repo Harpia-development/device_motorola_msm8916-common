@@ -15,3 +15,5 @@ allow healthd {
     sysfs_battery_supply
     sysfs_usb_supply
 }:file rw_file_perms;
+
+r_dir_file(healthd, sysfs_batteryinfo)
