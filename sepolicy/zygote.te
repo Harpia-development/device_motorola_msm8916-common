@@ -1,1 +1,2 @@
-allow zygote proc_cmdline:file { getattr open read };
+allow zygote proc_cmdline:file r_file_perms;
+
