@@ -1,3 +1,0 @@
-allow cameraserver init:unix_dgram_socket sendto;
-allow cameraserver socket_device:sock_file write;
-

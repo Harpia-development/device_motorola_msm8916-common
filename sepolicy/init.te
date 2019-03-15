@@ -1,34 +1,4 @@
 allow init firmware_file:dir mounton;
 allow init fsg_file:dir mounton;
 allow init pstorefs:dir mounton;
-allow init system_file:file mounton;
-
-allow init cameraserver:fd use;
-allow init gpu_device:chr_file write;
-allow init ion_device:chr_file write;
-allow init self:socket { read write };
-allow init self:udp_socket ioctl;
-allow init video_device:chr_file { ioctl write };
-
-allow init proc:file { getattr open read setattr write };
-allow init sysfs:file { open setattr write };
-
-allow init sysfs_leds:lnk_file read;
-
-allow init sysfs_graphics:file setattr;
-
-allow init system_file:file execute_no_trans;
-allow init vendor_file:file execute_no_trans;
-allow init vendor_file:lnk_file { create };
-
-allow init hwservicemanager:binder call;
-
-allow init hwservicemanager:binder transfer;
-
-allow init hwservicemanager:binder transfer;
-
-allow init hal_power_hwservice:hwservice_manager add;
-allow init hidl_base_hwservice:hwservice_manager add;
-allow init default_android_hwservice:hwservice_manager add;
-allow init hal_usb_hwservice:hwservice_manager add;
-allow init system_server:binder call;
+allow init sysfs_graphics:file { setattr w_file_perms };

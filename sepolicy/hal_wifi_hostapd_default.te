@@ -1,2 +1,0 @@
-allow hal_wifi_hostapd_default wifi_vendor_data_file:dir search;
-

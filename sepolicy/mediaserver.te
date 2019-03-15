@@ -1,17 +1,8 @@
-allow mediaserver default_android_service:service_manager add;
-allow mediaserver device:dir { open read };
-allow mediaserver firmware_file:dir search;
+binder_call(mediaserver, hal_configstore)
 
-allow mediaserver hal_camera_hwservice:hwservice_manager find;
+allow mediaserver hal_configstore_ISurfaceFlingerConfigs:hwservice_manager { find };
+allow mediaserver sysfs_batteryinfo:dir r_dir_perms;
+allow mediaserver sysfs_batteryinfo:file r_file_perms;
+allow mediaserver camera_bgproc_service:service_manager { add };
 
-allow mediaserver cameraserver_service:service_manager add;
-
-allow mediaserver cameraproxy_service:service_manager find;
-
-allow mediaserver serialno_prop:file read;
-allow mediaserver sysfs:file read;
-
-allow mediaserver serialno_prop:file open;
-allow mediaserver sysfs:file open;
-allow mediaserver serialno_prop:file getattr;
-allow mediaserver sysfs:file getattr;
+allow mediaserver device:dir r_dir_perms;

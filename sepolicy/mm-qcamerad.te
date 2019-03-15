@@ -2,4 +2,8 @@ allow mm-qcamerad { untrusted_app_all priv_app }:fd use;
 allow mm-qcamerad persist_file:file r_file_perms;
 allow mm-qcamerad system_data_file:dir w_dir_perms;
 allow mm-qcamerad system_data_file:file open;
+
+allow mm-qcamerad sysfs_w1_bus:dir r_dir_perms;
+allow mm-qcamerad sysfs_w1_bus:file rw_file_perms;
+
 set_prop(mm-qcamerad, debug_prop)

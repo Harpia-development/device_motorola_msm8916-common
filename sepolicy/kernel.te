@@ -1,6 +1,2 @@
-allow kernel unlabeled:file { getattr open };
-allow kernel untrusted_app:fd use;
-
-allow kernel block_device:dir search;
-
-allow kernel untrusted_app_25:fd use;
+allow kernel { priv_app untrusted_app }:fd use;
+allow kernel block_device:blk_file rw_file_perms;
