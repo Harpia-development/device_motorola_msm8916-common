@@ -9,7 +9,7 @@ vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
 vendor/lib/libacdb-fts.so
-vendor/lib/libacdbloader.so
+vendor/lib/libacdbloader.so|e2c56e58f8f00795815a2eefc2f38605153e4758
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
@@ -120,7 +120,7 @@ vendor/bin/perfd
 vendor/lib/libqti-perfd-client.so
 
 # IMS - from athene & ims.apk from daisy
--priv-app/ims/ims.apk|6787b80f2cc9a67bed474a229b547c21c1ccaf92
+-priv-app/ims/ims.apk|39ecce179dd9c9e4e7e09ebfc6b8c73887ebc521
 -vendor/app/imssettings/imssettings.apk|d34ce39b079627024af4b3af5d9854aec5d2295e
 -vendor/framework/qti-vzw-ims-internal.jar|974e25bac72817ae3be5f1bfe3ddfb3822248a8c
 vendor/etc/permissions/qti-vzw-ims-internal.xml|3e41b645dd4ad8bad6775c103a34bfd7a507a4f7
