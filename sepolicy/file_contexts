@@ -42,3 +42,6 @@
 
 # Sysfs files
 /sys/devices/w1_bus_master1(/.*)?                           u:object_r:sysfs_w1_bus:s0
+
+# Camera
+/sys/devices(/platform)?/soc\.0/qcom,msm-cam\.[0-9]+/video4linux/video[0-9]+/name(/.*)?  u:object_r:sysfs_graphics:s0
