@@ -27,7 +27,7 @@ vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|1a2dc1c2d217f47b9c
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|b5465f0bc302b47a67b34751d6f3f472af3eb75b
 
 # Camera
-lib/libmot_sensorlistener.so
+vendor/lib/libmot_sensorlistener.so
 vendor/lib/libbson.so
 vendor/lib/libfastcvopt.so
 vendor/lib/libmmcamera2_imglib_modules.so
@@ -58,7 +58,6 @@ vendor/lib/librpmb.so
 vendor/lib/libssd.so
 
 # FM Radio - from addision
-lib/vendor.qti.hardware.fm@1.0.so|f2f8c0a7e34ce6a57212607eda7193cfc1e84db6
 vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so|d0793240a61058da5d871e94f11f0f4afd6a4614
 vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so|12dc40b9341f014ec834bda40cb13ebc736c21a0
 
@@ -138,9 +137,8 @@ vendor/lib/lib-rtpcommon.so|afccef8edcb66fe5ab563967e3152f09b0e86f4a
 vendor/lib/lib-rtpcore.so|600ee02d2e827c8b22a63816a2f80204fa9e2c58
 vendor/lib/lib-rtpdaemoninterface.so|3bf68abd65bd66fce8a5163f472b71aabbcae63b
 vendor/lib/lib-rtpsl.so|c9bc38cb3061829f7776569c5835a1ac02c6cd98
-lib/librtp_jni.so|a2684255744d3dbf6868433e656065297fce9ac5
+vendor/lib/librtp_jni.so|a2684255744d3dbf6868433e656065297fce9ac5
 vendor/lib/vendor.qti.imsrtpservice@1.0-service-Impl.so|e0be432b9f3bf90661e815e04d26cd05849d2769
-lib/vendor.qti.imsrtpservice@1.0.so|eeaabadfe12f7fed50a30481f8f78d7226b8a4cd
 vendor/lib/vendor.qti.imsrtpservice@1.0_vendor.so|09b95885ae003997130d68dc3960cea5cff6376a
 vendor/lib/vendor.qti.hardware.radio.ims@1.0_vendor.so|2b0bc7a4d5b2d01eeb8f277e0be3ca05236ae383
 vendor/lib/lib-dplmedia.so|51adb0185654ef45cf0e435f7f3ceb3afba6866f
@@ -242,7 +240,7 @@ vendor/lib/vendor.qti.hardware.iop@1.0_vendor.so|22d584e6103a2849657ae1a14604bcb
 vendor/lib/vendor.qti.hardware.iop@2.0_vendor.so|970b024630c425de6a574b4652552b2bfb1d886f
 
 # Sensors
-lib/hw/sensorhub.msm8916.so
+vendor/lib/hw/sensorhub.msm8916.so
 
 # STLport
 vendor/lib/libstlport.so
