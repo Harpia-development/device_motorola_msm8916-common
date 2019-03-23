@@ -1,7 +1,7 @@
 # Proprietary files for msm8916-common
 
 # ADSP
-bin/adsprpcd
+vendor/bin/adsprpcd
 vendor/lib/libadsprpc.so
 
 # Audio
@@ -47,7 +47,7 @@ vendor/lib/libmm-abl-oem.so
 vendor/lib/libmm-abl.so
 
 # DRM
-bin/qseecomd
+vendor/bin/qseecomd
 vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
@@ -254,7 +254,7 @@ vendor/lib/libthermalioctl.so
 
 # Time services
 -app/TimeService/TimeService.apk
-bin/time_daemon
+vendor/bin/time_daemon
 vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
 

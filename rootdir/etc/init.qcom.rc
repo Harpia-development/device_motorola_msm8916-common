@@ -382,7 +382,7 @@ service wcnss-service /vendor/bin/wcnss_service
     writepid /dev/cpuset/system-background/tasks
 
 #start camera server as daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
+service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
@@ -402,7 +402,7 @@ on property:persist.usb.chgdisabled=1
 on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
-service qseecomd /system/bin/qseecomd
+service qseecomd /system/vendor/bin/qseecomd
    class core
    user root
    group root
@@ -424,7 +424,7 @@ service thermal-com /vendor/bin/thermal-engine --minimode
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service time_daemon /vendor/bin/time_daemon
+service time_daemon /system/vendor/bin/time_daemon
    class late_start
    user root
    group root
