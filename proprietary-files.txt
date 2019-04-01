@@ -115,10 +115,6 @@ vendor/lib/libOmxAacDec.so|d4d36b943fd18b565af4ed6d81e422b60ac6b5c2
 vendor/lib/libOmxEvrcDec.so|b003a2147230e3040a2b64ba9fa94367961fc7e2
 vendor/lib/libOmxQcelp13Dec.so|8e890cbe50cb2f404648c967d00d7d0d8770bd6d
 
-# Perf
-vendor/bin/perfd
-vendor/lib/libqti-perfd-client.so
-
 # IMS - from athene & ims.apk from daisy
 -priv-app/ims/ims.apk|39ecce179dd9c9e4e7e09ebfc6b8c73887ebc521
 -vendor/app/imssettings/imssettings.apk|d34ce39b079627024af4b3af5d9854aec5d2295e
@@ -169,7 +165,7 @@ vendor/lib/libsmemlog.so|c632a70764ee1d6416ce1758f4d10cd6983d204d
 -framework/qti-telephony-common.jar|b1953a3599255f08f1785c677d22810f65e0167b
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|9ed0655b1c929520727ae6c48218d7276b9269cc
 vendor/etc/permissions/qti_libpermissions.xml|92e5814133dbc1f82fce898374d042a42c9ecf9d
-vendor/etc/permissions/qti_permissions.xml|e6ff4572352b1a4f91b6b9d7cbb1cad9924410a0
+vendor/etc/permissions/qti_permissions.xml|2826b33ed8e2756cc748c80bd6c466ff8af97ac5
 vendor/bin/netmgrd|c4da87b3a81cef3574c87d7b7ae466efeb573e2a
 vendor/bin/qmuxd|89df9a0cd00f7c0e8af1a81eb9b79a22fa128b7d
 vendor/bin/rmt_storage|e586c4429dc20994e2b9203ef7f269a648e0a0b5
@@ -275,3 +271,25 @@ vendor/lib/liboemcrypto.so
 vendor/bin/hw/android.hardware.drm@1.0-service.widevine
 vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc
 vendor/lib/libwvhidl.so
+
+# Pie perf stack - from aljeter
+-framework/QPerformance.jar|6805bf62ea46eab5987f27dde7789188e96e44f4
+-framework/UxPerformance.jar|fcdd30e3a7099843c53a0adeacd2bab919567c24
+vendor/etc/perf/commonresourceconfigs.xml|73fc37a6fa498a98758b5a91ebacb87ef0ffdcdf
+vendor/etc/perf/perf-profile0.conf|02204355bf29ceb0460cd53e6716552bb9d9b05f
+vendor/etc/perf/perf-profile1.conf|95b92f79d76add1cfc6b2970225d32443fa29838
+vendor/etc/perf/perfboostsconfig.xml|3d4aa8615d9b007727604c584a8ebe8812ae6c3e
+vendor/etc/perf/targetconfig.xml|a6fafaf30ee9c57e073f6987f6016b6f9c7f1cac
+vendor/etc/perf/targetresourceconfigs.xml|4f7629e2b2f14dee788eab3d45780ff9943e6720
+vendor/lib/libperfgluelayer.so|d4136856ee1a57aa1a52ac9fe7ed1c773f0d27ae
+vendor/lib/libqti-iopd-client.so|542f821c29bf7f6ba0a0c543d2f90c8b09921ff9
+vendor/lib/libqti-perfd-client.so|a0125dc57a1e92507f0ceffc424089a1254b63d9
+vendor/lib/libqti-perfd.so|674564f696527319dc91dc99d677078574900b57
+vendor/lib/libqti-util.so|3768499b52852607d07685fc36e469b44ad7f5c0
+vendor/lib/libqti-utils.so|52cd068e6e2ec6cee49ff3591384725ff80b29d5
+vendor/lib/libqti_performance.so|dc0995fa3217b6c44029b55b5151adaae515392a
+vendor/lib/vendor.qti.hardware.iop@1.0.so|8473202ded20264fa38d40ad66ebda39655a6c6b
+vendor/lib/vendor.qti.hardware.iop@2.0.so|24d6a736a5729224cd1ee6b599d5aa865b6b2f52
+vendor/lib/vendor.qti.hardware.perf@1.0.so|c14b12ffc4b5f1b2af4faa8d020de5e20564d510
+vendor/bin/hw/vendor.qti.hardware.perf@1.0-service|9303212148a3824c7641c8ceed2c073138a3ef79
+vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc|ae3dfd2f88ba9db8d634eae722c2d1ab01ff7063
