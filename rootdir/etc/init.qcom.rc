@@ -630,6 +630,10 @@ on property:init.svc.per_mgr=running
 on property:sys.shutdown.requested=*
     stop per_proxy
 
+service tftp_server /vendor/bin/tftp_server
+   class core
+   user root
+   
 on moto-charger
     setprop ro.board.platform msm8916
 
