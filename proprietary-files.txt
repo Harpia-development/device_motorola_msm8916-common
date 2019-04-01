@@ -144,12 +144,12 @@ vendor/lib/lib-dplmedia.so|51adb0185654ef45cf0e435f7f3ceb3afba6866f
 
 # Qualcomm framework - from athene
 vendor/bin/irsc_util|38ab70f2974a4970f0cd15e5c860e071d54b3ca2
-vendor/lib/libdiag.so|4d20084371352188624a54b4907899c5a68fd611
+vendor/lib/libdiag.so|011dcda645c18a7ee2bb9479c92b3be03392b4ec
 vendor/lib/libdiag_system.so|f0284ac4e296feceaa58fdd8b4c7efedef3898f0
 vendor/lib/libDiagService.so|6df48e1056d61dd9b067c0c40052f469b8cefc99
 vendor/lib/libdsi_netctrl.so|b45ee71c61e7338b976f000fa236c2ad12a7a23b
 vendor/lib/libdsutils.so|b201a9690c524c7892ac5eef4ce89bcb51dbea21
-vendor/lib/libidl.so|eadf4f3f7d25ec642cc457d4f6d16912682b0508
+vendor/lib/libidl.so|9d79cd423a9c3d8e9f6282ffb83b1462b5940837
 vendor/lib/libFileMux.so|8ef35c03c3a057c360f3de702f8deda941582531
 vendor/lib/libqcci_legacy.so|70d38fb7b7c755dd610de70803b28c47594fc428
 vendor/lib/libqdi.so|b9160277b51169211dd571d305e111f849f887ee
@@ -162,7 +162,7 @@ vendor/lib/libqmi_common_so.so|208db6e3d352c811af3f42536d5f1bf26df69904
 vendor/lib/libqmi_csi.so|157f52e73904d34ed530a5177a7347f9d5555460
 vendor/lib/libqmi_encdec.so|39167d6933012e147bf9dc153154ff2f105354af
 vendor/lib/libqmiservices.so|8df18817c510a7d79fab93c10a02205debec5b97
-vendor/lib/libsmemlog.so|c632a70764ee1d6416ce1758f4d10cd6983d204d
+vendor/lib/libsmemlog.so|8f0e2c95280922335bfa38117253dd8d6381dfeb
 
 # Radio - from athene
 -framework/qti-telephony-common.jar|b1953a3599255f08f1785c677d22810f65e0167b
@@ -188,7 +188,7 @@ vendor/radio/qcril_database/qcril.db|3d351b00fce885b4c67921f1042487838514ce17
 vendor/lib/com.quicinc.cne.api@1.0.so|865028df876851ebfbed7a1de214770cdca92bff
 vendor/lib/com.quicinc.cne.constants@1.0.so|6fbeed81f2ee04e2077d9c3a38ff448b6accfdd9
 vendor/lib/libcneapiclient.so|cdee58a843027bb7b8fbbb1ed6fffa50ef30075c
-vendor/lib/libconfigdb.so|a9d72283b1bdf820a2df8eb6099fa0d4b70cc98f
+vendor/lib/libconfigdb.so|054dd1f94a60fa574c7cf28bc5d29c9607898ca8
 vendor/lib/liblqe.so|9106699970bc93c629ed516e43e89693aeab9bae
 vendor/lib/libmdmdetect.so|95801f5422d597d4494c1acb1aab98fd53437898
 vendor/lib/libnetmgr.so|5fa468c46accd83917ed9b99db08f66ba00f276d
@@ -199,7 +199,7 @@ vendor/lib/libril-qcril-hook-oem.so|05a73250caebea4daf4422ee9ad2b886be771107
 vendor/lib/librilqmiservices.so|22b0e682c006d54ea788ef1689f8fbb43054371a
 vendor/lib/libsettings.so|380ba180ab53849ecd7cf3cc68c695489e48ec1e
 vendor/lib/libsystem_health_mon.so|edd016304d905704e73d7f5a8bd15c2193f26cc2
-vendor/lib/libxml.so|461bd27691595ff6197bb6b10e2a05c9205b2433
+vendor/lib/libxml.so|cc06bb315200a8558ef04e282539fba80baabc95
 vendor/lib/libsubsystem_control.so|f5c1d1b50ff9dde8b440d7606aa43e787b6faa72
 vendor/lib/libSubSystemShutdown.so|dfd0b427ab94d4fdc3b0ed7cb51868586a26d0e7
 vendor/lib/libvoice-svc.so|04a2cd271ed0422624492056fc3a4ac9a5bb634a
@@ -213,6 +213,8 @@ vendor/lib/vendor.qti.hardware.radio.qtiradio@1.0_vendor.so|b465f1f891a41b8f2dd6
 vendor/lib/vendor.qti.hardware.radio.uim@1.0_vendor.so|19bfa9566acf9f3d5bdbd8781934d8cf1a22c3c3
 vendor/lib/vendor.qti.hardware.radio.uim_remote_client@1.0_vendor.so|786e80a37ba21418f166446ea813083bbfea77bb
 vendor/lib/vendor.qti.hardware.radio.uim_remote_server@1.0_vendor.so|8b504cf1a4af3582f6513ba9dcb3a94bf56a5a81
+vendor/lib/libqcrilFramework.so|140e4c122be8abc9180d88ded183884d8a0e57a6
+vendor/lib/vendor.qti.hardware.radio.atcmdfwd@1.0_vendor.so|d9a17cca6d90c8febaeb357e48e5a3cbfd10054a
 
 # Peripheral Manager - from athene
 vendor/bin/pm-service|0f2796b07c944e89dbc4196a39083bc25897b796
