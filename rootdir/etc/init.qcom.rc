@@ -360,7 +360,11 @@ on post-fs-data
     
     # Create IOP dirs
     mkdir /data/vendor/iop 0700 root system
-
+    
+    # Create the directories used by CnE subsystem
+    mkdir /data/connectivity 0771 system system
+    chown system system /data/connectivity
+    
 service mmi-boot-sh /vendor/bin/init.mmi.boot.sh
     class core
     user root
@@ -634,6 +638,11 @@ service tftp_server /vendor/bin/tftp_server
    class core
    user root
    
+service cnd /system/vendor/bin/cnd
+    class main
+    user system
+    group system wifi inet radio wakelock net_admin
+    
 on moto-charger
     setprop ro.board.platform msm8916
 
