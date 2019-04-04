@@ -1,17 +1,21 @@
-#!/vdndor/bin/sh
+#!/vendor/bin/sh
 
 PATH=/sbin:/vendor/sbin:/vendor/bin:/vendor/xbin
 export PATH
 
-while getopts d op;
+while getopts ds op;
 do
 	case $op in
 		d)  dbg_on=1;;
+		s)  dump_statistics=1;;
 	esac
 done
 shift $(($OPTIND-1))
 
 scriptname=${0##*/}
+touch_class_path=/sys/class/touchscreen
+touch_product_string=$(ls $touch_class_path)
+touch_status_prop=hw.touch.status
 
 debug()
 {
@@ -24,39 +28,87 @@ notice()
 	echo "$scriptname: $*" > /dev/kmsg
 }
 
+sanity_check()
+{
+	read_touch_property flashprog || return 1
+	[[ ( -z "$property" ) || ( "$property" == "1" ) ]] && return 1
+	read_touch_property productinfo || return 1
+	[[ ( -z "$property" ) || ( "$property" == "0" ) ]] && return 1
+	read_touch_property buildid || return 1
+	config_id=${property#*-}
+	[[ ( -z "$config_id" ) || ( "$config_id" == "0" ) ]] && return 1
+	build_id=${property%-*}
+	[[ ( -z "$build_id" ) || ( "$build_id" == "0" ) ]] && return 1
+	return 0
+}
+
 error_and_leave()
 {
 	local err_msg
 	local err_code=$1
+	local touch_status="unknown"
 	case $err_code in
-		1)  err_msg="Error: No response from touch IC";;
+		1)  err_msg="Error: No response from touch IC"
+			touch_status="dead";;
 		2)  err_msg="Error: Cannot read property $2";;
 		3)  err_msg="Error: No matching firmware file found";;
-		4)  err_msg="Error: Touch IC is in bootloader mode";;
-		5)  err_msg="Error: Touch provides no reflash interface";;
-		6)  err_msg="Error: Touch driver is not running";;
+		4)  err_msg="Error: Touch IC is in bootloader mode"
+			touch_status="dead";;
+		5)  err_msg="Error: Touch provides no reflash interface"
+			touch_status="dead";;
+		6)  err_msg="Error: Touch driver is not running"
+			touch_status="absent";;
+		7)  err_msg="Warning: Touch firmware is not the latest";;
 	esac
 	notice "$err_msg"
+
+	# perform sanity check and declare touch ready if error is not fatal
+	if [ "$touch_status" == "unknown" ]; then
+		touch_status="ready"
+		sanity_check
+		[ "$?" == "1" ] && touch_status="dead"
+	fi
+
+	# perform recovery if touch is declared dead
+	if [ "$touch_status" == "dead" ]; then
+		notice "Touch needs to go through recovery!!!"
+		reboot_cnt=$(getprop $touch_status_prop 2>/dev/null)
+		[ -z "$reboot_cnt" ] && reboot_cnt=0
+		debug "current reboot counter [$reboot_cnt]"
+	fi
+
+	setprop $touch_status_prop $touch_status
+	notice "property [$touch_status_prop] set to [`getprop $touch_status_prop`]"
+
+	if [ "$touch_status" == "dead" ]; then
+		if [ $((reboot_cnt)) -lt 2 ]; then
+			notice "Touch is not working; rebooting..."
+			debug "sleep 3s to allow touch-dead-sh service to run"
+			sleep 3
+			[ -z "$dbg_on" ] && reboot
+		else
+			notice "Although touch is not working, no more reboots"
+		fi
+	fi
+
 	exit $err_code
 }
 
-for touch_vendor in $*; do
-	debug "searching driver for vendor [$touch_vendor]"
-	touch_driver_link=$(ls -l /sys/bus/i2c/drivers/$touch_vendor*/*-*)
-	if [ -z "$touch_driver_link" ]; then
-		debug "no driver for vendor [$touch_vendor] is running"
-		shift 1
-	else
-		debug "driver for vendor [$touch_vendor] found!!!"
-		break
-	fi
-done
+[ -z "$touch_product_string" ] && error_and_leave 6
 
-[ -z "$touch_driver_link" ] && error_and_leave 6
-
-touch_path=/sys/devices/${touch_driver_link#*devices/}
-panel_path=/sys/devices/virtual/graphics/fb0
+touch_vendor=$(cat $touch_class_path/$touch_product_string/vendor)
+debug "touch vendor [$touch_vendor]"
+touch_path=/sys$(cat $touch_class_path/$touch_product_string/path)
 debug "sysfs touch path: $touch_path"
+panel_path=/sys/devices/virtual/graphics/fb0
+debug "sysfs panel path: $panel_path"
+
+if [ $dump_statistics ]; then
+	debug "dumping touch statistics"
+	cat $touch_path/ic_ver
+	[ -f $touch_path/stats ] && cat $touch_path/stats
+	return 0
+fi
 
 [ -f $touch_path/doreflash ] || error_and_leave 5
 [ -f $touch_path/poweron ] || error_and_leave 5
@@ -81,6 +133,8 @@ fi
 chown root:oem_5004 $touch_path/drv_irq
 chown root:oem_5004 $touch_path/hw_irqstat
 chown root:oem_5004 $touch_path/reset
+# Set permissions to allow Bug2Go access to touch statistics
+chown root:log $touch_path/stats
 
 debug "wait until driver reports <ready to flash>..."
 while true; do
@@ -96,14 +150,14 @@ unset readiness
 
 device_property=ro.hw.device
 hwrev_property=ro.hw.revision
-firmware_path=/system/vendor/firmware
+firmware_path=/vendor/firmware
 
 let dec_cfg_id_boot=0; dec_cfg_id_latest=0;
 
 read_touch_property()
 {
 	property=""
-	debug "retrieving touch property: [$touch_path/$1]"
+	debug "retrieving property: [$touch_path/$1]"
 	property=$(cat $touch_path/$1 2> /dev/null)
 	debug "touch property [$1] is: [$property]"
 	[ -z "$property" ] && return 1
@@ -163,7 +217,7 @@ touch_product_id=$property
 if [ -z "$touch_product_id" ] || [ "$touch_product_id" == "0" ];
 then
 	debug "touch ic reports invalid product id"
-	error_and_leave 3
+	error_and_leave 1
 fi
 debug "touch product id: $touch_product_id"
 
@@ -172,21 +226,23 @@ str_cfg_id_boot=${property#*-}
 let dec_cfg_id_boot=0x$str_cfg_id_boot
 debug "touch config id: $str_cfg_id_boot"
 
+build_id_boot=${property%-*}
+debug "touch build id: $build_id_boot"
+
+typeset -l product_id
 product_id=$(getprop $device_property 2> /dev/null)
 [ -z "$product_id" ] && error_and_leave 2 $device_property
 product_id=${product_id%-*}
+product_id=${product_id%_*}
 debug "product id: $product_id"
 
 hwrev_id=$(getprop $hwrev_property 2> /dev/null)
-[ -z "$hwrev_id" ] && error_and_leave 2 $hwrev_property
+[ -z "$hwrev_id" ] && notice "hw revision undefined"
 debug "hw revision: $hwrev_id"
 
 read_panel_property "panel_supplier"
 supplier=$property
-if [ -z "$supplier" ];
-then
-	debug "driver does not report panel supplier"
-fi
+[ -z "$supplier" ] && debug "driver does not report panel supplier"
 debug "panel supplier: $supplier"
 
 cd $firmware_path
@@ -202,7 +258,7 @@ find_best_match()
 			hw_mask=""
 		fi
 
-		if [ ! -z $panel_supplier ];
+		if [ ! -z "$panel_supplier" ];
 		then
 			skip_fields=3
 			fw_mask="$touch_vendor-$panel_supplier-$touch_product_id-*-$product_id$hw_mask.*"
@@ -218,7 +274,7 @@ find_best_match()
 
 	[ -z "$str_cfg_id_latest" ] && return 1
 
-	if [ -z $panel_supplier ]; then
+	if [ -z "$panel_supplier" ]; then
 		firmware_file=$(ls $touch_vendor-$touch_product_id-$str_cfg_id_latest-*-$product_id$hw_mask.*)
 	else
 		firmware_file=$(ls $touch_vendor-$panel_supplier-$touch_product_id-$str_cfg_id_latest-*-$product_id$hw_mask.*)
@@ -245,7 +301,16 @@ then
 	find_best_match "-$hwrev_id" || error_and_leave 3
 fi
 
-if [ $dec_cfg_id_boot -ne $dec_cfg_id_latest ] || [ "$bl_mode" == "1" ];
+recovery=0
+if [ "$bl_mode" == "1" ] || [ "$build_id_boot" == "0" ];
+then
+	recovery=1
+	notice "Initiating touch firmware recovery"
+	notice "  bl mode = $bl_mode"
+	notice "  build id = $build_id_boot"
+fi
+
+if [ $dec_cfg_id_boot -ne $dec_cfg_id_latest ] || [ "$recovery" == "1" ];
 then
 	debug "forcing firmware upgrade"
 	echo 1 > $touch_path/forcereflash
@@ -253,19 +318,26 @@ then
 	echo $firmware_file > $touch_path/doreflash
 	read_touch_property flashprog || error_and_leave 1
 	bl_mode=$property
-
 	[ "$bl_mode" == "1" ] && error_and_leave 4
-
 	read_touch_property buildid || error_and_leave 1
 	str_cfg_id_new=${property#*-}
-	debug "firmware config ids: expected $str_cfg_id_latest, current $str_cfg_id_new"
+	build_id_new=${property%-*}
 
 	notice "Touch firmware config id at boot time $str_cfg_id_boot"
 	notice "Touch firmware config id in the file $str_cfg_id_latest"
 	notice "Touch firmware config id currently programmed $str_cfg_id_new"
-else
-	notice "Touch firmware is up to date"
+
+	[ "$str_cfg_id_latest" != "$str_cfg_id_new" ] && error_and_leave 7
+
+	if [ -f $touch_path/f54/force_update ]; then
+		notice "forcing F54 registers update"
+		echo 1 > $touch_path/f54/force_update
+	fi
 fi
+
+notice "Touch firmware is up to date"
+setprop $touch_status_prop "ready"
+notice "property [$touch_status_prop] set to [`getprop $touch_status_prop`]"
 
 unset device_property hwrev_property supplier
 unset str_cfg_id_boot str_cfg_id_latest str_cfg_id_new
