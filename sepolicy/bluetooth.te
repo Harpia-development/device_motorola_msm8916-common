@@ -21,3 +21,12 @@ allowxperm bluetooth self:socket ioctl msm_sock_ipc_ioctls;
 
 binder_call(bluetooth, hal_audio);
 allow bluetooth hal_audio_hwservice:hwservice_manager find;
+allow bluetooth alarm_boot_prop:file read;
+allow bluetooth alarm_handled_prop:file read;
+allow bluetooth alarm_instance_prop:file read;
+allow bluetooth bg_boot_complete_prop:file read;
+allow bluetooth bg_daemon_prop:file read;
+allow bluetooth boot_animation_prop:file read;
+allow bluetooth boot_mode_prop:file read;
+allow bluetooth bootloader_boot_reason_prop:file read;
+allow bluetooth boottime_prop:file read;

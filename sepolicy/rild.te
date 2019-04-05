@@ -52,3 +52,4 @@ allow rild audioserver_service:service_manager find;
 allow rild carrier_file:dir rw_dir_perms;
 allow rild carrier_file:file create_file_perms;
 dontaudit rild vendor_file:file ioctl;
+allow rild fsg_file:dir { read search };

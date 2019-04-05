@@ -1,1 +1,3 @@
 allow sysinit kernel:system module_request;
+allow sysinit shell_exec:file { getattr read };
+allow sysinit system_file:dir { open read };

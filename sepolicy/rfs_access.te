@@ -63,3 +63,4 @@ neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') 
 neverallow { domain -rfs_access -kernel -recovery -init userdebug_or_eng(`-su') -qti_init_shell } rfs_file:file create_file_perms;
 
 allow rfs_access self:capability { net_raw };
+allow rfs_access kernel:system module_request;

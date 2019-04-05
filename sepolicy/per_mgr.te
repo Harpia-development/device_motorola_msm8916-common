@@ -1,1 +1,2 @@
 allow per_mgr kernel:system module_request;
+allow per_mgr vndbinder_device:chr_file read;

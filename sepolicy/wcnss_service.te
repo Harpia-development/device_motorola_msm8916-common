@@ -1,0 +1,1 @@
+allow wcnss_service kernel:system module_request;

@@ -1,0 +1,2 @@
+allow bootanim kernel:system module_request;
+allow bootanim system_data_file:dir read;

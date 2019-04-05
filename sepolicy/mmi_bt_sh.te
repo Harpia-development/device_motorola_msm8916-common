@@ -10,3 +10,4 @@ allow mmi_bt_sh vendor_toolbox_exec:file rx_file_perms;
 
 get_prop(mmi_bt_sh, bluetooth_prop)
 set_prop(mmi_bt_sh, bluetooth_prop)
+allow mmi_bt_sh kernel:system module_request;

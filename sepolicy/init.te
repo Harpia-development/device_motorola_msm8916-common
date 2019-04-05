@@ -145,3 +145,4 @@ allow init carrier_file:dir mounton;
 allow init carrier_file:file rw_file_perms;
 
 allow init sysfs_graphics:file { setattr w_file_perms };
+allow init vendor_toolbox_exec:file execute_no_trans;

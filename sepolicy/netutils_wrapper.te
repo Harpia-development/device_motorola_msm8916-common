@@ -1,0 +1,1 @@
+allow netutils_wrapper kernel:system module_request;

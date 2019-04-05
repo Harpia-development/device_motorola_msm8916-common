@@ -1,0 +1,5 @@
+allow platform_app alarm_boot_prop:file read;
+allow platform_app alarm_handled_prop:file read;
+allow platform_app alarm_instance_prop:file read;
+allow platform_app bg_boot_complete_prop:file read;
+allow platform_app bg_daemon_prop:file read;

@@ -1,3 +1,4 @@
 allow system_server userinit_prop:file read;
 allow system_server adbtcp_prop:file read;
 allow system_server lineage_recovery_prop:file read;
+allow system_server recovery_prop:file read;

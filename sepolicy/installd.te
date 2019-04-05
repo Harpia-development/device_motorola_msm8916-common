@@ -3,3 +3,4 @@ allow installd fsg_file:filesystem quotaget;
 allow installd idmap:process noatsecure;
 
 allow installd kernel:system module_request;
+allow installd dex2oat:process noatsecure;
