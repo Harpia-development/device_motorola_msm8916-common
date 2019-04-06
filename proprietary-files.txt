@@ -16,6 +16,11 @@ vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
 vendor/lib/libqct_resampler.so
 
+# Listen
+vendor/lib/hw/sound_trigger.primary.msm8916.so
+vendor/lib/libadpcmdec.so
+vendor/lib/libsmwrapper.so
+
 # Bluetooth - from aljeter
 vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|9a330c399b3b07040bb63fa62773b1f24e29fdd8
 vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0_vendor.so|24e30d803c9f312bc1813d89bd70cf2c64a0b9ae
