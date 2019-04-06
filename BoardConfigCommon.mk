@@ -225,8 +225,3 @@ PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
-
-# Perf
-PRODUCT_BOOT_JARS += \
-    QPerformance \
-    UxPerformance
