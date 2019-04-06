@@ -1,0 +1,1 @@
+allow hal_configstore_default kernel:system module_request;

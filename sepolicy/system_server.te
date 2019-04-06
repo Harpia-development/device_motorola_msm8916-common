@@ -141,3 +141,4 @@ allow system_server vendor_system_prop:file read;
 allow system_server vendor_wifi_prop:file read;
 allow system_server vm_bms_prop:file read;
 allow system_server wififtmd_prop:file read;
+allow system_server unlabeled:file unlink;

@@ -1,0 +1,1 @@
+allow ims kernel:system module_request;

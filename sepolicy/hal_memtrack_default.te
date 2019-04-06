@@ -32,3 +32,5 @@ allow hal_memtrack_default hal_usb_default:file read;
 allow hal_memtrack_default init:dir search;
 allow hal_memtrack_default system_app:dir search;
 allow hal_memtrack_default system_app:file { getattr open read };
+allow hal_memtrack_default wcnss_service:dir search;
+allow hal_memtrack_default wcnss_service:file { getattr open };

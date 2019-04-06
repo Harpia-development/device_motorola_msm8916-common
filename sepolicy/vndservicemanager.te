@@ -2,3 +2,15 @@ allow vndservicemanager kernel:system module_request;
 allow vndservicemanager runtime_event_log_tags_file:file read;
 
 allow vndservicemanager runtime_event_log_tags_file:file open;
+allow vndservicemanager per_mgr:dir search;
+allow vndservicemanager per_mgr:file read;
+allow vndservicemanager per_mgr:file open;
+allow vndservicemanager per_mgr:process getattr;
+allow vndservicemanager hal_gnss_default:dir search;
+allow vndservicemanager rild:dir search;
+allow vndservicemanager hal_gnss_default:file read;
+allow vndservicemanager rild:file read;
+allow vndservicemanager hal_gnss_default:file open;
+allow vndservicemanager rild:file open;
+allow vndservicemanager hal_gnss_default:process getattr;
+allow vndservicemanager rild:process getattr;

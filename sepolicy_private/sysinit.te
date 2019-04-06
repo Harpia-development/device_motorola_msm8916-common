@@ -1,3 +1,6 @@
 allow sysinit kernel:system module_request;
 allow sysinit shell_exec:file { getattr read };
 allow sysinit system_file:dir { open read };
+allow sysinit toolbox_exec:file { execute execute_no_trans getattr open read };
+allow sysinit system_file:file execute_no_trans;
+allow sysinit shell_exec:file read;

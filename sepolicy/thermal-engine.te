@@ -66,3 +66,4 @@ type_transition thermal-engine socket_device:sock_file thermal_socket;
 allow thermal-engine self:capability sys_nice;
 
 r_dir_file(thermal-engine, sysfs_batteryinfo)
+allow thermal-engine kernel:system module_request;

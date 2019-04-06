@@ -80,3 +80,7 @@ allow shared_relro safemode_prop:file read;
 allow shared_relro scr_enabled_prop:file read;
 allow shared_relro sdm_idle_time_prop:file read;
 allow shared_relro sensors_prop:file read;
+allow shared_relro serialno_prop:file read;
+allow shared_relro spcomlib_prop:file read;
+allow shared_relro sys_usb_configfs_prop:file read;
+allow shared_relro sys_usb_controller_prop:file read;

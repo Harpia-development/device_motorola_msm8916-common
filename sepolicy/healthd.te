@@ -17,3 +17,4 @@ allow healthd {
 }:file rw_file_perms;
 
 r_dir_file(healthd, sysfs_batteryinfo)
+allow healthd kernel:system module_request;

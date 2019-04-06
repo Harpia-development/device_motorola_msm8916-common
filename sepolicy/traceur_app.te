@@ -33,3 +33,8 @@ allow traceur_app ctl_stop_prop:file read;
 allow traceur_app ctl_vendor_imsrcsservice_prop:file read;
 allow traceur_app ctl_vendor_wigigsvc_prop:file read;
 allow traceur_app device_logging_prop:file read;
+allow traceur_app diag_mdlog_prop:file read;
+allow traceur_app dolby_prop:file read;
+allow traceur_app dumpstate_options_prop:file read;
+allow traceur_app firstboot_prop:file read;
+allow traceur_app fm_prop:file read;
