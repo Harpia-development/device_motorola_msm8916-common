@@ -6,3 +6,5 @@ allow isolated_app bg_daemon_prop:file read;
 allow isolated_app bluetooth_prop:file read;
 allow isolated_app boot_animation_prop:file read;
 allow isolated_app boot_mode_prop:file read;
+allow isolated_app app_data_file:dir getattr;
+allow isolated_app bootloader_boot_reason_prop:file read;

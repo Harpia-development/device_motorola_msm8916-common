@@ -1,0 +1,10 @@
+allow snap_app alarm_boot_prop:file read;
+allow snap_app alarm_handled_prop:file read;
+allow snap_app alarm_instance_prop:file read;
+allow snap_app bg_boot_complete_prop:file read;
+allow snap_app bg_daemon_prop:file read;
+allow snap_app bluetooth_prop:file read;
+allow snap_app boot_animation_prop:file read;
+allow snap_app boot_mode_prop:file read;
+allow snap_app bootloader_boot_reason_prop:file read;
+allow snap_app runtime_event_log_tags_file:file { open read };

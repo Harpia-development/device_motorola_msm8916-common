@@ -28,3 +28,7 @@ allow mediaprovider ctl_mdnsd_prop:file read;
 allow mediaprovider ctl_netmgrd_prop:file read;
 allow mediaprovider ctl_port-bridge_prop:file read;
 allow mediaprovider ctl_qmuxd_prop:file read;
+allow mediaprovider ctl_restart_prop:file read;
+allow mediaprovider ctl_rildaemon_prop:file read;
+allow mediaprovider ctl_sigstop_prop:file read;
+allow mediaprovider ctl_start_prop:file read;

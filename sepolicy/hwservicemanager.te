@@ -1,2 +1,3 @@
 allow hwservicemanager kernel:system module_request;
 allow hwservicemanager runtime_event_log_tags_file:file read;
+allow hwservicemanager runtime_event_log_tags_file:file open;

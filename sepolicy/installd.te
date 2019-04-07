@@ -4,3 +4,4 @@ allow installd idmap:process noatsecure;
 
 allow installd kernel:system module_request;
 allow installd dex2oat:process noatsecure;
+allow installd media_rw_data_file:file setattr;

@@ -1,0 +1,5 @@
+allow radio alarm_boot_prop:file read;
+allow radio alarm_handled_prop:file read;
+allow radio alarm_instance_prop:file read;
+allow radio bg_boot_complete_prop:file read;
+allow radio bg_daemon_prop:file read;

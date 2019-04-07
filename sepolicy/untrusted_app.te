@@ -89,3 +89,7 @@ allow untrusted_app serialno_prop:file read;
 allow untrusted_app spcomlib_prop:file read;
 allow untrusted_app sys_usb_configfs_prop:file read;
 allow untrusted_app sys_usb_controller_prop:file read;
+allow untrusted_app sys_usb_tethering_prop:file read;
+allow untrusted_app system_boot_reason_prop:file read;
+allow untrusted_app test_boot_reason_prop:file read;
+allow untrusted_app theme_prop:file read;

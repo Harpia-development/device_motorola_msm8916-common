@@ -23,3 +23,8 @@ allow secure_element ctl_interface_restart_prop:file read;
 allow secure_element ctl_interface_start_prop:file read;
 allow secure_element ctl_interface_stop_prop:file read;
 allow secure_element ctl_mdnsd_prop:file read;
+allow secure_element ctl_netmgrd_prop:file read;
+allow secure_element ctl_port-bridge_prop:file read;
+allow secure_element ctl_qmuxd_prop:file read;
+allow secure_element ctl_restart_prop:file read;
+allow secure_element ctl_rildaemon_prop:file read;
