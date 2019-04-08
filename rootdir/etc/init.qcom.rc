@@ -659,8 +659,8 @@ on moto-charger
     # enable thermal core_control now
     write /sys/module/msm_thermal/core_control/enabled 1
 
-    # Set Battery LED behavior (default off)
-    write /sys/class/leds/charging/trigger "none"
+    # Set Battery LED behavior
+    write /sys/class/leds/charging/trigger "battery-full"
 
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
