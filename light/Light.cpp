@@ -49,9 +49,7 @@ Light::Light(std::pair<std::ofstream, uint32_t>&& lcd_backlight,
       mBlinkingLedOnMs(std::move(blinking_led_on_ms)),
       mBlinkingLedOffMs(std::move(blinking_led_off_ms)) {
     auto backlightFn(std::bind(&Light::setLcdBacklight, this, std::placeholders::_1));
-    auto batteryFn(std::bind(&Light::setBatteryLight, this, std::placeholders::_1));
     mLights.emplace(std::make_pair(Type::BACKLIGHT, backlightFn));
-    mLights.emplace(std::make_pair(Type::BATTERY, batteryFn));
 
     if (mBlinkingLed) {
         auto attnFn(std::bind(&Light::setAttentionLight, this, std::placeholders::_1));
@@ -102,12 +100,6 @@ void Light::setLcdBacklight(const LightState& state) {
     mLcdBacklight.first << brightness << std::endl;
 }
 
-void Light::setBatteryLight(const LightState& state) {
-    std::lock_guard<std::mutex> lock(mLock);
-    mBatteryState = state;
-    setSpeakerLightLocked();
-}
-
 void Light::setAttentionLight(const LightState& state) {
     std::lock_guard<std::mutex> lock(mLock);
     mAttentionState = state;
@@ -125,25 +117,28 @@ void Light::setSpeakerLightLocked() {
         if (isLit(mNotificationState)) {
             int onMs, offMs;
 
-            switch (mNotificationState.flashMode)
-            {
-            case Flash::TIMED:
-                onMs = mNotificationState.flashOnMs;
-                offMs = mNotificationState.flashOffMs;
-                break;
-            default:
-                onMs = 500;
-                offMs = 750;
-                break;
+            switch (mNotificationState.flashMode) {
+                case Flash::TIMED:
+                    onMs              =  mNotificationState.flashOnMs;
+                    offMs             =  mNotificationState.flashOffMs;
+                    mBlinkingLed      << "timer" << std::endl;
+                    mBlinkingLedOnMs  << onMs    << std::endl;
+                    mBlinkingLedOffMs << offMs   << std::endl;
+                    break;
+                case Flash::NONE:
+                    mBlinkingLed      << "none" << std::endl;
+                    break;
+                default:
+                    onMs              =  500;
+                    offMs             =  750;
+                    mBlinkingLed      << "timer" << std::endl;
+                    mBlinkingLedOnMs  << onMs    << std::endl;
+                    mBlinkingLedOffMs << offMs   << std::endl;
+                    break;
             }
 
-            mBlinkingLed      << "timer" << std::endl;
-            mBlinkingLedOnMs  << onMs    << std::endl;
-            mBlinkingLedOffMs << offMs   << std::endl;
-        } else if (isLit(mBatteryState) || isLit(mAttentionState)) {
-            mBlinkingLed      << "timer" << std::endl;
         } else {
-            mBlinkingLed      << "none"  << std::endl;
+                    mBlinkingLed          << "none"  << std::endl;
         }
     }
 }
