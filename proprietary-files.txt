@@ -168,7 +168,7 @@ vendor/lib/libsmemlog.so|8f0e2c95280922335bfa38117253dd8d6381dfeb
 
 # Radio - from athene
 -framework/qti-telephony-common.jar|b1953a3599255f08f1785c677d22810f65e0167b
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|9ed0655b1c929520727ae6c48218d7276b9269cc
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|abb31a2002cf03971aad7a0a7707f2f095f9f79c
 vendor/etc/permissions/qti_libpermissions.xml|92e5814133dbc1f82fce898374d042a42c9ecf9d
 vendor/etc/permissions/qti_permissions.xml|e6ff4572352b1a4f91b6b9d7cbb1cad9924410a0
 vendor/bin/netmgrd|c4da87b3a81cef3574c87d7b7ae466efeb573e2a
