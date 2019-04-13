@@ -1,1 +1,1 @@
-allow mediaprovider adbtcp_prop:file read;
+allow mediaprovider adbtcp_prop:file rw_file_perms;

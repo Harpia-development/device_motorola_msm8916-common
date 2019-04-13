@@ -1,3 +1,4 @@
-allow platform_app adbtcp_prop:file read;
-allow platform_app lineage_recovery_prop:file read;
-allow platform_app userinit_prop:file read;
+allow platform_app adbtcp_prop:file rw_file_perms;
+allow platform_app lineage_recovery_prop:file rw_file_perms;
+allow platform_app userinit_prop:file rw_file_perms;
+allow platform_app lineage_recovery_prop:file rw_file_perms;

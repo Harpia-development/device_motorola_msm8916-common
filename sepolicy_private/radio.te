@@ -1,2 +1,2 @@
-allow radio adbtcp_prop:file read;
-allow radio lineage_recovery_prop:file read;
+allow radio adbtcp_prop:file rw_file_perms;
+allow radio lineage_recovery_prop:file rw_file_perms;

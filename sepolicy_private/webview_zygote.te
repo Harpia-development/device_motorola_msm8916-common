@@ -1,1 +1,1 @@
-allow webview_zygote adbtcp_prop:file read;
+allow webview_zygote adbtcp_prop:file rw_file_perms;
