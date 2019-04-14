@@ -47,8 +47,8 @@ TARGET_USES_64_BIT_BINDER := true
 
 # Kernel Toolchain
 TOP_PATH := $(realpath $(TOP))
-ifneq ($(wildcard $(TOP_PATH)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-8.2),)
-  KERNEL_TOOLCHAIN := $(TOP_PATH)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-8.2/bin
+ifneq ($(wildcard $(TOP_PATH)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-8.3),)
+  KERNEL_TOOLCHAIN := $(TOP_PATH)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-8.3/bin
   KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 endif
 
