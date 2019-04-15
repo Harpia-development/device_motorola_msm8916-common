@@ -37,11 +37,10 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.camera.provider</name>
-        <transport arch="32">passthrough</transport>
+        <transport>hwbinder</transport>
         <version>2.4</version>
         <interface>
             <name>ICameraProvider</name>
-            <instance>external/0</instance>
             <instance>legacy/0</instance>
         </interface>
     </hal>
