@@ -349,7 +349,7 @@ service wcnss-service /vendor/bin/wcnss_service
 
 #start camera server as daemon
 service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
-    class late_start
+    class core
     user camera
     group camera system inet input graphics
     seclabel u:r:mm-qcamerad:s0
