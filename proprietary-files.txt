@@ -120,7 +120,7 @@ vendor/bin/perfd
 vendor/lib/libqti-perfd-client.so
 
 # IMS - from athene & ims.apk from daisy
--priv-app/ims/ims.apk|39ecce179dd9c9e4e7e09ebfc6b8c73887ebc521
+-priv-app/ims/ims.apk|88fe26fa2db888b63e59bdf942d103b91457afb4
 -vendor/app/imssettings/imssettings.apk|d34ce39b079627024af4b3af5d9854aec5d2295e
 -vendor/framework/qti-vzw-ims-internal.jar|974e25bac72817ae3be5f1bfe3ddfb3822248a8c
 vendor/etc/permissions/qti-vzw-ims-internal.xml|3e41b645dd4ad8bad6775c103a34bfd7a507a4f7
