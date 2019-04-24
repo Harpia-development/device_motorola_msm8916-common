@@ -579,4 +579,3 @@ on property:sys.boot_completed=1
     setprop vendor.post_boot.parsed 1
 
     start perfd
-    restart cameraserver
