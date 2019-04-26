@@ -106,9 +106,6 @@ vendor/firmware/a300_pm4.fw
 vendor/firmware/a420_pfp.fw
 vendor/firmware/a420_pm4.fw
 
-# Copybit
-vendor/lib/hw/copybit.msm8916.so
-
 # Media - from aljeter
 vendor/lib/libmm-color-convertor.so|a2f4491469425c3698e6a4a894ec46218a198f2b
 vendor/lib/libOmxAacDec.so|d4d36b943fd18b565af4ed6d81e422b60ac6b5c2
