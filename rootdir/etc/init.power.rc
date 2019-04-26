@@ -1,0 +1,117 @@
+on boot
+    # Add a cpuset for the camera daemon
+    # We want all cores for camera
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/cpus 0-3
+    write /dev/cpuset/camera-daemon/mems 0
+    chown cameraserver cameraserver /dev/cpuset/camera-daemon
+    chmod 0660 /dev/cpuset/camera-daemon/tasks
+
+on init
+    # Full speed for bootup
+    write /sys/module/msm_thermal/core_control/enabled 0
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
+    write /sys/class/devfreq/1c00000.qcom,kgsl-3d0/governor "performance"
+    write /sys/class/devfreq/qcom,cpubw.30/governor "performance"
+
+on fs
+    # Switch to interactive
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/boostpulse
+    chmod 0644 /sys/devices/system/cpu/cpufreq/interactive/boostpulse
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
+    chmod 0644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
+    chmod 0644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
+    chmod 0644 /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
+    chmod 0644 /sys/devices/system/cpu/cpufreq/interactive/timer_rate
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+    chmod 0644 /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/target_loads
+    chmod 0644 /sys/devices/system/cpu/cpufreq/interactive/target_loads
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+
+on post-fs
+    write /proc/sys/vm/page-cluster 0
+    write /proc/sys/vm/swappiness 30
+    write /proc/sys/vm/dirty_background_ratio 20
+    write /proc/sys/vm/dirty_expire_centisecs 200
+    write /proc/sys/vm/dirty_ratio 40
+    write /proc/sys/vm/page-cluster 0
+    write /proc/sys/vm/vfs_cache_pressure 65
+
+on late-fs
+    # Tune FS
+    write /sys/block/mmcblk0/queue/scheduler cfq
+    write /sys/block/mmcblk0/queue/add_random 0
+    write /sys/block/mmcblk0/queue/nr_requests 300
+    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0/bdi/read_ahead_kb 64
+
+on enable-low-power
+    # HMP scheduler settings
+    write /proc/sys/kernel/sched_ravg_hist_size 3
+    write /proc/sys/kernel/sched_window_stats_policy 3
+
+    # HMP Task packing settings for 8916
+    write /proc/sys/kernel/sched_small_task 20
+    write /proc/sys/kernel/sched_mostly_idle_load 30
+    write /proc/sys/kernel/sched_mostly_idle_nr_run 3
+    # Set perfd properties
+    setprop vendor.post_boot.parsed 1
+    
+    write /sys/class/devfreq/1c00000.qcom,kgsl-3d0/governor "msm-adreno-tz"
+    write /sys/class/devfreq/qcom,cpubw.30/governor "cpufreq"
+
+    setprop sys.io.scheduler bfq
+
+    write /proc/sys/vm/min_free_kbytes 2919
+    write /proc/sys/vm/extra_free_kbytes 6075
+    write /sys/block/mmcblk0/queue/rq_affinity 0
+    write /sys/block/mmcblk0/queue/nr_requests 128
+    write /sys/block/mmcblk0/queue/read_ahead_kb 128
+    write /sys/block/mmcblk0/bdi/read_ahead_kb 128
+
+    # Enable low power modes
+    write /sys/module/lpm_levels/parameters/sleep_disabled 0
+
+    # Set RPS mask
+    write /sys/class/net/rmnet0/queues/rx-0/rps_cpus 2
+
+    # enable thermal core_control now
+    write /sys/module/msm_thermal/core_control/enabled 1
+
+on tune-interactive
+    #write /sys/module/msm_thermal/core_control/enabled 0
+    # Switch to interactive and configure it, well no need because powerhal
+    #write /sys/devices/system/cpu/cpu0/online 1
+    #write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 200000
+    #write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+    #write /sys/devices/system/cpu/cpu1/online 1
+    #write /sys/devices/system/cpu/cpu2/online 1
+    #write /sys/devices/system/cpu/cpu3/online 1
+    #write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 30000
+    #write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 998400
+    #write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 90
+    #write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "25000 1094400:50000"
+    #write /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration 60000
+    #write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 50000
+    #write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 50000
+    #write /sys/devices/system/cpu/cpufreq/interactive/target_loads 85
+    #write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 0
+    #write /sys/module/msm_thermal/core_control/enabled 1
+
+on property:init.svc.recovery=running
+    trigger enable-low-power
+
+on property:dev.bootcomplete=1
+    trigger enable-low-power
+
+on property:sys.boot_completed=1
+    # Enable ZRAM on boot_complete
+    swapon_all /vendor/etc/fstab.qcom
+
+    start perfd

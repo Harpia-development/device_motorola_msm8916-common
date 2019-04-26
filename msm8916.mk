@@ -262,6 +262,7 @@ PRODUCT_PACKAGES += \
     init.mmi.usb.rc \
     init.qcom.ril.sh \
     init.qcom.rc \
+    init.power.rc \
     ueventd.rc
 
 # RIL
