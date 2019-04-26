@@ -27,6 +27,7 @@
 
 import /vendor/etc/init/hw/init.mmi.usb.rc
 import /vendor/etc/init/hw/init.target.rc
+import /vendor/etc/init/hw/init.power.rc
 
 on early-init
     # Create firmware mount point
@@ -149,17 +150,6 @@ on boot
     # When GPU woken by touch events, keep it on until first app render
     write /sys/class/kgsl/kgsl-3d0/wake_timeout 250
 
-    # File flags for prebuilt ril db file
-    write /data/vendor/radio/prebuilt_db_support 1
-    chown radio radio /data/vendor/radio/prebuilt_db_support
-    chmod 0400 /data/vendor/radio/prebuilt_db_support
-    write /data/vendor/radio/db_check_done 0
-    chown radio radio /data/vendor/radio/db_check_done
-    chmod 0660 /data/vendor/radio/db_check_done
-
-    # Copy prebuilt qcril.db files always
-    trigger copy_qcril_db
-
     start rmt_storage
 
     # set permission for Dynamic-CABC feature
@@ -260,14 +250,6 @@ on post-fs
     chown oem_5004 oem_5004 /persist/bt/bt_bdaddr
     chmod 0664 /persist/bt/bt_bdaddr
     chmod 0600 /persist/whisper/whisper_only/vector0.bin
-
-    write /proc/sys/vm/page-cluster 0
-    write /proc/sys/vm/swappiness 45
-    write /proc/sys/vm/dirty_background_ratio 20
-    write /proc/sys/vm/dirty_expire_centisecs 200
-    write /proc/sys/vm/dirty_ratio 40
-    write /proc/sys/vm/page-cluster 0
-    write /proc/sys/vm/vfs_cache_pressure 65
 
     # Allow writing to the kernel trace log.
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
@@ -418,6 +400,7 @@ service qseecomd /system/vendor/bin/qseecomd
    seclabel u:r:tee:s0
    writepid /dev/cpuset/system-background/tasks
 
+<<<<<<< HEAD
 service thermal-engine /vendor/bin/thermal-engine
    class main
    user root
@@ -428,6 +411,9 @@ service thermal-engine /vendor/bin/thermal-engine
    writepid /dev/cpuset/system-background/tasks
 
 service thermal-com /vendor/bin/thermal-engine --minimode
+=======
+service thermal-com /system/vendor/bin/thermal-engine --minimode
+>>>>>>> a62d9f5... Add init.power.rc & Disable thermal-engine for non-charger mode
     class main
     user root
     disabled
@@ -548,11 +534,6 @@ on property:persist.radio.multisim.config=dsds
 on property:persist.radio.multisim.config=dsda
     enable ril-daemon2
 
-on copy_qcril_db
-    copy /vendor/radio/qcril_database/qcril.db /data/vendor/radio/qcril.db
-    chown radio radio /data/vendor/radio/qcril.db
-    write /data/vendor/radio/db_check_done 1
-
 on property:sys.wifi.tethering=true
     write /sys/class/net/wlan0/queues/rx-0/rps_cpus ${sys.usb.rps_mask}
     write /sys/class/net/wlan0/queues/rx-1/rps_cpus ${sys.usb.rps_mask}
@@ -652,9 +633,6 @@ on moto-charger
 
     # HMP Task packing settings for 8916
     write /proc/sys/kernel/sched_small_task 50
-
-    # disable thermal core_control to update scaling_min_freq
-    write /sys/module/msm_thermal/core_control/enabled 0
 
     # enable thermal core_control now
     write /sys/module/msm_thermal/core_control/enabled 1

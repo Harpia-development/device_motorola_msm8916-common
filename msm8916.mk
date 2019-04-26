@@ -255,6 +255,7 @@ PRODUCT_PACKAGES += \
     init.mmi.touch.sh \
     init.mmi.usb.rc \
     init.qcom.rc \
+    init.power.rc \
     ueventd.rc
 
 # OEM Unlock
