@@ -27,6 +27,7 @@
 
 import /vendor/etc/init/hw/init.mmi.usb.rc
 import /vendor/etc/init/hw/init.target.rc
+import /vendor/etc/init/hw/init.power.rc
 
 on early-init
     # Create firmware mount point
@@ -54,13 +55,6 @@ on init
     chmod 0440 /sys/fs/pstore/console-ramoops
     chown system log /sys/fs/pstore/annotate-ramoops
     chmod 0640 /sys/fs/pstore/annotate-ramoops
-
-    # Full speed for bootup
-    write /sys/module/msm_thermal/core_control/enabled 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
-    write /sys/module/msm_thermal/core_control/enabled 1
-    write /sys/class/devfreq/1c00000.qcom,kgsl-3d0/governor "performance"
-    write /sys/class/devfreq/qcom,cpubw.30/governor "performance"
 
 on fs
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
@@ -228,14 +222,6 @@ on post-fs
     chmod 0664 /persist/bt/bt_bdaddr
     chmod 0600 /persist/whisper/whisper_only/vector0.bin
 
-    write /proc/sys/vm/page-cluster 0
-    write /proc/sys/vm/swappiness 45
-    write /proc/sys/vm/dirty_background_ratio 20
-    write /proc/sys/vm/dirty_expire_centisecs 200
-    write /proc/sys/vm/dirty_ratio 40
-    write /proc/sys/vm/page-cluster 0
-    write /proc/sys/vm/vfs_cache_pressure 65
-
     # Allow writing to the kernel trace log.
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
 
@@ -371,15 +357,6 @@ service qseecomd /system/vendor/bin/qseecomd
    user root
    group root
    seclabel u:r:tee:s0
-
-service thermal-engine /system/vendor/bin/thermal-engine
-   class main
-   user root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
-   group root
-   seclabel u:r:thermal-engine:s0
 
 service thermal-com /system/vendor/bin/thermal-engine --minimode
     class main
@@ -560,9 +537,6 @@ on moto-charger
     # HMP Task packing settings for 8916
     write /proc/sys/kernel/sched_small_task 50
 
-    # disable thermal core_control to update scaling_min_freq
-    write /sys/module/msm_thermal/core_control/enabled 0
-
     # enable thermal core_control now
     write /sys/module/msm_thermal/core_control/enabled 1
 
@@ -571,8 +545,3 @@ on moto-charger
 
     start thermal-com
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
-
-on property:sys.boot_completed=1
-    # Enable ZRAM on boot_complete
-    swapon_all /vendor/etc/fstab.qcom
-    start perfd
