@@ -129,9 +129,6 @@ DEVICE_MATRIX_FILE := $(VENDOR_PATH)/compatibility_matrix.xml
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-# Properties
-TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
-
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
 

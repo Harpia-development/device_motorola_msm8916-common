@@ -373,3 +373,4 @@ PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 $(call inherit-product, vendor/motorola/msm8916-common/msm8916-common-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+include device/motorola/msm8916-common/device_props.mk
