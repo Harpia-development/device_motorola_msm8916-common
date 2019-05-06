@@ -225,6 +225,9 @@ on post-fs
     # Allow writing to the kernel trace log.
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
 
+on late-fs
+    start vendor.devstart_sh
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/misc/camera 0770 camera camera
@@ -327,6 +330,13 @@ service mmi-touch-sh /vendor/bin/init.mmi.touch.sh synaptics
     group root system oem_5004
     oneshot
 
+service vendor.devstart_sh /vendor/bin/init.qcom.devstart.sh
+    class main
+    user root
+    group root system
+    oneshot
+    disabled
+    
 service wcnss-service /vendor/bin/wcnss_service
     class late_start
     user system
