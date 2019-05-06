@@ -7,6 +7,7 @@
 /(vendor|system/vendor)/bin/init\.mmi\.touch\.sh            u:object_r:mmi_touch_sh_exec:s0
 /(vendor|system/vendor)/bin/init\.device\.config\.sh        u:object_r:device_config_exec:s0
 /(vendor|system/vendor)/bin/init\.qcom\.devstart\.sh u:object_r:init-qcom-devstart-sh_exec:s0
+/(vendor|system/vendor)/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0
 
 # Lights
 /sys/devices/soc\.0/leds-atc-[0-9]+/leds(/.*)?              u:object_r:sysfs_leds:s0
