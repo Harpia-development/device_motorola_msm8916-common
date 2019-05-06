@@ -4,7 +4,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	vendor.audio.offload.buffer.size.kb=64 \
 	vendor.audio.offload.gapless.enabled=true \
 	persist.vendor.audio.hw.binder.size_kbyte=1024 \
-	ro.af.client_heap_size_kbyte=7168 \
 	av.offload.enable=false \
 	ro.vendor.audio.sdk.ssr=false \
 	vendor.audio.av.streaming.offload.enable=false \
