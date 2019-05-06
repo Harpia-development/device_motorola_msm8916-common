@@ -375,6 +375,12 @@ service vendor.devstart_sh /vendor/bin/init.qcom.devstart.sh
     oneshot
     disabled
     
+service vendor.init-radio-sh /vendor/bin/init.radio.sh
+    class late_start
+    user root
+    group root radio
+    oneshot
+
 service wcnss-service /vendor/bin/wcnss_service
     class late_start
     user system
@@ -410,7 +416,6 @@ service qseecomd /system/vendor/bin/qseecomd
    seclabel u:r:tee:s0
    writepid /dev/cpuset/system-background/tasks
 
-<<<<<<< HEAD
 service thermal-engine /vendor/bin/thermal-engine
    class main
    user root
@@ -420,10 +425,7 @@ service thermal-engine /vendor/bin/thermal-engine
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service thermal-com /vendor/bin/thermal-engine --minimode
-=======
 service thermal-com /system/vendor/bin/thermal-engine --minimode
->>>>>>> a62d9f5... Add init.power.rc & Disable thermal-engine for non-charger mode
     class main
     user root
     disabled
