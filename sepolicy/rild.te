@@ -7,3 +7,5 @@ allow rild system_data_file:sock_file create_file_perms;
 allow rild rild_exec:file execute_no_trans;
 
 dontaudit rild vendor_file:file ioctl;
+
+allow rild proc_bootinfo:file r_file_perms;
