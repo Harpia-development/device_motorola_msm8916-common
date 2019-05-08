@@ -125,6 +125,9 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
+ifneq ($(wildcard $(shell pwd)/hardware/lineage/livedisplay),)
+DEVICE_MANIFEST_FILE += $(VENDOR_PATH)/live_display_manifest.xml
+endif
 DEVICE_MATRIX_FILE := $(VENDOR_PATH)/compatibility_matrix.xml
 
 # Lights
