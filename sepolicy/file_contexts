@@ -27,6 +27,9 @@
 /sys/bus/i2c/drivers(/.*)?                                  u:object_r:sysfs_mmi_touch:s0
 /sys/devices/soc\.0/78b6000\.i2c/i2c-2/2-0020(/.*)?         u:object_r:sysfs_mmi_touch:s0
 /sys/devices/virtual/graphics/fb0/panel_supplier            u:object_r:sysfs_mmi_touch:s0
+/sys/class/touchscreen(/.*)?                                u:object_r:sysfs_mmi_touch:s0
+/sys/devices/virtual/touchscreen(/.*)?                      u:object_r:sysfs_mmi_touch:s0
+/sys/devices/virtual/touchscreen(/.*)?(/.*)?                u:object_r:sysfs_mmi_touch:s0
 
 # Partitions
 /dev/block/bootdevice/by-name/metadata                      u:object_r:metadata_block_device:s0
