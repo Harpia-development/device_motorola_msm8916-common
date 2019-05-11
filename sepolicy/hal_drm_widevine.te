@@ -1,16 +1,6 @@
 allow hal_drm_widevine firmware_file:lnk_file read;
-allow hal_drm_widevine media_data_file:dir search;
 
-allow hal_drm_widevine media_data_file:dir write;
-allow hal_drm_widevine media_data_file:dir add_name;
-
-allow hal_drm_widevine media_data_file:dir create;
-allow hal_drm_widevine media_data_file:dir getattr;
-allow hal_drm_widevine media_data_file:file create;
-
-allow hal_drm_widevine media_data_file:dir read;
-allow hal_drm_widevine media_data_file:file { read write };
-allow hal_drm_widevine media_data_file:dir open;
-allow hal_drm_widevine media_data_file:file open;
-allow hal_drm_widevine media_data_file:file getattr;
 allow hal_drm_widevine kernel:system module_request;
+
+allow hal_drm_widevine media_data_file:file rw_file_perms;
+allow hal_drm_widevine media_data_file:dir rw_dir_perms;
