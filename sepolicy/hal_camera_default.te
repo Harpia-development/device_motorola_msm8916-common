@@ -1,0 +1,4 @@
+allow hal_camera_default default_android_vndservice:service_manager add;
+allow hal_camera_default mediaserver:binder { transfer call };
+allow hal_camera_default sysfs_batteryinfo:dir r_dir_perms;
+allow hal_camera_default serialno_prop:file r_file_perms;
