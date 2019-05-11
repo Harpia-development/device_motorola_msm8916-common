@@ -1,2 +1,11 @@
 get_prop(untrusted_app, camera_prop);
 get_prop(untrusted_app_25, camera_prop);
+
+dontaudit untrusted_app persist_file:dir search;
+dontaudit untrusted_app proc:file getattr;
+dontaudit untrusted_app proc_bootinfo:file getattr;
+dontaudit untrusted_app proc_buddyinfo:file getattr;
+dontaudit untrusted_app proc_cmdline:file getattr;
+dontaudit untrusted_app rootfs:dir read;
+dontaudit untrusted_app rootfs:file getattr;
+dontaudit untrusted_app_27 proc_zoneinfo:file read;

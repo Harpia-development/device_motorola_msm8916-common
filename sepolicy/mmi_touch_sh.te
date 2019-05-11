@@ -19,3 +19,7 @@ allow mmi_touch_sh sysfs_mmi_touch:{ file lnk_file } create_file_perms;
 allow mmi_touch_sh sysfs_mmi_touch:dir r_dir_perms;
 
 get_prop(mmi_touch_sh, hw_rev_prop);
+set_prop(mmi_touch_sh, hw_touch_prop)
+
+allow mmi_touch_sh init:unix_stream_socket connectto;
+allow mmi_touch_sh property_socket:sock_file write;

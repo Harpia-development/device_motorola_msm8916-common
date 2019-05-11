@@ -3,9 +3,17 @@ genfscon sysfs /devices/soc.0/78d9000.usb 				                      u:object_r:s
 genfscon sysfs /devices/soc.0/78b5000.i2c/i2c-1/1-006b/power_supply 	                      u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/soc.0/78b5000.i2c/i2c-1/1-0036/power_supply 	                      u:object_r:sysfs_batteryinfo:s0
 
-genfscon proc /sys/vm/swappiness                      u:object_r:proc_swappiness:s0
-genfscon proc /sys/kernel/sched_small_task            u:object_r:proc_kernel_sched:s0
-genfscon proc /sys/kernel/sched_ravg_hist_size        u:object_r:proc_kernel_sched:s0
-genfscon proc /sys/kernel/sched_window_stats_policy   u:object_r:proc_kernel_sched:s0
+genfscon proc /sys/vm/swappiness                      u:object_r:proc_vm:s0
+genfscon proc /sys/vm/vfs_cache_pressure              u:object_r:proc_vm:s0
+genfscon proc /sys/vm/min_free_kbytes                 u:object_r:proc_vm:s0
 
 genfscon proc /bootinfo u:object_r:proc_bootinfo:s0
+
+genfscon proc  /sys/kernel/sched_boost                 u:object_r:proc_kernel_sched:s0
+genfscon proc  /sys/kernel/sched_window_stats_policy   u:object_r:proc_kernel_sched:s0
+genfscon proc  /sys/kernel/sched_ravg_hist_size        u:object_r:proc_kernel_sched:s0
+genfscon proc  /sys/kernel/sched_small_task            u:object_r:proc_kernel_sched:s0
+genfscon proc  /sys/kernel/sched_mostly_idle_load      u:object_r:proc_kernel_sched:s0
+genfscon proc  /sys/kernel/sched_mostly_idle_nr_run    u:object_r:proc_kernel_sched:s0
+genfscon proc  /sys/kernel/sched_upmigrate             u:object_r:proc_kernel_sched:s0
+genfscon proc  /sys/kernel/sched_downmigrate           u:object_r:proc_kernel_sched:s0
