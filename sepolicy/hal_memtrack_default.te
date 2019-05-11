@@ -43,3 +43,9 @@ allow hal_memtrack_default thermalserviced:file rw_file_perms;
 
 allow hal_memtrack_default wcnss_service:dir rw_dir_perms;
 allow hal_memtrack_default wcnss_service:file rw_file_perms;
+
+allow hal_memtrack_default mm-pp-daemon:dir rw_dir_perms;
+allow hal_memtrack_default mm-pp-daemon:file rw_file_perms;
+
+allow hal_memtrack_default per_mgr:dir rw_dir_perms;
+allow hal_memtrack_default per_mgr:file rw_file_perms;

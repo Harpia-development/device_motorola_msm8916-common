@@ -43,3 +43,6 @@ allow timeservice_app alarm_handled_prop:file rw_file_perms;
 allow timeservice_app alarm_instance_prop:file rw_file_perms;
 allow timeservice_app bg_boot_complete_prop:file rw_file_perms;
 allow timeservice_app bg_daemon_prop:file rw_file_perms;
+allow timeservice_app bluetooth_prop:file rw_file_perms;
+allow timeservice_app boot_animation_prop:file rw_file_perms;
+allow timeservice_app boot_mode_prop:file rw_file_perms;

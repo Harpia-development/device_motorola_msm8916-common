@@ -2,3 +2,4 @@ allow crash_dump init:process ptrace;
 
 allow crash_dump kernel:system module_request;
 
+allow crash_dump resourcecache_data_file:dir search;
