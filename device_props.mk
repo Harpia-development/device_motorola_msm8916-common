@@ -55,6 +55,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.hwui.use_buffer_age=false \
 	ro.sf.lcd_density=360
 
+# DRM
+PRODUCT_PROPERTY_OVERRIDES += \
+    drm.service.enabled=true
+
 # Fling Velocities
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.min.fling_velocity=160 \
