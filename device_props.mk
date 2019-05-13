@@ -151,8 +151,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-	sys.use_fifo_ui=1 \
-	ro.vendor.extension_library=libqti-perfd-client.so
+	sys.use_fifo_ui=1
 
 # USB debugging at boot
 PRODUCT_PROPERTY_OVERRIDES += \
