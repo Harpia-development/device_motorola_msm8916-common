@@ -22,7 +22,6 @@ cc_binary {
         "libutils",
         "libhardware",
         "android.hardware.power@1.0",
-        "vendor.lineage.power@1.0",
     ],
     arch: {
         arm: {
