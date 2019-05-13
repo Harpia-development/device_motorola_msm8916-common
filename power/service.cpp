@@ -33,6 +33,7 @@ using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
 // Generated HIDL files
+using android::hardware::power::V1_0::IPower;
 using android::hardware::power::V1_0::implementation::Power;
 
 int main() {
@@ -40,7 +41,7 @@ int main() {
     android::hardware::ProcessState::initWithMmapSize((size_t)16384);
 #endif
     status_t status;
-    android::sp<Power> service = nullptr;
+    android::sp<IPower> service = nullptr;
 
     ALOGI("Power HAL Service 1.0 for msm8916 is starting.");
 
@@ -53,7 +54,7 @@ int main() {
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
-    status = service->registerAsSystemService();
+    status = service->registerAsService();
     if (status != OK) {
         ALOGE("Could not register service for Power HAL Iface (%d).", status);
         goto shutdown;
