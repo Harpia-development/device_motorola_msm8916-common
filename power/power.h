@@ -40,6 +40,12 @@ typedef struct governor_settings {
     int scaling_max_freq;
     int scaling_min_freq;
     int scaling_min_freq_off;
+    int max_freq_hysteresis;
+    int timer_slack;
+    int io_is_busy;
+    int align_windows;
+    int use_migration_notif;
+    int use_sched_load;
 } power_profile;
 
 // Custom Lineage hints
