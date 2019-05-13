@@ -51,8 +51,6 @@ on enable-low-power
     write /proc/sys/kernel/sched_small_task 20
     write /proc/sys/kernel/sched_mostly_idle_load 30
     write /proc/sys/kernel/sched_mostly_idle_nr_run 3
-    # Set perfd properties
-    setprop vendor.post_boot.parsed 1
     
     write /sys/class/devfreq/1c00000.qcom,kgsl-3d0/governor "msm-adreno-tz"
     write /sys/class/devfreq/qcom,cpubw.30/governor "cpufreq"
@@ -106,5 +104,3 @@ on property:dev.bootcomplete=1
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.qcom
-
-    start perfd
