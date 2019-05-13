@@ -147,6 +147,18 @@ static void set_power_profile(int profile)
                     profiles[profile].scaling_max_freq);
     sysfs_write_int(CPUFREQ_PATH "scaling_min_freq",
                     profiles[profile].scaling_min_freq);
+    sysfs_write_int(INTERACTIVE_PATH "max_freq_hysteresis",
+                    profiles[profile].max_freq_hysteresis);
+    sysfs_write_int(INTERACTIVE_PATH "timer_slack",
+                    profiles[profile].timer_slack);
+    sysfs_write_int(INTERACTIVE_PATH "io_is_busy",
+                    profiles[profile].io_is_busy);
+    sysfs_write_int(INTERACTIVE_PATH "align_windows",
+                    profiles[profile].align_windows);
+    sysfs_write_int(INTERACTIVE_PATH "use_migration_notif",
+                    profiles[profile].use_migration_notif);
+    sysfs_write_int(INTERACTIVE_PATH "use_sched_load",
+                    profiles[profile].use_sched_load);
 
     current_power_profile = profile;
 }
