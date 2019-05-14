@@ -33,7 +33,7 @@
 
 static int boostpulse_fd = -1;
 
-static int current_power_profile = -1;
+static int current_power_profile = 0;
 
 static int sysfs_write_str(char *path, char *s)
 {
@@ -115,65 +115,8 @@ void power_set_interactive(int on)
     }
 }
 
-static void set_power_profile(int profile)
+void power_hint(power_hint_t hint)
 {
-    if (!is_profile_valid(profile)) {
-        ALOGE("%s: unknown profile: %d", __func__, profile);
-        return;
-    }
-
-    if (profile == current_power_profile)
-        return;
-
-    ALOGD("%s: setting profile %d", __func__, profile);
-
-    sysfs_write_int(INTERACTIVE_PATH "boost",
-                    profiles[profile].boost);
-    sysfs_write_int(INTERACTIVE_PATH "boostpulse_duration",
-                    profiles[profile].boostpulse_duration);
-    sysfs_write_int(INTERACTIVE_PATH "go_hispeed_load",
-                    profiles[profile].go_hispeed_load);
-    sysfs_write_int(INTERACTIVE_PATH "hispeed_freq",
-                    profiles[profile].hispeed_freq);
-    sysfs_write_int(INTERACTIVE_PATH "min_sample_time",
-                    profiles[profile].min_sample_time);
-    sysfs_write_int(INTERACTIVE_PATH "timer_rate",
-                    profiles[profile].timer_rate);
-    sysfs_write_int(INTERACTIVE_PATH "above_hispeed_delay",
-                    profiles[profile].above_hispeed_delay);
-    sysfs_write_int(INTERACTIVE_PATH "target_loads",
-                    profiles[profile].target_loads);
-    sysfs_write_int(CPUFREQ_PATH "scaling_max_freq",
-                    profiles[profile].scaling_max_freq);
-    sysfs_write_int(CPUFREQ_PATH "scaling_min_freq",
-                    profiles[profile].scaling_min_freq);
-    sysfs_write_int(INTERACTIVE_PATH "max_freq_hysteresis",
-                    profiles[profile].max_freq_hysteresis);
-    sysfs_write_int(INTERACTIVE_PATH "timer_slack",
-                    profiles[profile].timer_slack);
-    sysfs_write_int(INTERACTIVE_PATH "io_is_busy",
-                    profiles[profile].io_is_busy);
-    sysfs_write_int(INTERACTIVE_PATH "align_windows",
-                    profiles[profile].align_windows);
-    sysfs_write_int(INTERACTIVE_PATH "use_migration_notif",
-                    profiles[profile].use_migration_notif);
-    sysfs_write_int(INTERACTIVE_PATH "use_sched_load",
-                    profiles[profile].use_sched_load);
-
-    current_power_profile = profile;
-}
-
-void power_hint(power_hint_t hint, void* data)
-{
-    if (hint == POWER_HINT_SET_PROFILE) {
-        set_power_profile(*(int32_t *)data);
-        return;
-    }
-
-    // Skip other hints in powersave mode
-    if (current_power_profile == PROFILE_POWER_SAVE)
-        return;
-
     switch (hint) {
     case POWER_HINT_INTERACTION:
         if (!is_profile_valid(current_power_profile)) {
