@@ -17,10 +17,7 @@
 #include <hardware/power.h>
 
 enum {
-    PROFILE_POWER_SAVE = 0,
-    PROFILE_BALANCED,
-    PROFILE_HIGH_PERFORMANCE,
-    PROFILE_BIAS_POWER,
+    PROFILE_BALANCED = 0,
     PROFILE_MAX
 };
 
