@@ -67,6 +67,7 @@ PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.1-impl \
     android.hardware.soundtrigger@2.0-service \
     audio.a2dp.default \
+    audio.primary.msm8916 \
     android.hardware.bluetooth.a2dp@1.0-impl \
     audio.r_submix.default \
     audio.usb.default \
@@ -74,12 +75,6 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     tinymix
-
-# Only build audio HAL on non-lux devices
-ifeq ($(filter lux,$(TARGET_DEVICE)),)
-PRODUCT_PACKAGES += \
-    audio.primary.msm8916
-endif
 
 PRODUCT_COPY_FILES +=  \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
