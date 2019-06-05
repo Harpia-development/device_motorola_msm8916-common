@@ -178,6 +178,7 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
     /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so \
     /system/vendor/lib/libmmcamera_wavelet_lib.so|libc_util.so \
+    /system/vendor/lib/hw/sound_trigger.primary.msm8916.so|libshims_audio.so \
     /system/vendor/lib/libjustshoot.so|libjustshoot_shim.so
 
 # Sp-shim

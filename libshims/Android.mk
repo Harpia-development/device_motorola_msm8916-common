@@ -16,6 +16,15 @@
 
 LOCAL_PATH := $(call my-dir)
 
+# SoundTrigger
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := SoundTrigger.cpp
+LOCAL_MODULE := libshims_audio
+LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
+
+# Camera
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := MediaCodec.cpp AudioSource.cpp MetaData.cpp
 LOCAL_SHARED_LIBRARIES := libstagefright libmedia

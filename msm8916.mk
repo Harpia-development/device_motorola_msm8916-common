@@ -74,6 +74,7 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     libqcomvisualizer \
     libqcomvoiceprocessing \
+    libshims_audio \
     tinymix
 
 PRODUCT_COPY_FILES +=  \
