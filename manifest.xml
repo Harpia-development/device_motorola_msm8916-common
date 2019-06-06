@@ -24,6 +24,7 @@
         <interface>
             <name>ISoundTriggerHw</name>
             <instance>default</instance>
+            <instance>sound_trigger.primary</instance>
         </interface>
     </hal>
     <hal format="hidl">
