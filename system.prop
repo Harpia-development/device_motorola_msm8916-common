@@ -50,6 +50,10 @@ sys.usb.rps_mask=10
 vendor.mediacodec.binder.size=6
 vidc.enc.narrow.searchrange=1
 
+# Memory optimizations
+ro.vendor.qti.am.reschedule_service=true
+ro.vendor.qti.sys.fw.bservice_enable=true
+
 # NITZ
 persist.rild.nitz_plmn=
 persist.rild.nitz_long_ons_0=
