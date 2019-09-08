@@ -18,7 +18,9 @@ LOCAL_SHARED_LIBRARIES := \
     libsensor \
     libutils \
     libcutils \
-    android.hidl.token@1.0-utils
+    android.hidl.token@1.0-utils \
+    libnativewindow \
+    libgui
 
 LOCAL_STATIC_LIBRARIES := \
     libarect
