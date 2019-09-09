@@ -29,8 +29,6 @@ import /vendor/etc/init/hw/init.mmi.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 
 on early-init
-    mkdir /system 0777 root root
-
     # Create firmware mount point
     mkdir /firmware 0771 system system
 
