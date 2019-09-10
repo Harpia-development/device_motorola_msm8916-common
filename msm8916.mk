@@ -278,7 +278,8 @@ PRODUCT_PACKAGES += \
     libqsap_shim \
     librmnetctl \
     libshim_ril \
-    libxml2
+    libxml2 \
+    libshim_binder
 
 # Seccomp
 PRODUCT_COPY_FILES += \
