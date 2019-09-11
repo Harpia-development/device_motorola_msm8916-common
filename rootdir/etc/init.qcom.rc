@@ -29,11 +29,6 @@ import /vendor/etc/init/hw/init.mmi.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 
 on early-init
-    # Create firmware mount point
-    mkdir /firmware 0771 system system
-
-    # Create modem FSG mount point
-    mkdir /fsg 755 root root
 
     # Mount debugfs
     mount debugfs debugfs /sys/kernel/debug
@@ -44,9 +39,6 @@ on early-init
 
 on init
     export LD_PRELOAD /system/lib/libboringssl-compat.so
-
-    # Set permissions for persist partition
-    mkdir /persist 0771 system system
 
     mount pstore pstore /sys/fs/pstore
     chown system log /sys/fs/pstore/console-ramoops
