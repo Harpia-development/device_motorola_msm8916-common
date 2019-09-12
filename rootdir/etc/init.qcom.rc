@@ -99,6 +99,9 @@ on fs
     # Start HW service manager early
     start hwservicemanager
 
+    setprop persist.adb.nonblocking_ffs 0
+    setprop ro.adb.nonblocking_ffs 0
+
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
