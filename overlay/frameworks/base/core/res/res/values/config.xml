@@ -389,26 +389,8 @@
     <dimen name="config_buttonCornerRadius">4.0dip</dimen>
     <dimen name="config_progressBarCornerRadius">1000.0dip</dimen>
 
-    <!-- Default list of files pinned by the Pinner Service -->
-    <string-array translatable="false" name="config_defaultPinnerServiceFiles">
-        <item>"/system/framework/arm/boot-framework.oat"</item>
-        <item>"/system/framework/boot-framework.vdex"</item>
-        <item>"/system/framework/oat/arm/services.odex"</item>
-        <item>"/system/framework/oat/arm/services.vdex"</item>
-        <item>"/system/framework/arm/boot.oat"</item>
-        <item>"/system/framework/boot.vdex"</item>
-        <item>"/system/framework/arm/boot-core-libart.oat"</item>
-        <item>"/system/framework/boot-core-libart.vdex"</item>
-        <item>"/system/priv-app/SystemUI/oat/arm/SystemUI.vdex"</item>
-        <item>"/system/priv-app/SystemUI/oat/arm/SystemUI.odex"</item>
-        <item>"/system/lib/libsurfaceflinger.so"</item>
-   </string-array>
-
    <!-- If this is true, device supports Sustained Performance Mode. -->
    <bool name="config_sustainedPerformanceModeSupported">true</bool>
-
-   <!-- Should the pinner service pin the Camera application? -->
-   <bool name="config_pinnerCameraApp">true</bool>
 
    <!-- Whether device ignores the RSSNR signal implementation -->
    <bool name="config_ignoreRssnrSignalLevel">true</bool>
