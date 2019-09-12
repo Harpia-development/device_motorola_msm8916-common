@@ -68,7 +68,7 @@ on fs
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
 
-    mount_all /vendor/etc/fstab.qcom --early
+    mount_all /vendor/etc/fstab.qcom
 
     # set up a symbolic link so the many references to the old location still work and the java code can remain platform agnostic.
     symlink /dev/block/bootdevice /dev/block/platform/msm_sdcc.1
@@ -78,9 +78,6 @@ on fs
 
     mkdir /persist/data 0700  system system
     restorecon_recursive /persist
-
-    # Start HW service manager early
-    start hwservicemanager
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -173,19 +170,6 @@ on boot
 
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
-
-on late-fs
-    # Start services for bootanim
-    start servicemanager
-    start surfaceflinger
-    start bootanim
-
-    start hwcomposer-2-1
-    start configstore-hal
-    start gralloc-2-0
-
-    # mount RW partitions which need run fsck
-    mount_all /vendor/etc/fstab.qcom --late
 
 on post-fs
     mkdir /persist/camera 0755 oem_5004 oem_5004
