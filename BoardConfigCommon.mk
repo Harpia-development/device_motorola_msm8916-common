@@ -188,6 +188,7 @@ TARGET_LD_PRELOAD := \
 
 # Telephony
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
+TARGET_RIL_VARIANT := caf
 
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
