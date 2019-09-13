@@ -354,7 +354,8 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service.8916
+    android.hardware.power@1.0-impl \
+    power.msm8916
 
 # USB
 PRODUCT_PACKAGES += \
