@@ -106,7 +106,6 @@ PRODUCT_PACKAGES += \
     camera.msm8916 \
     libshim_atomic \
     libc_util \
-    libboringssl-compat \
     libshims_camera \
     libshims_sensorlistener \
     Snap \
@@ -138,7 +137,6 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8916 \
     memtrack.msm8916 \
     copybit.msm8916 \
-    libboringssl-compat \
     libtinyxml
 
 # Properties
