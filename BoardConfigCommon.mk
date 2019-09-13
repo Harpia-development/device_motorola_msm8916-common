@@ -182,10 +182,6 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libmmcamera_wavelet_lib.so|libc_util.so \
     /system/vendor/lib/libjustshoot.so|libjustshoot_shim.so
 
-# Sp-shim
-TARGET_LD_PRELOAD := \
-    /system/vendor/lib/libboringssl-compat.so
-
 # Telephony
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 TARGET_RIL_VARIANT := caf
