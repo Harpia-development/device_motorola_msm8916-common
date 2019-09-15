@@ -38,7 +38,6 @@ on early-init
     symlink /data/tombstones /tombstones
 
 on init
-    export LD_PRELOAD /system/lib/libboringssl-compat.so
 
     mount pstore pstore /sys/fs/pstore
     chown system log /sys/fs/pstore/console-ramoops
