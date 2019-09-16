@@ -544,3 +544,6 @@ on moto-charger
 
     start thermal-com
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
+
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
