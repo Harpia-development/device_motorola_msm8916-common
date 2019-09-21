@@ -15,10 +15,7 @@
  */
 
 enum {
-    PROFILE_POWER_SAVE = 0,
-    PROFILE_BALANCED,
-    PROFILE_HIGH_PERFORMANCE,
-    PROFILE_BIAS_POWER_SAVE,
+    PROFILE_BALANCED = 0,
     PROFILE_MAX
 };
 
@@ -39,3 +36,5 @@ typedef struct governor_settings {
     int scaling_min_freq;
     int scaling_min_freq_off;
 } power_profile;
+
+const static power_hint_t POWER_HINT = (power_hint_t)0x00000111;

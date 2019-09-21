@@ -15,22 +15,6 @@
  */
 
 static const power_profile profiles_8939[PROFILE_MAX] = {
-    [PROFILE_POWER_SAVE] = {
-        .boost = 0,
-        .boostpulse_duration = 0,
-        .go_hispeed_load = 90,
-        .go_hispeed_load_off = 90,
-        .hispeed_freq = 1113600,
-        .hispeed_freq_off = 960000,
-        .min_sample_time = 60000,
-        .timer_rate = 20000,
-        .above_hispeed_delay = 20000,
-        .target_loads = 90,
-        .target_loads_off = 90,
-        .scaling_max_freq = 1459200,
-        .scaling_min_freq = 400000,
-        .scaling_min_freq_off = 200000,
-    },
     [PROFILE_BALANCED] = {
         .boost = 0,
         .boostpulse_duration = 60000,
@@ -45,40 +29,6 @@ static const power_profile profiles_8939[PROFILE_MAX] = {
         .target_loads_off = 90,
         .scaling_max_freq = 9999999,
         .scaling_min_freq = 533333,
-        .scaling_min_freq_off = 200000,
-    },
-    [PROFILE_HIGH_PERFORMANCE] = {
-        .boost = 1,
-        /* The CPU is already boosted, set duration to zero
-         * to avoid unneccessary writes to boostpulse */
-        .boostpulse_duration = 0,
-        .go_hispeed_load = 60,
-        .go_hispeed_load_off = 70,
-        .hispeed_freq = 1497600,
-        .hispeed_freq_off = 1344000,
-        .min_sample_time = 60000,
-        .timer_rate = 20000,
-        .above_hispeed_delay = 20000,
-        .target_loads = 60,
-        .target_loads_off = 70,
-        .scaling_max_freq = 9999999,
-        .scaling_min_freq = 800000,
-        .scaling_min_freq_off = 400000,
-    },
-    [PROFILE_BIAS_POWER_SAVE] = {
-        .boost = 0,
-        .boostpulse_duration = 40000,
-        .go_hispeed_load = 90,
-        .go_hispeed_load_off = 90,
-        .hispeed_freq = 1113600,
-        .hispeed_freq_off = 960000,
-        .min_sample_time = 60000,
-        .timer_rate = 20000,
-        .above_hispeed_delay = 20000,
-        .target_loads = 90,
-        .target_loads_off = 90,
-        .scaling_max_freq = 9999999,
-        .scaling_min_freq = 400000,
         .scaling_min_freq_off = 200000,
     },
 };
