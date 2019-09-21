@@ -233,8 +233,6 @@ static void set_power_profile(int profile)
 void power_hint(power_hint_t hint, void* data)
 {
     const power_profile *profiles = get_profiles();
-    char buf[80];
-    int len;
 
     if (hint == POWER_HINT_SET_PROFILE) {
         set_power_profile(*(int32_t *)data);
@@ -256,11 +254,9 @@ void power_hint(power_hint_t hint, void* data)
             return;
 
         if (boostpulse_open() >= 0) {
-            snprintf(buf, sizeof(buf), "%d", 1);
-            len = write(boostpulse_fd, &buf, sizeof(buf));
+            int len = write(boostpulse_fd, "1", 2);
             if (len < 0) {
-                strerror_r(errno, buf, sizeof(buf));
-                ALOGE("Error writing to boostpulse: %s\n", buf);
+		ALOGE("Error writing to boostpulse: %s\n", strerror(errno));
 
                 close(boostpulse_fd);
                 boostpulse_fd = -1;
