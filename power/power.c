@@ -270,8 +270,3 @@ void power_hint(power_hint_t hint, void* data)
         break;
     }
 }
-
-int get_number_of_profiles()
-{
-    return PROFILE_MAX;
-}
