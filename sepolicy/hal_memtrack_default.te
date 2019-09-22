@@ -38,9 +38,6 @@ allow hal_memtrack_default servicemanager:file rw_file_perms;
 allow hal_memtrack_default vndservicemanager:dir rw_dir_perms;
 allow hal_memtrack_default vndservicemanager:file rw_file_perms;
 
-allow hal_memtrack_default thermalserviced:dir rw_dir_perms;
-allow hal_memtrack_default thermalserviced:file rw_file_perms;
-
 allow hal_memtrack_default wcnss_service:dir rw_dir_perms;
 allow hal_memtrack_default wcnss_service:file rw_file_perms;
 
