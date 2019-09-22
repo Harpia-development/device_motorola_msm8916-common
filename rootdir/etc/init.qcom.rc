@@ -420,15 +420,6 @@ service thermal-engine /vendor/bin/thermal-engine
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service thermal-engine /system/vendor/bin/thermal-engine
-    class main
-    user root
-    socket thermal-send-client stream 0666 system system
-    socket thermal-recv-client stream 0660 system system
-    socket thermal-recv-passive-client stream 0666 system system
-    socket thermal-send-rule stream 0660 system system
-    group root
-
 service thermal-com /system/vendor/bin/thermal-engine --minimode
     class main
     user root
@@ -705,7 +696,7 @@ on property:sys.boot_completed=1
     write /proc/sys/kernel/random/write_wakeup_threshold 64
 
     # Increase the sleep time for UKSM to prevent performance issues
-    write /sys/kernel/mm/uksm/sleep_millisecs
+    write /sys/kernel/mm/uksm/sleep_millisecs 5000
 
     # Enable Adreno Idler by default
     write /sys/module/adreno_idler/parameters/adreno_idler_active "Y"	
