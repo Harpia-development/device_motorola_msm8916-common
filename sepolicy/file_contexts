@@ -43,8 +43,9 @@
 /dev/block/platform/soc\.0/7824900\.sdhci/by-name/modem     u:object_r:modem_efs_partition_device:s0
 
 # Root extra symlinks
-/persist                                                      u:object_r:mnt_vendor_file:s0
-/firmware                                                     u:object_r:firmware_file:s0
+/persist                                                    u:object_r:mnt_vendor_file:s0
+/firmware                                                   u:object_r:firmware_file:s0
+/fsg                                                        u:object_r:firmware_file:s0
 
 # Perf
 /sys/devices/soc\.0/qcom,cpubw\.[0-9]+/devfreq/qcom,cpubw\.[0-9]+(/.*)? u:object_r:sysfs_devfreq:s0
