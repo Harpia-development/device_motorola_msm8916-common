@@ -92,7 +92,6 @@ allow netmgrd system_net_netd_hwservice:hwservice_manager find;
 
 allow netmgrd carrier_file:dir search;
 allow netmgrd carrier_file:file rw_file_perms;
-allow netmgrd netd_socket:sock_file w_file_perms;
 r_dir_file(netmgrd, net_data_file)
 allow netmgrd toolbox_exec:file rx_file_perms;
 allow netmgrd netmgr_data_file:dir { add_name search write };
