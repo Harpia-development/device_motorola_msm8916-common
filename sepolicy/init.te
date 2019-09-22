@@ -42,7 +42,6 @@ dontaudit init sysfs_mmc_host:file open;
 allow init self:netlink_kobject_uevent_socket { create setopt bind };
 
 allow init self:netlink_kobject_uevent_socket read;
-allow init hal_perf_hwservice:hwservice_manager find;
 allow init hal_light_hwservice:hwservice_manager add;
 allow init kernel:system module_request;
 
@@ -89,7 +88,6 @@ allow init tee:process noatsecure;
 allow init lmkd:process noatsecure;
 allow init mediacodec:process noatsecure;
 allow init per_mgr:process noatsecure;
-allow init thermalserviced:process noatsecure;
 allow init wificond:process noatsecure;
 allow init mm-qcamerad:process noatsecure;
 allow init rmt_storage:process noatsecure;
