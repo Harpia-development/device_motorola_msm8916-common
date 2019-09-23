@@ -2,7 +2,6 @@ allow zygote proc_cmdline:file { getattr open read };
 allow zygote kernel:system module_request;
 
 get_prop(zygote, debug_gralloc_prop)
-get_prop(zygote, sf_lcd_density_prop)
 set_prop(zygote, qemu_gles_prop)
 set_prop(zygote, system_prop)
 
