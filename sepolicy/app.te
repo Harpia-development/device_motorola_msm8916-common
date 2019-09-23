@@ -2,4 +2,3 @@ allow appdomain qdsp_device:chr_file r_file_perms;
 r_dir_file(appdomain, adsprpcd_file)
 get_prop(appdomain, debug_gralloc_prop)
 get_prop(appdomain, hwui_prop)
-get_prop(appdomain, sf_lcd_density_prop)
