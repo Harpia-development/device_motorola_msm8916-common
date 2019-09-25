@@ -300,11 +300,7 @@ PRODUCT_COPY_FILES += \
 
 # Fake QTI jar
 PRODUCT_PACKAGES += \
-    ims-ext-common \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+    ims-ext-common
 
 # QCOM qti whitelist
 PRODUCT_COPY_FILES += \
