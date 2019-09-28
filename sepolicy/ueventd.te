@@ -21,3 +21,4 @@ allow ueventd {
     sysfs_data
     sysfs_kgsl
 }:file w_file_perms;
+allow ueventd proc:file rw_file_perms;
