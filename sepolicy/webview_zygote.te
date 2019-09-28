@@ -32,3 +32,4 @@ allow webview_zygote ctl_port-bridge_prop:file rw_file_perms;
 allow webview_zygote ctl_qmuxd_prop:file rw_file_perms;
 allow webview_zygote ctl_restart_prop:file rw_file_perms;
 allow webview_zygote ctl_rildaemon_prop:file rw_file_perms;
+allow webview_zygote app_data_file:dir rw_file_perms;

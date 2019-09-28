@@ -3,4 +3,5 @@ allow installd fsg_file:filesystem quotaget;
 allow installd idmap:process noatsecure;
 
 allow installd kernel:system module_request;
-allow installd media_rw_data_file:file setattr;
+allow installd media_rw_data_file:file rw_file_perms;
+allow installd device:file rw_file_perms;
