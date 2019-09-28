@@ -29,12 +29,6 @@ import /vendor/etc/init/hw/init.mmi.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.power.rc
 
-service logger /system/bin/logcat -f /data/logcat.txt
-    class core
-    user root
-    shutdown critical
-    disabled
-
 on early-init
 
     # Create modem FSG mount point
@@ -249,7 +243,6 @@ on late-fs
 
 # msm specific files that need to be created on /data
 on post-fs-data
-    start logger
     mkdir /data/misc/camera 0770 camera camera
 
     # Create the directories used by the Wireless subsystem
