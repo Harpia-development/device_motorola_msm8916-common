@@ -1,2 +1,0 @@
-allow hal_keymaster_default kernel:system module_request;
-

@@ -1,3 +1,0 @@
-allow mediametrics crash_dump:process noatsecure;
-
-allow mediametrics kernel:system module_request;

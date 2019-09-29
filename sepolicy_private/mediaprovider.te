@@ -1,2 +1,0 @@
-allow mediaprovider adbtcp_prop:file rw_file_perms;
-allow mediaprovider lineage_recovery_prop:file rw_file_perms;

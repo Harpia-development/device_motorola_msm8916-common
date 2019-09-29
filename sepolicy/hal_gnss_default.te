@@ -1,7 +1,0 @@
-allow hal_gnss_default vndbinder_device:chr_file read;
-allow hal_gnss_default crash_dump:process noatsecure;
-allow hal_gnss_default kernel:system module_request;
-allow hal_gnss_default vndbinder_device:chr_file write;
-allow hal_gnss_default vndbinder_device:chr_file open;
-allow hal_gnss_default vndbinder_device:chr_file ioctl;
-allow hal_gnss_default vndservicemanager:binder call;

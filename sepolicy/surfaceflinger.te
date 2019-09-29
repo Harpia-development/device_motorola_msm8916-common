@@ -1,2 +1,0 @@
-allow surfaceflinger kernel:system module_request;
-allow surfaceflinger crash_dump:process noatsecure;

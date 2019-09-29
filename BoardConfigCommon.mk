@@ -70,36 +70,9 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 BOARD_KERNEL_CMDLINE += pm.sleep_mode=1
 TARGET_CUSTOM_DTBTOOL := dtbToolLineage
 
-# Audio
-AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := true
-AUDIO_FEATURE_ENABLED_FLUENCE := true
-AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
-AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := false
-AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
-AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
-AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
-BOARD_USES_ALSA_AUDIO := true
-USE_CUSTOM_AUDIO_POLICY := 1
-AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
-USE_XML_AUDIO_POLICY_CONF := 1
-
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(VENDOR_PATH)/bluetooth
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_QCOM := true
-QCOM_BT_READ_ADDR_FROM_PROP := true
-
 # Bootanimation
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-
-# Camera
-USE_DEVICE_SPECIFIC_CAMERA := true
-TARGET_PROVIDES_CAMERA_HAL := true
-TARGET_USES_NON_TREBLE_CAMERA := true
-TARGET_USES_MEDIA_EXTENSIONS := true
-TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-	/system/vendor/bin/mm-qcamera-daemon=25
 
 # Charger
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
@@ -123,17 +96,6 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 # UI
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x2002000
 
-# FM
-BOARD_HAVE_QCOM_FM := true
-TARGET_QCOM_NO_FM_FIRMWARE := true
-
-# HIDL
-DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
-ifneq ($(wildcard $(shell pwd)/hardware/lineage/livedisplay),)
-DEVICE_MANIFEST_FILE += $(VENDOR_PATH)/live_display_manifest.xml
-endif
-DEVICE_MATRIX_FILE := $(VENDOR_PATH)/compatibility_matrix.xml
-
 # HWUI
 HWUI_COMPILE_FOR_PERF := true
 
@@ -152,7 +114,7 @@ MALLOC_SVELTE := true
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/etc/fstab.full
+TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/recovery.fstab
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 LZMA_RAMDISK_TARGETS := recovery
@@ -164,39 +126,7 @@ TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
 
 # SELinux
-include device/qcom/sepolicy-legacy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
-PLAT_PRIVATE_POLICY += $(VENDOR_PATH)/sepolicy_private
 SELINUX_IGNORE_NEVERALLOWS := true
-
-# Dexpreopt
-ifeq ($(HOST_OS),linux)
-	ifneq ($(TARGET_BUILD_VARIANT),eng)
-		WITH_DEXPREOPT := true
-		WITH_DEXPREOPT_DEBUG_INFO := false
-		USE_DEX2OAT_DEBUG := false
-		DONT_DEXPREOPT_PREBUILTS := true
-		WITH_DEXPREOPT_PIC := true
-		WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
-	endif
-endif
-
-# SHIMS
-TARGET_LD_SHIM_LIBS := \
-    /system/vendor/lib/libsensorndkbridge.so|libshim_ril.so \
-    /system/vendor/lib/libmdmcutback.so|libqsap_shim.so \
-    /system/vendor/lib/libjustshoot.so|libshims_camera.so \
-    /system/vendor/lib/libmot_sensorlistener.so|libshims_sensorlistener.so \
-    /system/vendor/lib/libmmcamera_wavelet_lib.so|libshim_atomic.so \
-    /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
-    /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so \
-    /system/vendor/lib/libmmcamera_wavelet_lib.so|libc_util.so \
-    /system/vendor/lib/libjustshoot.so|libjustshoot_shim.so \
-    /system/vendor/lib/libperipheral_client.so|libshim_binder.so
-
-# Telephony
-TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
-TARGET_RIL_VARIANT := caf
 
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
@@ -209,18 +139,6 @@ TARGET_HAS_NO_POWER_STATS := true
 
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
-
-# Wifi
-BOARD_HAS_QCOM_WLAN := true
-BOARD_WLAN_DEVICE := qcwcn
-BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
-PRODUCT_VENDOR_MOVE_ENABLED := true
-WIFI_DRIVER_FW_PATH_AP  := "ap"
-WIFI_DRIVER_FW_PATH_STA := "sta"
-WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_PHONY_TARGETS := true

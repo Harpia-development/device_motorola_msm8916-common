@@ -1,2 +1,0 @@
-allow netd kernel:system module_request;
-allow netd device:file rw_file_perms;

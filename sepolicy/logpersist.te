@@ -1,3 +1,0 @@
-allow logpersist self:capability dac_override;
-allow logpersist system_data_file:dir { open read };
-allow logpersist system_data_file:file { append getattr open read };

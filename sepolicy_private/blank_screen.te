@@ -1,1 +1,0 @@
-allow blank_screen kernel:system module_request;

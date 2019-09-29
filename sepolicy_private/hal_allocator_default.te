@@ -1,2 +1,0 @@
-allow hal_allocator_default kernel:system module_request;
-

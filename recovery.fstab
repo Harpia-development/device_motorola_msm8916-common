@@ -1,0 +1,18 @@
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+#<mnt_point>   <fstype>            <partition>                                                    <device>                   <mnt_flags and options>
+/system        ext4                /dev/block/platform/soc.0/7824900.sdhci/by-name/system         /dev/block/mmcblk0              flags=display="System"
+/data          f2fs                /dev/block/platform/soc.0/7824900.sdhci/by-name/userdata       /dev/block/mmcblk0              flags=display="Data"
+/cache         ext4                /dev/block/platform/soc.0/7824900.sdhci/by-name/cache          /dev/block/mmcblk0              flags=display="Cache"
+/fsg           ext4                /dev/block/platform/soc.0/7824900.sdhci/by-name/fsg            /dev/block/mmcblk0              flags=backup=1
+/firmware      ext4                /dev/block/platform/soc.0/7824900.sdhci/by-name/modem          /dev/block/mmcblk0              flags=display="Modem";backup=1
+/persist       ext4                /dev/block/platform/soc.0/7824900.sdhci/by-name/persist        /dev/block/mmcblk0              flags=display="Persist";backup=1
+/boot          emmc                /dev/block/platform/soc.0/7824900.sdhci/by-name/boot           /dev/block/mmcblk0              flags=display="Boot"
+/recovery      emmc                /dev/block/platform/soc.0/7824900.sdhci/by-name/recovery       /dev/block/mmcblk0              flags=display="Recovery";backup=1
+/misc          emmc                /dev/block/platform/soc.0/7824900.sdhci/by-name/misc           /dev/block/mmcblk0              flags=display="Misc"
+
+# Removable storage
+/external_sd   vfat                /dev/block/mmcblk1p1                                           /dev/block/mmcblk1              flags=fsflags=utf8;display="SD card";storage;wipeingui;removable
+/usb_otg       vfat                /dev/block/sda1                                                /dev/block/sda                  flags=fsflags=utf8;display="USB OTG device";storage;wipeingui;removable

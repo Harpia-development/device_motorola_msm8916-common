@@ -1,1 +1,0 @@
-allow statsd kernel:system module_request;

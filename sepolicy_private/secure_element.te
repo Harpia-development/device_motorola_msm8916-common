@@ -1,1 +1,0 @@
-allow secure_element adbtcp_prop:file rw_file_perms;

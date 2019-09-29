@@ -1,3 +1,0 @@
-allow hal_bluetooth_qti crash_dump:process noatsecure;
-
-allow hal_bluetooth_qti kernel:system module_request;

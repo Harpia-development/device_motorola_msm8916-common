@@ -1,1 +1,0 @@
-allow isolated_app adbtcp_prop:file rw_file_perms;

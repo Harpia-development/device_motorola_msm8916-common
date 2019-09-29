@@ -1,6 +1,0 @@
-allow hal_drm_widevine firmware_file:lnk_file read;
-
-allow hal_drm_widevine kernel:system module_request;
-
-allow hal_drm_widevine media_data_file:file rw_file_perms;
-allow hal_drm_widevine media_data_file:dir rw_dir_perms;

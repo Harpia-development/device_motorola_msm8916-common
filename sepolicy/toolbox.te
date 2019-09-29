@@ -1,2 +1,0 @@
-allow toolbox kernel:system module_request;
-

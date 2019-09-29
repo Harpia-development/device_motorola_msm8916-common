@@ -1,2 +1,0 @@
-allow wcnss_service kernel:system module_request;
-allow wcnss_service serialno_prop:file rw_file_perms;

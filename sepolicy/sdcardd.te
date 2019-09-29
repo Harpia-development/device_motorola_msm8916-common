@@ -1,2 +1,0 @@
-allow sdcardd kernel:system module_request;
-

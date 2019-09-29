@@ -1,4 +1,0 @@
-allow shell kernel:system module_request;
-allow shell alarm_boot_prop:file rw_file_perms;
-allow shell bg_boot_complete_prop:file rw_file_perms;
-allow shell bg_daemon_prop:file rw_file_perms;

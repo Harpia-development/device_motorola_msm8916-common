@@ -1,1 +1,0 @@
-allow incidentd kernel:system module_request;

@@ -1,3 +1,0 @@
-allow system_app adbtcp_prop:file rw_file_perms;
-allow system_app lineage_recovery_prop:file rw_file_perms;
-allow system_app userinit_prop:file rw_file_perms;

@@ -1,3 +1,0 @@
-allow kernel s0:file write;
-allow kernel untrusted_app_tmpfs:file write;
-allow kernel untrusted_app_27_tmpfs:file write;

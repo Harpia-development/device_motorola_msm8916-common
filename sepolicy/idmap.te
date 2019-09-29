@@ -1,2 +1,0 @@
-allow idmap kernel:system module_request;
-

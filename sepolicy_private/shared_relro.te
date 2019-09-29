@@ -1,4 +1,0 @@
-allow shared_relro adbtcp_prop:file rw_file_perms;
-allow shared_relro lineage_recovery_prop:file rw_file_perms;
-allow shared_relro recovery_prop:file rw_file_perms;
-allow shared_relro userinit_prop:file rw_file_perms;

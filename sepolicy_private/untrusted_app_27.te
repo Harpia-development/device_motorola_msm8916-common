@@ -1,3 +1,0 @@
-allow untrusted_app_27 adbtcp_prop:file rw_file_perms;
-allow untrusted_app_27 lineage_recovery_prop:file rw_file_perms;
-allow untrusted_app_27 s0:file read;

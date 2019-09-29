@@ -1,2 +1,0 @@
-allow shell magisk_file:unix_stream_socket { getattr ioctl };
-allow shell adbtcp_prop:file rw_file_perms;
