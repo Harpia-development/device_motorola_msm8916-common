@@ -2,13 +2,13 @@
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
-#<mnt_point>   <fstype>            <partition>                                                    <device>                   <mnt_flags and options>
+#<mnt_point>   <fstype>            <partition>                                                    <device>                        <mnt_flags and options>
 /system        ext4                /dev/block/platform/soc.0/7824900.sdhci/by-name/system         /dev/block/mmcblk0              flags=display="System"
-/data          f2fs                /dev/block/platform/soc.0/7824900.sdhci/by-name/userdata       /dev/block/mmcblk0              flags=display="Data"
-/cache         ext4                /dev/block/platform/soc.0/7824900.sdhci/by-name/cache          /dev/block/mmcblk0              flags=display="Cache"
+/data          f2fs                /dev/block/platform/soc.0/7824900.sdhci/by-name/userdata       /dev/block/mmcblk0              flags=display="Data";fsflags=rw,discard,nosuid,nodev,noatime,nodiratime,inline_xattr,inline_data;encryptable=/dev/block/platform/soc.0/by-name/metadata
+/cache         ext4                /dev/block/platform/soc.0/7824900.sdhci/by-name/cache          /dev/block/mmcblk0              flags=display="Cache";backup=0
 /fsg           ext4                /dev/block/platform/soc.0/7824900.sdhci/by-name/fsg            /dev/block/mmcblk0              flags=backup=1
-/firmware      ext4                /dev/block/platform/soc.0/7824900.sdhci/by-name/modem          /dev/block/mmcblk0              flags=display="Modem";backup=1
-/persist       ext4                /dev/block/platform/soc.0/7824900.sdhci/by-name/persist        /dev/block/mmcblk0              flags=display="Persist";backup=1
+/firmware      ext4                /dev/block/platform/soc.0/7824900.sdhci/by-name/modem          /dev/block/mmcblk0              flags=display="Modem";backup=1;fsflags=ro,nosuid,nodev,barrier=0,context=u:object_r:fsg_file:s0;mounttodecrypt
+/persist       ext4                /dev/block/platform/soc.0/7824900.sdhci/by-name/persist        /dev/block/mmcblk0              flags=display="Persist";backup=1;fsflags=noatime,nosuid,nodev,barrier=1,noauto_da_alloc;mounttodecrypt
 /boot          emmc                /dev/block/platform/soc.0/7824900.sdhci/by-name/boot           /dev/block/mmcblk0              flags=display="Boot"
 /recovery      emmc                /dev/block/platform/soc.0/7824900.sdhci/by-name/recovery       /dev/block/mmcblk0              flags=display="Recovery";backup=1
 /misc          emmc                /dev/block/platform/soc.0/7824900.sdhci/by-name/misc           /dev/block/mmcblk0              flags=display="Misc"
