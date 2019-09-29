@@ -81,7 +81,7 @@ on fs
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
 
-    mount_all /vendor/etc/fstab.qcom
+    wait /dev/block/bootdevice
 
     # set up a symbolic link so the many references to the old location still work and the java code can remain platform agnostic.
     symlink /dev/block/bootdevice /dev/block/platform/msm_sdcc.1
@@ -106,39 +106,11 @@ on early-boot
     write /sys/kernel/boot_adsp/boot 1
 
 on boot
-    #Create QMUX deamon socket area
-    mkdir /dev/socket/qmux_radio 0770 radio radio
-    chmod 2770 /dev/socket/qmux_radio
-    mkdir /dev/socket/qmux_audio 0770 media audio
-    chmod 2770 /dev/socket/qmux_audio
-    mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
-    chmod 2770 /dev/socket/qmux_bluetooth
-    mkdir /dev/socket/qmux_gps 0770 gps gps
-    chmod 2770 /dev/socket/qmux_gps
-
-    # Create NETMGR daemon socket area
-    mkdir /dev/socket/netmgr 0750 radio radio
-
     # Prevents permission denied error for telephony
     chmod 0644 /proc/cmdline
     
     mkdir /data/time/ 0770 system system
     chmod 0770 /data/time/ats_2
-
-    mkdir /persist/bluetooth 0770 bluetooth bluetooth
-
-    # Assign TCP buffer thresholds to be ceiling value of technology maximums
-    # Increased technology maximums should be reflected here.
-    write /proc/sys/net/core/rmem_max  16777216
-    write /proc/sys/net/core/wmem_max  8388608
-
-    # To prevent out of order acknowledgements from making
-    # connection tracking to treat them as not belonging to
-    # the connection they belong to.
-    # Otherwise, a weird issue happens in which some long
-    # connections on high-throughput links get dropped when
-    # an ack packet comes out of order
-    write /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal 1
 
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
@@ -163,10 +135,6 @@ on boot
     chmod 0664 /sys/class/backlight/lcd-backlight:0/max_brightness
     chmod 0664 /sys/class/leds/lcd-backlight/brightness
 
-    # Change the ownership of the OneWire bus interface
-    chown camera camera /sys/devices/w1_bus_master1/w1_master_search
-    chmod 0664 /sys/devices/w1_bus_master1/w1_master_search
-
     # Quiet binder logs
     write /sys/module/binder/parameters/debug_mask 0x5
 
@@ -178,13 +146,8 @@ on boot
     chown root oem_5004 /sys/module/phy_msm_usb/parameters/host_mode_disable
     chmod 0660 /sys/module/phy_msm_usb/parameters/host_mode_disable
 
-    # Wifi firmware reload path
-    chown wifi wifi /sys/module/wlan/parameters/fwpath
-
 on late-fs
 on post-fs
-    mkdir /persist/camera 0775 mot_tcmd mot_tcmd
-    mkdir /persist/camera/ledcal 0755 camera mot_tcmd
     mkdir /persist/factory 0755 mot_tcmd mot_tcmd
     mkdir /persist/public 0755 mot_tcmd mot_tcmd
     mkdir /persist/public/atvc 0770 mot_atvc shell
@@ -194,8 +157,6 @@ on post-fs
     mkdir /persist/public/locale 0700 system system
     mkdir /persist/public/omadm 0700 radio radio
     mkdir /persist/public/svcs 0770 system system
-    mkdir /persist/wifi 0755 oem_5004 oem_5004
-    mkdir /persist/bt 0755 oem_5004 bluetooth
     mkdir /persist/wmdrm 0775 oem_5003 oem_5003
     mkdir /persist/security 02770 oem_5007 oem_5007
     mkdir /persist/batt_health 0755 oem_5001 oem_5001
@@ -204,10 +165,6 @@ on post-fs
 
     chown system mot_tcmd /persist/public/hiddenmenu/life_calls
     chown system mot_tcmd /persist/public/hiddenmenu/life_timer
-    chown system mot_tcmd /persist/public/hiddenmenu/data/mobile_data_tx
-    chown system mot_tcmd /persist/public/hiddenmenu/data/mobile_data_rx
-    chown system mot_tcmd /persist/public/hiddenmenu/data/wifi_data_tx
-    chown system mot_tcmd /persist/public/hiddenmenu/data/wifi_data_rx
     chown system mot_tcmd /persist/public/hiddenmenu/data/pri_rate_intfc
     chown system mot_tcmd /persist/public/hiddenmenu/data/refurb_date
     chown system mot_tcmd /persist/public/hiddenmenu/data/refurb_status
@@ -216,10 +173,6 @@ on post-fs
 
     chmod 0664 /persist/public/hiddenmenu/life_calls
     chmod 0664 /persist/public/hiddenmenu/life_timer
-    chmod 0664 /persist/public/hiddenmenu/data/mobile_data_tx
-    chmod 0664 /persist/public/hiddenmenu/data/mobile_data_rx
-    chmod 0664 /persist/public/hiddenmenu/data/wifi_data_tx
-    chmod 0664 /persist/public/hiddenmenu/data/wifi_data_rx
     chmod 0644 /persist/public/hiddenmenu/data/pri_rate_intfc
     chmod 0644 /persist/public/hiddenmenu/data/refurb_date
     chmod 0644 /persist/public/hiddenmenu/data/refurb_status
@@ -243,55 +196,11 @@ on late-fs
 
 # msm specific files that need to be created on /data
 on post-fs-data
-    mkdir /data/misc/camera 0770 camera camera
-
-    # Create the directories used by the Wireless subsystem
-    mkdir /data/vendor/wifi 0770 wifi wifi
-    mkdir /data/vendor/wifi/sockets 0770 wifi wifi
-    mkdir /data/vendor/wifi/hostapd/ctrl 0770 wifi wifi
-    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
-    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
-    mkdir /data/vendor/wifi/wpa_supplicant 0770 wifi wifi
-
-    # Create directory used by audio subsystem
-    mkdir /data/misc/audio 0770 audio audio
-
-    # Create directory for audio delta files
-    mkdir /data/misc/audio/acdbdata 0770 media audio
-    mkdir /data/misc/audio/acdbdata/delta 0770 media audio
-
-    mkdir /data/vendor/ramdump 0771 root system
-    mkdir /data/vendor/bluetooth 0770 bluetooth bluetooth
-    mkdir /data/vendor/ramdump/bluetooth 0770 bluetooth bluetooth
-
-    # Create directories for Location services
-    mkdir /data/misc/location 0770 gps gps
-    mkdir /data/misc/location/mq 0770 gps gps
-    mkdir /data/misc/location/xtwifi 0770 gps gps
-    mkdir /data/misc/location/gpsone_d 0770 system gps
-    mkdir /data/misc/location/quipc 0770 gps system
-    mkdir /data/misc/location/gsiff 0770 gps gps
-
     # Create /data/time folder for time-services
     mkdir /data/time/ 0700 system system
 
-    mkdir /data/audio/ 0770 media audio
-
     setprop vold.post_fs_data_done 1
     setprop vold.decrypt trigger_restart_framework
-
-    # Create folder for mm-qcamera-daemon
-    mkdir /data/camera 0770 media camera
-
-    # Create directory for cutback
-    mkdir /data/misc/cutback 0770 radio wifi
-
-    #create netmgr log dir
-    mkdir /data/vendor/netmgr 0770 radio radio
-    chmod 0770 /data/vendor/netmgr
-
-    #Create directory for radio
-    mkdir /data/vendor/radio 0770 system radio
 
     # Permissions for Factory Test of Charging Paths
     chown oem_5001 oem_5001 /sys/class/power_supply/battery/device/force_chg_auto_enable
@@ -301,9 +210,6 @@ on post-fs-data
     chown oem_5001 oem_5001 /sys/class/power_supply/battery/device/force_chg_usb_suspend
     chown oem_5001 oem_5001 /sys/class/power_supply/battery/device/force_chg_fail_clear
     chown oem_5001 oem_5001 /sys/class/power_supply/battery/device/force_chg_usb_otg_ctl
-
-    # Setup folder for camera HAL subsystem
-    mkdir /data/camera_dump 0750 media media
 
     mkdir /data/tombstones/modem 0771 system system
     mkdir /data/tombstones/lpass 0771 system system
@@ -334,12 +240,6 @@ service mmi-boot-sh /vendor/bin/init.mmi.boot.sh
     group root radio
     oneshot
 
-service mmi-bt-sh /vendor/bin/init.mmi.bt.sh
-    class main
-    user root
-    group root system
-    oneshot
-
 service mmi-touch-sh /vendor/bin/init.mmi.touch.sh synaptics
     class core
     user root
@@ -353,27 +253,6 @@ service vendor.devstart_sh /vendor/bin/init.qcom.devstart.sh
     oneshot
     disabled
     
-service vendor.init-radio-sh /vendor/bin/init.radio.sh
-    class late_start
-    user root
-    group root radio
-    oneshot
-
-service wcnss-service /vendor/bin/wcnss_service
-    class late_start
-    user system
-    group system wifi radio
-    seclabel u:r:wcnss_service:s0
-    writepid /dev/cpuset/system-background/tasks
-
-#start camera server as daemon
-service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
-    class core
-    user camera
-    group camera system inet input graphics
-    seclabel u:r:mm-qcamerad:s0
-    writepid /dev/cpuset/camera-daemon/tasks
-
 service charger /charger
     class charger
     group log
@@ -386,13 +265,6 @@ on property:persist.usb.chgdisabled=1
 
 on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
-
-service qseecomd /system/vendor/bin/qseecomd
-   class core
-   user root
-   group root
-   seclabel u:r:tee:s0
-   writepid /dev/cpuset/system-background/tasks
 
 service thermal-engine /vendor/bin/thermal-engine
    class main
@@ -436,9 +308,6 @@ on property:persist.debug.trace=1
     write /sys/bus/coresight/devices/coresight-etm3/enable 1
     write /sys/module/coresight_event/parameters/event_abort_enable 1
 
-on property:bluetooth.isEnabled=true
-    write /sys/class/bluetooth/hci0/idle_timeout 7000
-
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
@@ -460,95 +329,6 @@ service rmt_storage /system/vendor/bin/rmt_storage
 on property:ro.boot.emmc=true
     start rmt_storage
 
-# FM
-on property:hw.fm.init=0
-    write /sys/module/radio_iris_transport/parameters/fmsmd_set 0
-
-on property:vendor.hw.fm.init=0
-    write /sys/module/radio_iris_transport/parameters/fmsmd_set 0
-
-on property:hw.fm.init=1
-    write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
-
-on property:vendor.hw.fm.init=1
-    write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
-
-# QMUX must be in multiple groups to support external process connections
-service qmuxd /system/vendor/bin/qmuxd
-    class main
-    user root
-    group radio audio bluetooth gps nfc oem_2950
-    seclabel u:r:qmuxd:s0
-    writepid /dev/cpuset/system-background/tasks
-
-service netmgrd /system/vendor/bin/netmgrd
-    class main
-    user root
-    group root wifi wakelock radio inet oem_2950
-    seclabel u:r:netmgrd:s0 
-    writepid /dev/cpuset/system-background/tasks
-
-on property:ro.use_data_netmgrd=false
-    # netmgr not supported on specific target
-    stop netmgrd
-
-# Adjust socket buffer to enlarge TCP receive window for high bandwidth
-# but only if ro.data.large_tcp_window_size property is set.
-on property:ro.data.large_tcp_window_size=true
-    write /proc/sys/net/ipv4/tcp_adv_win_scale  2
-
-service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
-    -g@android:wpa_wlan0 -puse_p2p_group_interface=1
-    #   we will start as root and wpa_supplicant will switch to user wifi
-    #   after setting up the capabilities required for WEXT
-    #   user wifi
-    #   group wifi inet keystore
-    interface android.hardware.wifi.supplicant@1.0::ISupplicant default
-    interface android.hardware.wifi.supplicant@1.1::ISupplicant default
-    interface android.hardware.wifi.supplicant@1.2::ISupplicant default
-    class main
-    socket wpa_wlan0 dgram 660 wifi wifi
-    disabled
-    oneshot
-
-service ril-daemon2 /vendor/bin/hw/rild -c 2
-    class main
-    user radio
-    disabled
-    group radio cache inet misc audio log readproc wakelock
-    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
-    writepid /dev/cpuset/system-background/tasks
-
-on property:persist.radio.multisim.config=dsds
-    enable ril-daemon2
-
-on property:persist.radio.multisim.config=dsda
-    enable ril-daemon2
-
-on property:sys.wifi.tethering=true
-    write /sys/class/net/wlan0/queues/rx-0/rps_cpus ${sys.usb.rps_mask}
-    write /sys/class/net/wlan0/queues/rx-1/rps_cpus ${sys.usb.rps_mask}
-    write /sys/class/net/wlan0/queues/rx-2/rps_cpus ${sys.usb.rps_mask}
-    write /sys/class/net/wlan0/queues/rx-3/rps_cpus ${sys.usb.rps_mask}
-
-service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
-    class main
-    user radio
-    socket ims_qmid stream 0660 system radio
-    group radio log diag
-    writepid /dev/cpuset/system-background/tasks
-
-service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
-    class main
-    user radio
-    socket ims_datad stream 0660 system radio
-    group radio wifi radio inet log diag
-    writepid /dev/cpuset/system-background/tasks
-    disabled
-
-on property:vendor.ims.QMI_DAEMON_STATUS=1
-    start vendor.imsdatadaemon
-
 on property:ro.hw.revision=*
     setprop ro.boot.hardware.revision ${ro.hw.revision}
 
@@ -563,12 +343,6 @@ on charger
     trigger moto-charger
     class_stop main
     class_stop late_start
-
-service per_mgr /system/vendor/bin/pm-service
-    class core
-    user system
-    group system
-    disabled
 
 service ppd /vendor/bin/mm-pp-daemon
     class hal
@@ -682,9 +456,4 @@ on property:sys.boot_completed=1
     write /sys/kernel/mm/uksm/sleep_millisecs 5000
 
     # Enable Adreno Idler by default
-    write /sys/module/adreno_idler/parameters/adreno_idler_active "Y"	
-
-    start perfd
-
-on property:apexd.status=ready
-    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
+    write /sys/module/adreno_idler/parameters/adreno_idler_active "Y"

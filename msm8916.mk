@@ -108,12 +108,10 @@ PRODUCT_COPY_FILES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.mmi.boot.sh \
-    init.mmi.bt.sh \
     init.mmi.touch.sh \
     init.qcom.devstart.sh \
-    init.radio.sh \
     init.mmi.usb.rc \
-    init.qcom.rc \
+    init.recovery.qcom.rc \
     init.power.rc \
     ueventd.rc
 
@@ -138,17 +136,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@1.0-impl \
     android.hardware.health@1.0-service
-
-# Netutils
-PRODUCT_PACKAGES += \
-    android.system.net.netd@1.0 \
-    netutils-wrapper-1.0
-
-# Optimize
-PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
-PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
-PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
-PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
 
 # Strip debug
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
