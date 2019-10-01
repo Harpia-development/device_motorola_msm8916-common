@@ -117,7 +117,7 @@ PRODUCT_PACKAGES += \
     libc_util \
     libshims_camera \
     libshims_sensorlistener \
-    Snap \
+    Camera2 \
     libjustshoot_shim
 
 # Camera properties
