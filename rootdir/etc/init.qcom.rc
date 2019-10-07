@@ -569,12 +569,6 @@ on charger
     class_stop main
     class_stop late_start
 
-service per_mgr /system/vendor/bin/pm-service
-    class core
-    user system
-    group system
-    disabled
-
 service ppd /vendor/bin/mm-pp-daemon
     class hal
     user system
@@ -599,18 +593,6 @@ on property:init.svc.zygote=running
 
 on property:init.svc.zygote=restarting
     stop ppd
-
-service per_proxy /vendor/bin/pm-proxy
-    class core
-    user system
-    group system
-    disabled
-
-on property:init.svc.per_mgr=running
-    start per_proxy
-
-on property:sys.shutdown.requested=*
-    stop per_proxy
 
 service tftp_server /vendor/bin/tftp_server
    class core
