@@ -18,3 +18,6 @@ allow kernel block_device:dir search;
 allow kernel untrusted_app_27:fd use;
 
 dontaudit kernel untrusted_app_all:file w_file_perms;
+
+allow kernel { priv_app untrusted_app }:fd use;
+allow kernel block_device:blk_file rw_file_perms;

@@ -21,10 +21,10 @@
         <name>android.hardware.bluetooth</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
-	<interface>
+        <interface>
             <name>IBluetoothHci</name>
             <instance>default</instance>
-	</interface>
+        </interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.camera.provider</name>
@@ -51,11 +51,15 @@
         <version>1.0</version>
         <interface>
             <name>ICryptoFactory</name>
+            <instance>clearkey</instance>
             <instance>default</instance>
+            <instance>widevine</instance>
         </interface>
         <interface>
             <name>IDrmFactory</name>
+            <instance>clearkey</instance>
             <instance>default</instance>
+            <instance>widevine</instance>
         </interface>
         <fqname>@1.2::ICryptoFactory/clearkey</fqname>
         <fqname>@1.2::IDrmFactory/clearkey</fqname>
@@ -72,15 +76,6 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.perf</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IPerf</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.graphics.allocator</name>
         <transport>hwbinder</transport>
         <version>2.0</version>
@@ -91,7 +86,7 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.graphics.composer</name>
-        <transport>hwbinder</transport>
+        <transport arch="32">passthrough</transport>
         <version>2.1</version>
         <interface>
             <name>IComposer</name>
@@ -110,7 +105,7 @@
     <hal format="hidl">
         <name>android.hardware.health</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>2.0</version>
         <interface>
             <name>IHealth</name>
             <instance>default</instance>
@@ -158,7 +153,7 @@
     </hal>
     <hal format="hidl">
         <name>android.hardware.power</name>
-        <transport>hwbinder</transport>
+        <transport arch="32">passthrough</transport>
         <version>1.0</version>
         <interface>
             <name>IPower</name>
@@ -254,29 +249,37 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.wifi.offload</name>
+        <name>com.qualcomm.qti.bluetooth_audio</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IOffload</name>
+            <name>IBluetoothAudio</name>
             <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl">
-        <name>com.qualcomm.qti.ant</name>
+        <name>vendor.lineage.livedisplay</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>2.0</version>
         <interface>
-            <name>IAntHci</name>
+            <name>IDisplayColorCalibration</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IPictureAdjustment</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>ISunlightEnhancement</name>
             <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.fm</name>
+        <name>vendor.lineage.trust</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IFmHci</name>
+            <name>IUsbRestrict</name>
             <instance>default</instance>
         </interface>
     </hal>

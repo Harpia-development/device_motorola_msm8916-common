@@ -48,6 +48,9 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
 
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_PHONY_TARGETS := true
+
 # Binder API version
 TARGET_USES_64_BIT_BINDER := true
 
@@ -56,7 +59,7 @@ KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-linux-gnue
 KERNEL_TOOLCHAIN_PREFIX := arm-linux-gnueabi-
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x3F ehci-hcd.park=3 vmalloc=400M androidboot.bootdevice=7824900.sdhci utags.blkdev=/dev/block/bootdevice/by-name/utags utags.backup=/dev/block/bootdevice/by-name/utagsBackup movablecore=160M loop.max_part=7
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x3F ehci-hcd.park=3 vmalloc=400M androidboot.bootdevice=7824900.sdhci utags.blkdev=/dev/block/bootdevice/by-name/utags utags.backup=/dev/block/bootdevice/by-name/utagsBackup movablecore=160M
 BOARD_KERNEL_CMDLINE += loop.max_part=7
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
@@ -113,6 +116,7 @@ BOARD_NO_CHARGER_LED := true
 TARGET_HW_DISK_ENCRYPTION := true
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 TARGET_USES_METADATA_AS_FDE_KEY := true
+TARGET_LEGACY_HW_DISK_ENCRYPTION := true
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -123,22 +127,31 @@ TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
+# Display Renderer
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+USE_OPENGL_RENDERER := true
+
 # UI
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x2002000
 
+# Exclude serif fonts for saving system.img size.
+EXCLUDE_SERIF_FONTS := true
+
 # FM
-BOARD_HAVE_QCOM_FM := true
+#BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
-ifneq ($(wildcard $(shell pwd)/hardware/lineage/livedisplay),)
-DEVICE_MANIFEST_FILE += $(VENDOR_PATH)/live_display_manifest.xml
-endif
 DEVICE_MATRIX_FILE := $(VENDOR_PATH)/compatibility_matrix.xml
 
 # HWUI
 HWUI_COMPILE_FOR_PERF := true
+
+# GPS
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := true
+BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
+USE_DEVICE_SPECIFIC_GPS := true
 
 # Partitions
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -163,9 +176,21 @@ LZMA_RAMDISK_TARGETS := recovery
 
 # Radio
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
+TARGET_RIL_VARIANT := caf
+
+# Power
+TARGET_HAS_NO_WLAN_STATS := true
+TARGET_HAS_NO_WIFI_STATS := true
+TARGET_USES_INTERACTION_BOOST := true
+TARGET_HAS_NO_POWER_STATS := true
+TARGET_POWERHAL_VARIANT := qcom
+TARGET_PROVIDES_POWERHAL := true
 
 # Release Tools
 TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
+
+# Root
+BOARD_ROOT_EXTRA_FOLDERS := firmware persist fsg
 
 # SELinux
 include device/qcom/sepolicy-legacy/sepolicy.mk
@@ -198,16 +223,6 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libjustshoot.so|libjustshoot_shim.so \
     /system/vendor/lib/libperipheral_client.so|libshim_binder.so
 
-# Telephony
-TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
-TARGET_RIL_VARIANT := caf
-
-# Power
-TARGET_HAS_NO_WLAN_STATS := true
-TARGET_HAS_NO_WIFI_STATS := true
-TARGET_USES_INTERACTION_BOOST := true
-TARGET_HAS_NO_POWER_STATS := true
-
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_WLAN_DEVICE := qcwcn
@@ -220,8 +235,3 @@ WIFI_DRIVER_FW_PATH_AP  := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
-
-BUILD_BROKEN_DUP_RULES := true
-BUILD_BROKEN_PHONY_TARGETS := true
-
-TARGET_FLATTEN_APEX := true

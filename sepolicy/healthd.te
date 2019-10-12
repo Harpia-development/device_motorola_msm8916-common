@@ -18,3 +18,5 @@ allow healthd {
 
 r_dir_file(healthd, sysfs_batteryinfo)
 allow healthd kernel:system module_request;
+
+type sysfs_disk_stat, fs_type, sysfs_type;

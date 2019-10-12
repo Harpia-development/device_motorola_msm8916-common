@@ -224,9 +224,9 @@
                 <route type="mix" sink="FM"
                        sources="primary output"/>
                 <route type="mix" sink="BT SCO"
-                       sources="primary output,raw,deep_buffer,direct_pcm,compressed_offload,voip_rx"/>
+                       sources="primary output,deep_buffer,compressed_offload,voip_rx"/>
                 <route type="mix" sink="BT SCO Headset"
-                       sources="primary output,raw,deep_buffer,direct_pcm,compressed_offload,voip_rx"/>
+                       sources="primary output,deep_buffer,compressed_offload,voip_rx"/>
                 <route type="mix" sink="BT SCO Car Kit"
                        sources="primary output,deep_buffer,compressed_offload,voip_rx"/>
                 <route type="mix" sink="primary input"
@@ -234,6 +234,9 @@
             </routes>
 
         </module>
+
+        <!-- A2dp Audio HAL -->
+        <xi:include href="/vendor/etc/a2dp_audio_policy_configuration.xml"/>
 
         <!-- Usb Audio HAL -->
         <xi:include href="/vendor/etc/usb_audio_policy_configuration.xml"/>

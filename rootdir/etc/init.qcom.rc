@@ -86,9 +86,6 @@ on fs
     # set up a symbolic link so the many references to the old location still work and the java code can remain platform agnostic.
     symlink /dev/block/bootdevice /dev/block/platform/msm_sdcc.1
 
-    # use /persist as phony PDS partition
-    symlink /persist /pds
-
     mkdir /persist/data 0700  system system
     restorecon_recursive /persist
 
@@ -245,6 +242,8 @@ on late-fs
     write /sys/block/mmcblk0/queue/read_ahead_kb 2048
     write /sys/block/mmcblk0/queue/nr_requests 256
     write /sys/block/mmcblk1/queue/read_ahead_kb 1024
+    write /proc/sys/vm/page-cluster 0
+    write /proc/sys/vm/swappiness 100
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -270,12 +269,20 @@ on post-fs-data
     mkdir /data/vendor/ramdump/bluetooth 0770 bluetooth bluetooth
 
     # Create directories for Location services
-    mkdir /data/misc/location 0770 gps gps
-    mkdir /data/misc/location/mq 0770 gps gps
-    mkdir /data/misc/location/xtwifi 0770 gps gps
-    mkdir /data/misc/location/gpsone_d 0770 system gps
-    mkdir /data/misc/location/quipc 0770 gps system
-    mkdir /data/misc/location/gsiff 0770 gps gps
+    mkdir /data/vendor/location 0770 gps gps
+    mkdir /data/vendor/location/mq 0770 gps gps
+    mkdir /data/vendor/location/xtwifi 0770 gps gps
+    mkdir /data/vendor/location/gpsone_d 0770 system gps
+    mkdir /data/vendor/location/quipc 0770 gps system
+    mkdir /data/vendor/location/gsiff 0770 gps gps
+
+    # migrating the GNSS hal to vendor requires this to be relabeled; the
+    # directory itself is created by /vendor/bin/xtra-daemon
+    chown gps gps /data/vendor/location/xtra
+    chmod 0750 /data/vendor/location/xtra
+    chown gps gps /data/vendor/location/xtra/socket_hal_xtra
+    chmod 0660 /data/vendor/location/xtra/socket_hal_xtra
+    chown gps gps /data/vendor/location/xtra/xtra.sqlite
 
     # Create /data/time folder for time-services
     mkdir /data/time/ 0700 system system
@@ -385,6 +392,13 @@ service charger /charger
     seclabel u:r:healthd:s0
     writepid /dev/cpuset/system-background/tasks
 
+service loc_launcher /vendor/bin/loc_launcher
+    class late_start
+    user gps
+    group gps
+    disabled
+    writepid /dev/cpuset/system-background/tasks
+
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
     write /sys/class/power_supply/battery/charging_enabled 0
@@ -392,11 +406,10 @@ on property:persist.usb.chgdisabled=1
 on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
-service qseecomd /system/vendor/bin/qseecomd
+service qseecomd /vendor/bin/qseecomd
    class core
    user root
    group root
-   seclabel u:r:tee:s0
    writepid /dev/cpuset/system-background/tasks
 
 service thermal-engine /vendor/bin/thermal-engine
@@ -408,13 +421,13 @@ service thermal-engine /vendor/bin/thermal-engine
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service thermal-com /system/vendor/bin/thermal-engine --minimode
+service thermal-com /vendor/bin/thermal-engine --minimode
     class main
     user root
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service time_daemon /system/vendor/bin/time_daemon
+service time_daemon /vendor/bin/time_daemon
    class late_start
    user root
    group root
@@ -447,13 +460,13 @@ on property:bluetooth.isEnabled=true
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
-service irsc_util /system/vendor/bin/irsc_util "/vendor/etc/sec_config"
+service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class main
     user root
     oneshot
     seclabel u:r:irsc_util:s0
 
-service rmt_storage /system/vendor/bin/rmt_storage
+service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     group system wakelock
@@ -479,18 +492,16 @@ on property:vendor.hw.fm.init=1
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
 
 # QMUX must be in multiple groups to support external process connections
-service qmuxd /system/vendor/bin/qmuxd
+service qmuxd /vendor/bin/qmuxd
     class main
     user root
     group radio audio bluetooth gps nfc oem_2950
-    seclabel u:r:qmuxd:s0
     writepid /dev/cpuset/system-background/tasks
 
-service netmgrd /system/vendor/bin/netmgrd
+service netmgrd /vendor/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet oem_2950
-    seclabel u:r:netmgrd:s0 
     writepid /dev/cpuset/system-background/tasks
 
 on property:ro.use_data_netmgrd=false
@@ -525,10 +536,10 @@ service ril-daemon2 /vendor/bin/hw/rild -c 2
     writepid /dev/cpuset/system-background/tasks
 
 on property:persist.radio.multisim.config=dsds
-    enable ril-daemon2
+   enable ril-daemon2
 
 on property:persist.radio.multisim.config=dsda
-    enable ril-daemon2
+   enable ril-daemon2
 
 on property:sys.wifi.tethering=true
     write /sys/class/net/wlan0/queues/rx-0/rps_cpus ${sys.usb.rps_mask}
@@ -560,14 +571,38 @@ on property:ro.hw.revision=*
 on enable-low-power
     setprop sys.post_boot.parsed 1
 
+service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
+    class main
+    user radio
+    socket ims_rtpd stream 0660 system radio
+    group radio diag inet log
+    disabled
+
+on property:vendor.ims.DATA_DAEMON_STATUS=1
+    start vendor.ims_rtp_daemon
+
 on charger
-    trigger early-fs
-    trigger fs
-    trigger post-fs
-    trigger post-fs-data
     trigger moto-charger
-    class_stop main
-    class_stop late_start
+
+service vendor.per_mgr /vendor/bin/pm-service
+    class core
+    user system
+    group system
+    disabled
+    writepid /dev/cpuset/system-background/tasks
+
+service vendor.per_proxy /vendor/bin/pm-proxy
+    class core
+    user system
+    group system
+    disabled
+    writepid /dev/cpuset/system-background/tasks
+
+on property:init.svc.per_mgr=running
+    start per_proxy
+
+on property:sys.shutdown.requested=*
+    stop per_proxy
 
 service ppd /vendor/bin/mm-pp-daemon
     class hal
