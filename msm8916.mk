@@ -377,7 +377,7 @@ PRODUCT_PACKAGES += \
     WCNSS_wlan_dictionary.dat
 
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
+    android.hardware.wifi@1.0-service.legacy \
     android.hardware.wifi.offload@1.0-service \
     libqsap_sdk \
     libwpa_client \
