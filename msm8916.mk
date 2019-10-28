@@ -110,6 +110,7 @@ PRODUCT_PACKAGES += \
     libc_util \
     libshims_camera \
     libshims_sensorlistener \
+    libboringssl-compat \
     Snap \
     libjustshoot_shim
 
