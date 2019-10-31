@@ -13,6 +13,9 @@
 /(vendor|system/vendor)/bin/init\.qcom\.devstart\.sh u:object_r:init-qcom-devstart-sh_exec:s0
 /(vendor|system/vendor)/bin/init\.radio\.sh        u:object_r:init_radio_exec:s0
 
+# DRM
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.widevine                u:object_r:hal_drm_widevine_exec:s0
+
 # Lights
 /sys/class/leds(/.*)?                                                   u:object_r:sysfs_leds:s0
 /sys/devices/soc\.0/leds-atc-[0-9]+/leds(/.*)?              u:object_r:sysfs_leds:s0
