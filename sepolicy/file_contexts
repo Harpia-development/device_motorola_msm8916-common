@@ -23,10 +23,6 @@
 /sys/devices/soc\.0/78b7000\.spi/spi_master/spi0/spi0\.0/leds/rgb(/.*)? u:object_r:sysfs_leds:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service.msm8916    u:object_r:hal_light_default_exec:s0
 
-# HAL exec
-/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.widevine      u:object_r:hal_drm_widevine_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey      u:object_r:hal_drm_clearkey_exec:s0
-
 # shared mem log
 /dev/subsys_modem              u:object_r:subsys_modem_device:s0
 

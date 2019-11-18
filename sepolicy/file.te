@@ -26,6 +26,7 @@ type proc_bootinfo, fs_type, proc_type;
 type proc_vm, fs_type, proc_type;
 type proc_kernel_sched, fs_type, proc_type;
 type proc_cpu_alignment, fs_type, proc_type;
+type proc_swappiness, fs_type, proc_type;
 
 # Defines the files (configs, dumps, etc) used by display processes
 type display_misc_file, file_type, data_file_type;
