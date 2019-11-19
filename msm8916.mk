@@ -89,10 +89,6 @@ PRODUCT_COPY_FILES +=  \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl
-
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0
@@ -362,9 +358,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.harpia
 
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-service.lineage
+ifeq ($(LINEAGE_BUILD),)
+    # LineageOS Vibrator
+    PRODUCT_PACKAGES += \
+        android.hardware.vibrator@1.0-service.lineage
+else
+    # Vibrator
+    PRODUCT_PACKAGES += \
+        android.hardware.vibrator@1.0-service \
+        android.hardware.vibrator@1.0-impl
+endif
 
 # Wifi
 PRODUCT_PACKAGES += \
