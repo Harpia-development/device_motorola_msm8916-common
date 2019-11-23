@@ -146,3 +146,5 @@ allow init sysfs_graphics:file { setattr w_file_perms };
 allow init vendor_toolbox_exec:file execute_no_trans;
 allow init property_socket:sock_file write;
 allow init mnt_vendor_file:dir mounton;
+
+allow init proc_cpu_alignment:file w_file_perms;

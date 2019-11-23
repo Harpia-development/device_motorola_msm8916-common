@@ -16,3 +16,6 @@ genfscon proc  /sys/kernel/sched_mostly_idle_load      u:object_r:proc_kernel_sc
 genfscon proc  /sys/kernel/sched_mostly_idle_nr_run    u:object_r:proc_kernel_sched:s0
 genfscon proc  /sys/kernel/sched_upmigrate             u:object_r:proc_kernel_sched:s0
 genfscon proc  /sys/kernel/sched_downmigrate           u:object_r:proc_kernel_sched:s0
+
+genfscon proc /cpu/alignment u:object_r:proc_cpu_alignment:s0
+
