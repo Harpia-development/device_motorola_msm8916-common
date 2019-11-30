@@ -144,3 +144,6 @@ allow system_server wififtmd_prop:file rw_file_perms;
 allow system_server unlabeled:file unlink;
 allow system_server dalvikcache_data_file:file execute;
 allow system_server self:process execmem;
+
+# Allow LineageHW (running as system server) to access LiveDisplay tuneables
+allow system_server sysfs_livedisplay_tuneable:file rw_file_perms;
