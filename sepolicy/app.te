@@ -3,3 +3,5 @@ r_dir_file(appdomain, adsprpcd_file)
 get_prop(appdomain, debug_gralloc_prop)
 get_prop(appdomain, hwui_prop)
 get_prop(appdomain, camera_prop)
+get_prop(appdomain, theme_prop)
+
