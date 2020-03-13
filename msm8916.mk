@@ -215,6 +215,7 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
+    libshims_cne \
     libqsap_shim \
     libril-wrapper \
     librmnetctl \
