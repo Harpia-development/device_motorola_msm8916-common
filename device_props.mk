@@ -47,24 +47,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.opengles.version=196608 \
-	persist.hwc.mdpcomp.enable=1 \
-	debug.sf.recomputecrop=0 \
-	debug.sf.disable_backpressure=1 \
-	debug.sf.enable_gl_backpressure=1 \
-	debug.sf.latch_unsignaled=1 \
-	debug.cpurend.vsync=false \
-	debug.hwui.use_buffer_age=false \
-	ro.sf.lcd_density=360
+       ro.opengles.version=196608 \
+       debug.sf.recomputecrop=0 \
+       debug.sf.disable_backpressure=1 \
+       debug.sf.enable_gl_backpressure=1 \
+       debug.sf.latch_unsignaled=1 \
+       debug.cpurend.vsync=false \
+       persist.hwc.mdpcomp.enable=1 \
+       ro.sf.lcd_density=360
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
-
-# Fling Velocities
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.min.fling_velocity=160 \
-	ro.max.fling_velocity=20000
 
 # FRP
 #PRODUCT_PROPERTY_OVERRIDES += \
