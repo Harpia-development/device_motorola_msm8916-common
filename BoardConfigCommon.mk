@@ -55,8 +55,10 @@ BUILD_BROKEN_PHONY_TARGETS := true
 TARGET_USES_64_BIT_BINDER := true
 
 # Kernel Toolchain
-KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-linux-gnueabi-9.0/bin
-KERNEL_TOOLCHAIN_PREFIX := arm-linux-gnueabi-
+ifneq ($(wildcard $(TOP_PATH)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9),)
+  KERNEL_TOOLCHAIN := $(TOP_PATH)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9/bin
+  KERNEL_TOOLCHAIN_PREFIX := arm-eabi-4.9-
+endif
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x3F ehci-hcd.park=3 vmalloc=400M androidboot.bootdevice=7824900.sdhci utags.blkdev=/dev/block/bootdevice/by-name/utags utags.backup=/dev/block/bootdevice/by-name/utagsBackup movablecore=160M loop.max_part=7
@@ -69,7 +71,6 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8916
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 BOARD_KERNEL_CMDLINE += pm.sleep_mode=1
 TARGET_CUSTOM_DTBTOOL := dtbToolLineage
 
