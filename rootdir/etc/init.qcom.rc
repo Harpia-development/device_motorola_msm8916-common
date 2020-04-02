@@ -370,7 +370,7 @@ service vendor.init-radio-sh /vendor/bin/init.radio.sh
 service wcnss-service /vendor/bin/wcnss_service
     class late_start
     user system
-    group system wifi radio
+    group system wifi oem_2950 diag radio
     seclabel u:r:wcnss_service:s0
     writepid /dev/cpuset/system-background/tasks
 
@@ -487,14 +487,14 @@ on property:vendor.hw.fm.init=1
 service qmuxd /system/vendor/bin/qmuxd
     class main
     user root
-    group radio audio bluetooth gps nfc oem_2950
+    group radio audio bluetooth gps diag nfc oem_2950
     seclabel u:r:qmuxd:s0
     writepid /dev/cpuset/system-background/tasks
 
 service netmgrd /system/vendor/bin/netmgrd
     class main
     user root
-    group root wifi wakelock radio inet oem_2950
+    group root system wifi wakelock radio inet oem_2950
     seclabel u:r:netmgrd:s0 
     writepid /dev/cpuset/system-background/tasks
 
