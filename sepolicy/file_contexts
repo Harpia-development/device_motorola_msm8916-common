@@ -102,3 +102,5 @@
 /dev/smd3                                   u:object_r:hci_attach_dev:s0
 /dev/smd([0-9])+                            u:object_r:smd_device:s0
 /dev/smdcntl[0-7]                           u:object_r:radio_device:s0
+
+/(vendor|system/vendor)/bin/hw/android\.hardware\.authsecret@1\.0-service                               u:object_r:hal_authsecret_default_exec:s0

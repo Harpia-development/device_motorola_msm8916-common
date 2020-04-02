@@ -138,3 +138,4 @@ allow untrusted_app_27 vendor_rild_libpath_prop:file rw_file_perms;
 allow untrusted_app_27 vendor_system_prop:file rw_file_perms;
 allow untrusted_app_27 vendor_wifi_prop:file rw_file_perms;
 allow untrusted_app_27 proc:file read;
+allow untrusted_app_27 proc:file { open read };

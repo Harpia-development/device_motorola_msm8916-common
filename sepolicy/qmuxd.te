@@ -49,3 +49,4 @@ allow qmuxd kernel:system module_request;
 allow qmuxd sysfs:file r_file_perms;
 
 allow qmuxd radio_device:chr_file { read write };
+allow qmuxd radio_device:chr_file { open read write };
