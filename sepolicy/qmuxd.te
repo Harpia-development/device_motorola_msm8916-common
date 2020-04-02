@@ -47,3 +47,5 @@ allow qmuxd carrier_file:file rw_file_perms;
 allow qmuxd diag_device:chr_file rw_file_perms;
 allow qmuxd kernel:system module_request;
 allow qmuxd sysfs:file r_file_perms;
+
+allow qmuxd radio_device:chr_file { read write };
