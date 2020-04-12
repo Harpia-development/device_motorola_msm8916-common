@@ -188,4 +188,5 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=android-motorola \
     ro.secure=0 \
     ro.adb.secure=0 \
-    net.tethering.noprovisioning=true
+    net.tethering.noprovisioning=true \
+    ro.vendor.qti.sys.fw.bservice_enable=true
