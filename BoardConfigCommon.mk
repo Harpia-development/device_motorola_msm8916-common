@@ -114,11 +114,6 @@ BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_NO_CHARGER_LED := true
 
-# Crypto
-TARGET_HW_DISK_ENCRYPTION := true
-TARGET_KEYMASTER_WAIT_FOR_QSEE := true
-TARGET_USES_METADATA_AS_FDE_KEY := true
-
 # Display
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_USES_C2D_COMPOSITION := true
