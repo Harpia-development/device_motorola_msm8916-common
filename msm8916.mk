@@ -381,15 +381,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     WCNSS_wlan_dictionary.dat
 
-ifeq ($(LINEAGE_BUILD),)
-    PRODUCT_PACKAGES += \
-        android.hardware.wifi@1.0-service.legacy
-else
-    PRODUCT_PACKAGES += \
-        android.hardware.wifi@1.0-service
-endif
-
 PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service.legacy \
     android.hardware.wifi.offload@1.0-service \
     libqsap_sdk \
     libwpa_client \
