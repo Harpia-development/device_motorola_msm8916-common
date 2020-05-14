@@ -367,17 +367,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.harpia
 
-ifeq ($(LINEAGE_BUILD),)
-    # LineageOS Vibrator
-    PRODUCT_PACKAGES += \
-        android.hardware.vibrator@1.0-service.lineage
-else
-    # Vibrator
-    PRODUCT_PACKAGES += \
-        android.hardware.vibrator@1.0-service \
-        android.hardware.vibrator@1.0-impl
-endif
-
 # Wifi
 PRODUCT_PACKAGES += \
     hostapd \
@@ -462,3 +451,8 @@ PRODUCT_GMS_CLIENTID_BASE := android-motorola
 $(call inherit-product, vendor/motorola/msm8916-common/msm8916-common-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 include device/motorola/msm8916-common/device_props.mk
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-service \
+    android.hardware.vibrator@1.0-impl
