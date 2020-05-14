@@ -52,3 +52,4 @@ r_dir_file(mm-pp-daemon, sysfs_leds)
 
 allow mm-pp-daemon ion_device:chr_file rw_file_perms;
 allow mm-pp-daemon kernel:system module_request;
+allow mm-pp-daemon mnt_vendor_file:dir search;

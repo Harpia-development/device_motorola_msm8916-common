@@ -1,3 +1,4 @@
 allow hal_bluetooth_qti crash_dump:process noatsecure;
 
 allow hal_bluetooth_qti kernel:system module_request;
+allow hal_bluetooth_qti vendor_default_prop:property_service set;

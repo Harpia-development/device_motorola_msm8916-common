@@ -7,3 +7,4 @@ allow storaged sysfs_mmc_host:file read;
 allow system_app storaged:binder call;
 allow storaged kernel:system module_request;
 allow storaged device:file rw_file_perms;
+allow storaged device:file write;

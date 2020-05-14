@@ -67,3 +67,5 @@ dontaudit rild vendor_file:file ioctl;
 allow rild proc_bootinfo:file r_file_perms;
 
 dontaudit rild vendor_file:file ioctl;
+allow rild mnt_vendor_file:dir search;
+allow rild wifi_prop:file read;

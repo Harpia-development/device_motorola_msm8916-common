@@ -83,3 +83,7 @@ allow system_app scr_enabled_prop:file rw_file_perms;
 allow system_app proc_pagetypeinfo:file r_file_perms;
 allow system_app sysfs_zram:file r_file_perms;
 allow system_app sysfs_zram:dir r_dir_perms;
+allow system_app apex_service:service_manager find;
+allow system_app system_suspend_control_service:service_manager find;
+allow system_app time_data_file:file create;
+allow system_app wificond:binder call;
