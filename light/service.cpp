@@ -32,9 +32,8 @@ using android::hardware::light::V2_0::implementation::Light;
 
 const static std::string kLcdBacklightPath = "/sys/class/leds/lcd-backlight/brightness";
 const static std::string kLcdMaxBacklightPath = "/sys/class/leds/lcd-backlight/max_brightness";
-const static std::string kBlinkingLedPath = "/sys/class/leds/charging/trigger";
-const static std::string kBlinkingLedPathOnMs = "/sys/class/leds/charging/delay_on";
-const static std::string kBlinkingLedPathOffMs = "/sys/class/leds/charging/delay_off";
+const static std::string kChargingLedPath = "/sys/class/leds/charging/brightness";
+const static std::string kBlinkingLedPath = "/sys/class/leds/rgb/control";
 
 int main() {
     uint32_t lcdMaxBrightness = 255;
@@ -56,17 +55,15 @@ int main() {
     }
 
     std::ofstream blinkingLed(kBlinkingLedPath);
-    std::ofstream blinkingLedOnMs(kBlinkingLedPathOnMs);
-    std::ofstream blinkingLedOffMs(kBlinkingLedPathOffMs);
-    if (!blinkingLed) {
-        LOG(ERROR) << "Failed to open notification LED!";
+    std::ofstream chargingLed(kChargingLedPath);
+    if (!chargingLed && !blinkingLed) {
+        LOG(ERROR) << "Failed to open notification or charging LED!";
         return -errno;
     }
 
     android::sp<ILight> service = new Light(
-            {std::move(lcdBacklight),   lcdMaxBrightness},
-            std::move(blinkingLed),
-            std::move(blinkingLedOnMs), std::move(blinkingLedOffMs));
+            {std::move(lcdBacklight), lcdMaxBrightness},
+            std::move(chargingLed), std::move(blinkingLed));
 
     configureRpcThreadpool(1, true);
 
